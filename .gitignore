@@ -20,3 +20,5 @@ rad.json
 *.flf
 #Test results file
 TestResults.xml
+#Conexão ao banco de dados
+config_serve.php
