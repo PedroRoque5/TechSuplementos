@@ -6,5 +6,3 @@
  * Modifique-a com os dados de seu banco de dados. 
  * 
  */
-
- echo "Hello World";
