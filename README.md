@@ -9,6 +9,7 @@ Este sistema será finalizado no 5°Semestre!
 Seus métodos de desenvolvimento serão:
 -Front-end = HTML e CSS
 -Back-end = PHP e Javascript
--Modelo 
+-Modelo = Ágil
+
 
 
