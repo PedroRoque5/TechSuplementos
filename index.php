@@ -1,5 +1,7 @@
 <?php 
 
+echo "Página principal";
+
 //Requerimento para funcionamento
 require '.vedor/autoload.php';
 require_once './config_serve.php';
@@ -15,18 +17,5 @@ include_once '.View/tamplate/cabecalho.php';
  * Utilizar parametro ($pagina)
  * 
  */
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 include_once './View/template/rodape.php';
