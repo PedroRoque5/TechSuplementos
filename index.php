@@ -14,7 +14,7 @@ include_once '.View/tamplate/cabecalho.php';
  * 
  * Switch Case para as páginas
  * 
- * Utilizar parametro ($pagina)
+ * Utilizar parametro ($pagina) e tendo como default o arquivo error
  * 
  */
 
