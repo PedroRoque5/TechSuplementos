@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Suplementos</title>
+    <title><img src=""> Tech Suplementos</title>
 </head>
 <body>
 
 <?php
-
-echo "Cabecalho do site";
 
 ?>
