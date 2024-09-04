@@ -1,22 +1,22 @@
-div#menu{
+div#dashboard{
     background-color: rgb(255, 0, 0);
     width: 1550px;
     margin: -10px;
     box-shadow: 0px 0px 5px black;
     padding: 10px 10px 10px 10px;
 }
-nav#navmenu{
+nav#menu{
     display: block;
 }
 
-nav#navmenu ul#principal{
+nav#menu ul#principal{
     list-style: none;
     text-transform: uppercase;
     position: absolute;
     top: 10px;
     right: 800px;
 }
-nav#navmenu li#unico{
+nav#menu li#unico{
     display: inline;
     float: left;
     background-color: #ff0000;
@@ -24,27 +24,27 @@ nav#navmenu li#unico{
     margin: 0px;
     transition: background-color 0.1s;
 }
-nav#navmenu li#unico:hover{
+nav#menu li#unico:hover{
     background-color: rgb(50,50,50);
 }
 
-nav#navmenu h2{
+nav#menu h2{
     display: none;
 }
 
-nav#navmenu a{
+nav#menu a{
     display: block;
     padding: 8px;
     color:rgb(0, 0, 0);
     text-decoration: none;
 }
 
-nav#navmenu a:hover {
+nav#menu a:hover {
 color: #ff0000;
 text-decoration: underline;
 }
 
-nav#menu form#formmenu{
+nav#navmenu form#formmenu{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -63,6 +63,6 @@ form input#search{
     
 }
 
-form button{
+form button#lupa{
     background:none;
 }
