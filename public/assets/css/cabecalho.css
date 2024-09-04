@@ -5,18 +5,18 @@ div#menu{
     box-shadow: 0px 0px 5px black;
     padding: 10px 10px 10px 10px;
 }
-nav#menu{
+nav#navmenu{
     display: block;
 }
 
-nav#menu ul{
+nav#navmenu ul#principal{
     list-style: none;
     text-transform: uppercase;
     position: absolute;
     top: 10px;
-    left: 800px;
+    right: 800px;
 }
-nav#menu li{
+nav#navmenu li#unico{
     display: inline;
     float: left;
     background-color: #ff0000;
@@ -24,27 +24,27 @@ nav#menu li{
     margin: 0px;
     transition: background-color 0.1s;
 }
-nav#menu li:hover{
+nav#navmenu li#unico:hover{
     background-color: rgb(50,50,50);
 }
 
-nav#menu h2{
+nav#navmenu h2{
     display: none;
 }
 
-nav#menu a{
+nav#navmenu a{
     display: block;
     padding: 8px;
     color:rgb(0, 0, 0);
     text-decoration: none;
 }
 
-nav#menu a:hover {
+nav#navmenu a:hover {
 color: #ff0000;
 text-decoration: underline;
 }
 
-form{
+nav#menu form#formmenu{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -64,5 +64,5 @@ form input#search{
 }
 
 form button{
-    background-color: #00ff00;
+    background:none;
 }
