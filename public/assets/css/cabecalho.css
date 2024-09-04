@@ -14,7 +14,7 @@ nav#menu ul#principal{
     text-transform: uppercase;
     position: absolute;
     top: 10px;
-    right: 800px;
+    left: 800px;
 }
 nav#menu li#unico{
     display: inline;
@@ -65,4 +65,5 @@ form input#search{
 
 form button#lupa{
     background:none;
+    border:none;
 }
