@@ -60,8 +60,10 @@ body{
 
 form input#search{
    background-color: rgb(255, 255, 255);
-   width: 30px;
+   width: 500px;
    height:30px;
+   position: absolute;
+   top: 35px;
 }
 
 form button#lupa{
