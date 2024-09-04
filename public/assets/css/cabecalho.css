@@ -6,7 +6,7 @@ div#dashboard{
     padding: 10px 10px 10px 10px;
 }
 nav#menu{
-    display: block;
+    display: inline;
 }
 
 nav#menu ul#principal{
