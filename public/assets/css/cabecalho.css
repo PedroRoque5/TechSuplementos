@@ -60,10 +60,14 @@ body{
 
 form input#search{
    background-color: rgb(255, 255, 255);
-    
+   width: 30px;
+   height:30px;
 }
 
 form button#lupa{
     background:none;
     border:none;
+    top: 10px;
+    left:800px;
+
 }
