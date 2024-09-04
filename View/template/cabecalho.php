@@ -24,11 +24,11 @@
         </nav>
         <nav id="menu">
             <ul id="principal">
-                <li id="único"><a href="Home"><i class="fa-solid fa-house"></i>Home</a></li>
-                <li id="único"><a href="Login" href="Cadastro"><i class="fa-solid fa-user"></i>Login/Cadastro</a> </li>
-                <li id="único"><a href="Suporte"><i class="fa-solid fa-question"></i>Suporte</a>
+                <li id="unico"><a href="Home"><i class="fa-solid fa-house"></i>Home</a></li>
+                <li id="unico"><a href="Login" href="Cadastro"><i class="fa-solid fa-user"></i>Login/Cadastro</a> </li>
+                <li id="unico"><a href="Suporte"><i class="fa-solid fa-question"></i>Suporte</a>
                 </li>
-                <li id="único"><a href="carinho"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <li id="unico"><a href="carinho"><i class="fa-solid fa-cart-shopping"></i></a></li>
             </ul>
         </nav>
     </div>

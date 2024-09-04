@@ -6,7 +6,7 @@ div#dashboard{
     padding: 10px 10px 10px 10px;
 }
 nav#menu{
-    display: inline;
+    display: block;
 }
 
 nav#menu ul#principal{
@@ -20,7 +20,7 @@ nav#menu li#unico{
     display: inline;
     float: left;
     background-color: #ff0000;
-    padding: -10px;
+    padding: 10px;
     margin: 0px;
     transition: background-color 0.1s;
 }
