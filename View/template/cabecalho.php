@@ -9,10 +9,9 @@
 
     <title>Tech Suplementos</title>
 </head>
-
 <body>
     <div id=dashboard>
-        <img src="../../public/./assets/././image/img.jpg">
+        <img src=../../public/./assets/././image/img.jpg>
         <nav id="navmenu">
             <form id="formmenu">
                 <input id="search" type="search" placeholder="O que você procura?">
@@ -33,15 +32,14 @@
     </div>
     <div id="sub">
         <nav id="submenu">
-            <ul id="segunda">
-                <li id="segundo">
-                    <a href="#">Todas as categorias</a>
+        <li id="segundo">
+                <button class="dropbtn"> <i id="baricon" class="fa-solid fa-bars"></i></button>
                     <ul class="dropdown-menu" id=navcascata>
-                        <li  class="cascata"><a class="dropdown-item" href="#" >Action</a></li>
-                        <li  class="cascata"><a class="dropdown-item" href="#">Another action</a></li>
-                        <li  class="cascata"><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li  class="cascata"><a class="dropdown-item" href="#" ><i class="fa-regular fa-user"></i>Perfil<br></a></li>
+                        <li  class="cascata"><a class="dropdown-item" href="#"><i class="fa-solid fa-gear"></i>Configurações<br></a></li>
                     </ul>
                 </li>
+            <ul id="segunda">
                 <li id="segundo"><a href="top">Top 5</a></li>
                 <li id="segundo"><a href="novidades" href="Cadastro">Novidades</a></li>
                 <li id="segundo"><a href="proteina">Proteína</a></li>
@@ -54,3 +52,22 @@
     <?php
 
     ?>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const dropbtn = document.querySelector('.dropbtn');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    
+    dropbtn.addEventListener('click', function(event) {
+        event.stopPropagation(); 
+        
+        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+    });
+    document.addEventListener('click', function() {
+        if (dropdownMenu.style.display === 'block') {
+            dropdownMenu.style.display = 'none';
+        }
+    });
+});
+
+    </script>
