@@ -6,15 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../public/./assets/./css/cabecalho.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <title>Tech Suplementos</title>
 </head>
+
 <body>
     <div id=dashboard>
-        <img src=../../public/./assets/././image/img.jpg>
+        <img id="logo" src="../../public/./assets/./image/img.png">
         <nav id="navmenu">
             <form id="formmenu">
-                <input id="search" type="search" placeholder="O que você procura?">
+                <input id="search" type="search" placeholder="  O que você procura?">
                 <button id="lupa" type="submit">
                     <i class="fa fa-search"></i>
                 </button>
@@ -22,9 +26,9 @@
         </nav>
         <nav id="menu">
             <ul id="principal">
-                <li id="unico"><a href="Home"><i class="fa-solid fa-house"></i>Home</a></li>
-                <li id="unico"><a href="Login" href="Cadastro"><i class="fa-solid fa-user"></i>Login/Cadastro</a> </li>
-                <li id="unico"><a href="Suporte"><i class="fa-solid fa-question"></i>Suporte</a>
+                <li id="unico"><a href="../home/index.php"><i class="fa-solid fa-house"></i>&nbsp;Home</a></li>
+                <li id="unico"><a href="Login" href="Cadastro"><i class="fa-solid fa-user"></i>&nbsp; Login/Cadastro</a> </li>
+                <li id="unico"><a href="Suporte"><i class="fa-regular fa-circle-question"></i>&nbsp; Suporte</a>
                 </li>
                 <li id="unico"><a href="carinho"><i class="fa-solid fa-cart-shopping"></i></a></li>
             </ul>
@@ -32,13 +36,13 @@
     </div>
     <div id="sub">
         <nav id="submenu">
-        <li id="segundo">
+            <li id="segundo">
                 <button class="dropbtn"> <i id="baricon" class="fa-solid fa-bars"></i></button>
-                    <ul class="dropdown-menu" id=navcascata>
-                        <li  class="cascata"><a class="dropdown-item" href="#" ><i class="fa-regular fa-user"></i>Perfil<br></a></li>
-                        <li  class="cascata"><a class="dropdown-item" href="#"><i class="fa-solid fa-gear"></i>Configurações<br></a></li>
-                    </ul>
-                </li>
+                <ul class="dropdown-menu" id=navcascata>
+                    <li class="cascata"><a class="dropdown-item" href="#"><i class="fa-regular fa-user"></i>Perfil</a></li>
+                    <li class="cascata"><a class="dropdown-item" href="#"><i id="settings" class="fa-solid fa-gear"></i>Configurações<br></a></li>
+                </ul>
+            </li>
             <ul id="segunda">
                 <li id="segundo"><a href="top">Top 5</a></li>
                 <li id="segundo"><a href="novidades" href="Cadastro">Novidades</a></li>
@@ -55,19 +59,18 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-    const dropbtn = document.querySelector('.dropbtn');
-    const dropdownMenu = document.querySelector('.dropdown-menu');
-    
-    dropbtn.addEventListener('click', function(event) {
-        event.stopPropagation(); 
-        
-        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
-    });
-    document.addEventListener('click', function() {
-        if (dropdownMenu.style.display === 'block') {
-            dropdownMenu.style.display = 'none';
-        }
-    });
-});
+            const dropbtn = document.querySelector('.dropbtn');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
 
+            dropbtn.addEventListener('click', function(event) {
+                event.stopPropagation();
+
+                dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+            });
+            document.addEventListener('click', function() {
+                if (dropdownMenu.style.display === 'block') {
+                    dropdownMenu.style.display = 'none';
+                }
+            });
+        });
     </script>

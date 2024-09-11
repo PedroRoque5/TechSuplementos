@@ -1,22 +1,31 @@
-div#dashboard{
+div#dashboard {
     background-color: rgb(255, 0, 0);
-    width: 1550px;
+    width: 1500px;
+    height: 80px;
     margin: -10px;
     box-shadow: 0px 0px 5px black;
     padding: 10px 10px 10px 10px;
 }
-nav#menu{
+
+img#logo {
+    margin-top: -90px;
+    width:auto;
+    height:auto;
+}
+
+nav#menu {
     display: block;
 }
 
-nav#menu ul#principal{
+nav#menu ul#principal {
     list-style: none;
     text-transform: uppercase;
     position: absolute;
     top: 10px;
     left: 800px;
 }
-nav#menu li#unico{
+
+nav#menu li#unico {
     display: inline;
     float: left;
     background-color: #ff0000;
@@ -24,27 +33,30 @@ nav#menu li#unico{
     margin: 0px;
     transition: background-color 0.1s;
 }
-nav#menu li#unico:hover{
-    background-color: rgb(50,50,50);
+
+nav#menu li#unico:hover {
+    background-color: rgb(50, 50, 50);
 }
 
-nav#menu h2{
+nav#menu h2 {
     display: none;
 }
 
-nav#menu a{
+nav#menu a {
+    font-size: 10pt;
+    font-family: "Montserrat", sans-serif;
     display: block;
     padding: 8px;
-    color:rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
     text-decoration: none;
 }
 
 nav#menu a:hover {
-color: #ff0000;
-text-decoration: underline;
+    color: #ff0000;
+    text-decoration: underline;
 }
 
-nav#navmenu form#formmenu{
+nav#navmenu form#formmenu {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -54,41 +66,43 @@ nav#navmenu form#formmenu{
     width: 100%;
     height: 100%;
 }
-body{
-    background-color: rgb(50,50,50);
+
+body {
+    background-color: rgb(50, 50, 50);
 }
 
-form input#search{
-   background-color: rgb(255, 255, 255);
-   width: 500px;
-   height:30px;
-   position: absolute;
-   top: 35px;
-   left:300px;
+form input#search {
+    background-color: rgb(255, 255, 255);
+    border: none;
+    width: 500px;
+    height: 30px;
+    position: absolute;
+    top: 35px;
+    left: 300px;
 }
 
-form button#lupa{
-    background:none;
-    border:none;
+form button#lupa {
+    background: none;
+    border: none;
     position: absolute;
     top: 43px;
-    left:770px;
+    left: 770px;
 
 
 }
 
-div#sub{
-    background:none;
-    width: 1550px;
+div#sub {
+    background: none;
+    width: 1500px;
     margin: -10px;
     padding: 10px 10px 10px 10px;
 }
 
-nav#submenu{
+nav#submenu {
     display: block;
 }
 
-nav#submenu ul#segunda{
+nav#submenu ul#segunda {
     list-style: none;
     text-transform: uppercase;
     position: absolute;
@@ -96,55 +110,56 @@ nav#submenu ul#segunda{
     left: 250px;
 }
 
-nav#submenu li#segundo{
+nav#submenu li#segundo {
     display: inline;
     float: left;
-    background-color: rgb(50,50,50);
+    background-color: rgb(50, 50, 50);
     padding: 10px;
     margin: 0px;
     transition: background-color 0.1s;
 }
 
-nav#submenu li#segundo:hover{
+nav#submenu li#segundo:hover {
     background-color: #ff0000;
 }
 
-nav#submenu h2{
+nav#submenu h2 {
     display: none;
 }
 
-nav#submenu a{
+nav#submenu a {
     display: block;
     padding: 8px;
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     text-decoration: none;
-    font-size: 12pt;
+    font-size: 10pt;
+    font-family: "Montserrat", sans-serif;
 }
 
 nav#submenu a:hover {
-color: #000000;
-text-decoration: underline;
+    color: #000000;
+    text-decoration: underline;
 }
 
-nav#submenu ul#navcascata{
+nav#submenu ul#navcascata {
     list-style: none;
     text-transform: uppercase;
     position: absolute;
-    top: 40px;
-    
+    top: 20px;
+
 }
 
-nav#submenu li.cascata{
+nav#submenu li.cascata {
     display: inline;
     float: left;
-    background-color: rgb(50,50,50);
+    background: none;
     padding: 10px;
     margin: 0px;
     transition: background-color 0.1s;
 }
 
-nav#submenu li.cascata{
-    background-color: none;
+nav#submenu li.cascata {
+    background: none;
 }
 
 .dropbtn {
@@ -158,14 +173,14 @@ nav#submenu li.cascata{
 
 .dropdown-menu {
     display: none;
-    background:none;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background: none;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     list-style: none;
     padding: 25px;
     margin: 140px;
-    right:1000px;
+    right: 1000px;
 }
 
 .dropdown-item {
@@ -173,12 +188,17 @@ nav#submenu li.cascata{
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    font-family: "Montserrat", sans-serif;
 }
 
 .dropdown-item:hover {
     background: none;
 }
 
-i#baricon{
- font-size: 45px;
+i#baricon {
+    font-size: 25px;
+}
+
+i#settings {
+    font-size: 20px;
 }
