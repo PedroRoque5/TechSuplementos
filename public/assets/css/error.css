@@ -1,0 +1,46 @@
+body{
+    background-color: rgb(50, 50, 50);
+    color: red;
+
+}
+
+h1#titulo_error{
+    font-size: 50px;
+    position: absolute;
+    top: 37%;
+    left: 50%;
+
+}
+
+h1#codigo_error{
+    font-size: 120px;
+    position: absolute;
+    top: 25%;
+    left: 20%;
+
+}
+
+button#return_home{
+    font-size: 30px;
+    position: absolute;
+    top: 60%;
+    left: 55%;
+
+}
+
+#return_home {
+    background-color: #c82333;
+    border: none;
+    color: rgb(50, 50, 50);
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+#return_home:hover {
+    background-color: #a71d2a;
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
