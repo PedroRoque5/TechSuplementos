@@ -1,0 +1,15 @@
+{
+    "name": "pedro/tech-suplementos",
+    "autoload": {
+        "psr-4": {
+            "Pedro\\TechSuplementos\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "PedroRoque5",
+            "email": "pedroeduardoroque01@gmail.com"
+        }
+    ],
+    "require": {}
+}
