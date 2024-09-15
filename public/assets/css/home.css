@@ -3,3 +3,14 @@ img#banner{
     height:auto;
     margin-left: -10px;
 }
+
+i#icon{
+    font-size: 50px;
+}
+
+div#icone{
+    background: none;
+    width: 1500px;
+    margin: 60px;
+    padding: 10px 10px 10px 10px;
+}

@@ -53,6 +53,11 @@
     <div id="image">
         <img id="banner" src="../../public/assets/image/image.png">
     </div>
+    <div id="icone">
+    <i id="icon" class="fa-solid fa-truck"></i>&nbsp;&nbsp;&nbsp;
+    <i id="icon" class="fa-solid fa-qrcode"></i>
+    <i class="fa-solid fa-percent"></i>
+    </div>
     <?php
 
     ?>
