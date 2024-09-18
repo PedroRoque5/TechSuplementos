@@ -3,19 +3,23 @@
 echo "Página principal";
 
 //Requerimento para funcionamento
-require '.vedor/autoload.php';
+require './vendor/autoload.php';
 require_once './config_serve.php';
 //Variavel para receber uma página, caso não receba, apresenta a tela home
 $pagina = isset($_GET['pg']) ? $_GET['pg'] : 'home';
 
-include_once '.View/tamplate/cabecalho.php';
+include_once './View/template/cabecalho.php';
 
-/***
- * 
- * Switch Case para as páginas
- * 
- * Utilizar parametro ($pagina) e tendo como default o arquivo error
- * 
- */
+switch ($pagina) {
+    case 'login': header("Location:".URL."View/login/index.php")  ;break;
+    case 'home': include_once './View/home/index.php'; break;
+    case 'cadastro-pessoa': include_once './View/cadastro/pessoa/index.php'; break;
+    case 'cadastro-prazo': include_once './View/cadastro/prazo/index.php'; break;
+    case 'cadastro-tarefa': include_once './View/cadastro/tarefa/index.php'; break;
+    
+    default:
+    include_once './View/error/404.php'; break;
+        break;
+}
 
 include_once './View/template/rodape.php';

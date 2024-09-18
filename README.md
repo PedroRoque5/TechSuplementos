@@ -11,7 +11,3 @@ Seus métodos de desenvolvimento serão:
 -Back-end = PHP e Javascript
 -Modelo = Ágil
 
-
-Como o composer ainda não foi instalado e configurado, ao tentar conectar-se ao localhost/, ocorrerá o erro
-
-Warning: require(.vedor/autoload.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\TechSuplementos\index.php on line 4
