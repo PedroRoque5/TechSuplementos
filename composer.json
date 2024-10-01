@@ -1,14 +1,14 @@
 {
-    "name": "pedro/tech-suplementos",
+    "name": "silgs/tech-suplementos",
     "autoload": {
         "psr-4": {
-            "Pedro\\TechSuplementos\\": "src/"
+            "Silgs\\TechSuplementos\\": "src/"
         }
     },
     "authors": [
         {
-            "name": "PedroRoque5",
-            "email": "pedroeduardoroque01@gmail.com"
+            "name": "GigiMoyses005",
+            "email": "gigi.moyses@gmail.com"
         }
     ],
     "require": {}
