@@ -9,9 +9,10 @@
         <img id="banner" src="<?= ASSETS?>image/image.png">
     </div>
     <div id="icone">
-    <i id="icon" class="fa-solid fa-truck"></i>&nbsp;
-    <i id="icon" class="fa-solid fa-qrcode"></i>
-    <i class="fa-solid fa-percent"></i>
+    <i id="icon" class="fa-solid fa-truck"></i>&nbsp; <span>Frete grátis à partir de R$200</span>
+    <i id="icon" class="fa-solid fa-qrcode"></i>&nbsp;<span>Compre em nossa loja com 5%OFF no PIX</span>
+    <i id="icon" class="fa-solid fa-percent"></i>&nbsp;<span>Use um cupom de desconto</span>
+    <i id="icon" class="fa-regular fa-credit-card"></i>&nbsp;<span>Compras em até 10X sem juros</span>
     </div>
     <?php
 
