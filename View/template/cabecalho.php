@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="<?= ASSETS ?> css/cabecalho.css" rel="stylesheet">
+    <link href="<?= ASSETS?>css/cabecalho.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,7 @@
 
 <body>
     <div id=dashboard>
-        <img id="logo" src="../../public/./assets/./image/img.png">
+        <img id="logo" src="<?= ASSETS?>image/img.png">
         <nav id="navmenu">
             <form id="formmenu">
                 <input id="search" type="search" placeholder="  O que você procura?">
@@ -26,8 +26,8 @@
         </nav>
         <nav id="menu">
             <ul id="principal">
-                <li id="unico"><a href="../home/index.php"><i class="fa-solid fa-house"></i>&nbsp;Home</a></li>
-                <li id="unico"><a href="Login" href="Cadastro"><i class="fa-solid fa-user"></i>&nbsp; Login/Cadastro</a> </li>
+                <li id="unico"><a href="<?= URL."index.php?pg=home"?>"><i class="fa-solid fa-house"></i>&nbsp;Home</a></li>
+                <li id="unico"><a href="<?= URL."index.php?pg=login"?>"><i class="fa-solid fa-user"></i>&nbsp; Login/Cadastro</a> </li>
                 <li id="unico"><a href="Suporte"><i class="fa-regular fa-circle-question"></i>&nbsp; Suporte</a>
                 </li>
                 <li id="unico"><a href="carinho"><i class="fa-solid fa-cart-shopping"></i></a></li>

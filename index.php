@@ -1,7 +1,5 @@
 <?php 
 
-echo "Página principal";
-
 //Requerimento para funcionamento
 require './vendor/autoload.php';
 require_once './config_serve.php';
@@ -11,10 +9,10 @@ $pagina = isset($_GET['pg']) ? $_GET['pg'] : 'home';
 include_once './View/template/cabecalho.php';
 
 switch ($pagina) {
-    case 'login': header("Location:".URL."View/login/index.php")  ;break;
     case 'home': include_once './View/home/index.php'; break;
+    case 'login': include_once './View/login/index.php'; break;
     case 'cadastro-pessoa': include_once './View/cadastro/pessoa/index.php'; break;
-    case 'cadastro-prazo': include_once './View/cadastro/prazo/index.php'; break;
+    case 'cadastro-produto': include_once './View/cadastro/prazo/index.php'; break;
     case 'cadastro-tarefa': include_once './View/cadastro/tarefa/index.php'; break;
     
     default:
