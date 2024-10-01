@@ -22,5 +22,3 @@ rad.json
 TestResults.xml
 #Conexão ao banco de dados
 config_serve.php
-
-/vendor/
