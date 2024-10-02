@@ -24,8 +24,14 @@ body {
 }
 
 .form {
-    position: absolute;
+   position: absolute;
+   top:30%;
+   left:50%;
 }
+form{
+    display: block;
+}
+
 
 input{
     font-family: "Montserrat" sans-serif;
@@ -42,7 +48,7 @@ input:hover{
     background-color: rgb(255, 0, 0);
     width: 1500px;
     height: 50px;
-    margin-top: 100px;
+    margin-top: 100%;
     margin-left: -10px;
     box-shadow: 0px 0px 5px black;
 }
@@ -54,4 +60,46 @@ p#rod{
     font-family: "Montserrat" sans-serif;
     padding: 5px;
     position: center;
+}
+
+#email{
+    margin-bottom: 50px;
+}
+
+button#form{
+    background-color: green;
+    width: 100px;
+    height: 30px;
+    margin-top: 20px;
+    margin-right: 10px;
+    font-family: "Montserrat" sans-serif;
+    cursor: pointer;
+    transition:all 0.3s ease;
+}
+
+button#form:hover{
+    background-color: rgb(3, 126, 3);
+    transform: scale(1.1);
+    box-shadow: 0 4px 5px black;
+}
+input#cad{
+    background-color: red;
+    width: 100px;
+    height: 30px;
+    margin-top: 20px;
+    margin-right: 10px;
+    font-family: "Montserrat" sans-serif;
+    cursor: pointer;
+    transition:all 0.3s ease;
+}
+
+input#cad:hover{
+    background-color: rgb(201, 11, 11);
+    transform: scale(1.1);
+    box-shadow: 0 4px 5px black;
+}
+
+div#form{
+
+    margin-top: 10px;
 }

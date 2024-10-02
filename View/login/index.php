@@ -20,11 +20,14 @@ require_once '../../config_serve.php';
         <img id="logo" src="<?= ASSETS?>image/img.png">
         <h1 id="login">Faça seu login</h1>
 </div>      
+
+<img id="banner" src="<?= ASSETS?>image/anuncio.png">
+
 <div class="form">
     <form>
-    <input type="email" placeholder="E-mail ou CPF/CNPJ">
-    <input type="password" placeholder="Senha">
-    <div id="form" class="mb-3 form-check">
+    <div id="email"><input type="email" placeholder="E-mail ou CPF/CNPJ"></div>
+    <div><input type="password" placeholder="Senha"></div>
+    <div id="form">
         <input type="checkbox" class="form-check-input" id="exampleCheck1">
         <label class="form-check-label" for="exampleCheck1">Lembre-me</label>
       </div>
