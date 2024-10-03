@@ -16,7 +16,7 @@ switch ($pagina) {
     case 'cadastro-tarefa': include_once './View/cadastro/tarefa/index.php'; break;
     
     default:
-    include_once './View/error/404.php'; break;
+    include_once './View/error/index.php'; break;
         break;
 }
 
