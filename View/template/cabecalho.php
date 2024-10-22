@@ -28,9 +28,9 @@
             <ul id="principal">
                 <li id="unico"><a href="<?= URL."index.php?pg=home"?>"><i class="fa-solid fa-house"></i>&nbsp;Home</a></li>
                 <li id="unico"><a href="<?= URL."index.php?pg=login"?>"><i class="fa-solid fa-user"></i>&nbsp; Login/Cadastro</a> </li>
-                <li id="unico"><a href="Suporte"><i class="fa-regular fa-circle-question"></i>&nbsp; Suporte</a>
+                <li id="unico"><a href="<?= URL."index.php?pg=suporte"?>"><i class="fa-regular fa-circle-question"></i>&nbsp; Suporte</a>
                 </li>
-                <li id="unico"><a href="carinho"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <li id="unico"><a href="<?= URL."index.php?pg=carrinho"?>"><i class="fa-solid fa-cart-shopping"></i></a></li>
             </ul>
         </nav>
     </div>

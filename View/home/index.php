@@ -6,8 +6,9 @@
 </head>
 <body>
     <div id="image">
-        <img id="banner" src="<?= ASSETS?>image/image.png">
+        <img id="banner" src="<?= ASSETS?>image/banner.png">
     </div>
+    <td id= "saiba"href="saiba.html">SAIBA MAIS</td>
     <div id="icone">
     <i id="icon" class="fa-solid fa-truck"></i>&nbsp; <span>Frete grátis à partir de R$200</span>
     <i id="icon" class="fa-solid fa-qrcode"></i>&nbsp;<span>Compre em nossa loja com 5%OFF no PIX</span>
@@ -18,21 +19,4 @@
 
     ?>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-    const dropbtn = document.querySelector('.dropbtn');
-    const dropdownMenu = document.querySelector('.dropdown-menu');
     
-    dropbtn.addEventListener('click', function(event) {
-        event.stopPropagation(); 
-        
-        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
-    });
-    document.addEventListener('click', function() {
-        if (dropdownMenu.style.display === 'block') {
-            dropdownMenu.style.display = 'none';
-        }
-    });
-});
-
-    </script>
