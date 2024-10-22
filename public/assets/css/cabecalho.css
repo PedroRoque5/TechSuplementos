@@ -110,28 +110,28 @@ nav#menusub ul#segunda {
     list-style: none;
     text-transform: uppercase;
     position: absolute;
-    top: 85px;
+    top: -10px;
     left: 250px;
 }
 
 nav#menusub li#segundo {
     display: inline;
     float: left;
-    background-color: rgb(50, 50, 50);
+    background-color: rgba(50, 50, 50);
     padding: 10px;
     margin: 0px;
     transition: background-color 0.1s;
 }
 
 nav#menusub li#segundo:hover {
-    background-color: #ff0000;
+    background-color: rgb(255, 0, 0);;
 }
 
 nav#menusub h2 {
     display: none;
 }
 
-nav#menusub a {
+nav#menusub .menus{
     display: block;
     padding: 8px;
     color: rgb(255, 255, 255);
@@ -140,7 +140,7 @@ nav#menusub a {
     font-family: "Montserrat", sans-serif;
 }
 
-nav#menusub a:hover {
+nav#menusub .menus:hover {
     color: #000000;
     text-decoration: underline;
 }
@@ -170,7 +170,7 @@ nav#submenu li.cascata {
 nav#submenu a {
     display: block;
     padding: 8px;
-    color: #000000;
+    color: #ffffff;
     text-decoration: none;
     font-size: 10pt;
     font-family: "Montserrat", sans-serif;
@@ -178,7 +178,7 @@ nav#submenu a {
 }
 
 nav#submenu a:hover {
-    color: #ff0000;
+    color: red;
     text-decoration: underline;
 }
 

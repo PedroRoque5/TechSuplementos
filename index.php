@@ -19,6 +19,12 @@ switch ($pagina) {
     case 'creatina': include_once './View/menu/creatina/index.php'; break;
     case 'pre': include_once './View/menu/pre/index.php'; break;
     case 'metas': include_once './View/menu/metas/index.php'; break;
+    case 'pre': include_once './View/menu/pre/index.php'; break;
+    case 'metas': include_once './View/menu/metas/index.php'; break;
+    case 'pre': include_once './View/menu/pre/index.php'; break;
+    case 'metas': include_once './View/menu/metas/index.php'; break;
+    case 'perfil': include_once './View/menu/perfil/index.php'; break;
+    case 'config': include_once './View/menu/config/index.php'; break;
     
     
     
