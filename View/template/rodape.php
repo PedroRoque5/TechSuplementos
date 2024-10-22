@@ -10,7 +10,7 @@
     <title>Tech Suplementos</title>
 </head>
 <div class="rodape">
-    <p id="rod">www.TechSuplementos.com.br</p>
+    <p id="rod"><www>www.TechSuplementos.com.br</www></p>
 </div>
     <?php 
 
