@@ -11,9 +11,20 @@ include_once './View/template/cabecalho.php';
 switch ($pagina) {
     case 'login': header("Location:".URL."View/login/index.php")  ;break;
     case 'home': include_once './View/home/index.php'; break;
-    case 'cadastro-pessoa': include_once './View/cadastro/pessoa/index.php'; break;
-    case 'cadastro-produto': include_once './View/cadastro/prazo/index.php'; break;
-    case 'cadastro-tarefa': include_once './View/cadastro/tarefa/index.php'; break;
+    case 'suporte': include_once './View/menu/suporte/index.php'; break;
+    case 'carrinho': include_once './View/menu/carrinho/index.php'; break;
+    case 'top5': include_once './View/menu/top5/index.php'; break;
+    case 'novidades': include_once './View/menu/novidades/index.php'; break;
+    case 'proteina': include_once './View/menu/proteina/index.php'; break;
+    case 'creatina': include_once './View/menu/creatina/index.php'; break;
+    case 'pre': include_once './View/menu/pre/index.php'; break;
+    case 'metas': include_once './View/menu/metas/index.php'; break;
+    
+    
+    
+    
+    
+
     
     default:
     include_once './View/error/index.php'; break;

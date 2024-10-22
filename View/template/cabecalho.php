@@ -44,12 +44,12 @@
                 </ul>
             </li>
             <ul id="segunda">
-                <li id="segundo"><a href="top">Top 5</a></li>
-                <li id="segundo"><a href="novidades" href="Cadastro">Novidades</a></li>
-                <li id="segundo"><a href="proteina">Proteína</a></li>
-                <li id="segundo"><a href="creatina">Creatina</a></li>
-                <li id="segundo"><a href="pre">Pré-treino</a></li>
-                <li id="segundo"><a href="metas">Metas</a></li>
+                <li id="segundo"><a href="<?= URL."index.php?pg=top5"?>">Top 5</a></li>
+                <li id="segundo"><a href="<?= URL."index.php?pg=novidades"?>">Novidades</a></li>
+                <li id="segundo"><a href="<?= URL."index.php?pg=proteina"?>">Proteína</a></li>
+                <li id="segundo"><a href="<?= URL."index.php?pg=creatina"?>">Creatina</a></li>
+                <li id="segundo"><a href="<?= URL."index.php?pg=pre"?>">Pré-treino</a></li>
+                <li id="segundo"><a href="<?= URL."index.php?pg=metas"?>">Metas</a></li>
             </ul>
         </nav>
     </div>
