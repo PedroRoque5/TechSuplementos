@@ -38,6 +38,7 @@ require_once '../../config_serve.php';
 
 </div>
 <div class="rodape"> 
+<div class="rodape"> 
     <p id="rod">www.TechSuplementos.com.br</p>
 </div>
 </body>
