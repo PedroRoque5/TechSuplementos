@@ -30,7 +30,7 @@
                 <li id="unico"><a href="<?= URL."index.php?pg=login"?>"><i class="fa-solid fa-user"></i>&nbsp; Login/Cadastro</a> </li>
                 <li id="unico"><a href="<?= URL."index.php?pg=suporte"?>"><i class="fa-regular fa-circle-question"></i>&nbsp; Suporte</a>
                 </li>
-                <li id="unico"><a href="<?= URL."index.php?pg=carrinho"?>"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <li id="unico"><a href="carinho"><i class="fa-solid fa-cart-shopping"></i></a></li>
             </ul>
         </nav>
     </div>
@@ -39,20 +39,18 @@
             <li id="segundo">
                 <button class="dropbtn"> <i id="baricon" class="fa-solid fa-bars"></i></button>
                 <ul class="dropdown-menu" id=navcascata>
-                    <li class="cascata"><a class="dropdown-item" href="<?= URL."index.php?pg=perfil"?>"><i class="fa-regular fa-user"></i>Perfil</a></li>
-                    <li class="cascata"><a class="dropdown-item" href="<?= URL."index.php?pg=config"?>"><i id="settings" class="fa-solid fa-gear"></i>Configurações<br></a></li>
+                    <li class="cascata"><a class="dropdown-item" href="#"><i class="fa-regular fa-user"></i>Perfil</a></li>
+                    <li class="cascata"><a class="dropdown-item" href="#"><i id="settings" class="fa-solid fa-gear"></i>Configurações<br></a></li>
                 </ul>
             </li>
-            <nav id="menusub">
-                <ul id="segunda">
-                    <li id="segundo"><a class= "menus" href="<?= URL."index.php?pg=top5"?>">Top 5</a></li>
-                    <li id="segundo"><a class= "menus"href="<?= URL."index.php?pg=novidades"?>" href="Cadastro">Novidades</a></li>
-                    <li id="segundo"><a class= "menus" href="<?= URL."index.php?pg=proteina"?>">Proteína</a></li>
-                    <li id="segundo"><a class= "menus" href="<?= URL."index.php?pg=creatina"?>">Creatina</a></li>
-                    <li id="segundo"><a class= "menus" href="<?= URL."index.php?pg=pre"?>">Pré-treino</a></li>
-                    <li id="segundo"><a class= "menus" href="<?= URL."index.php?pg=metas"?>">Metas</a></li>
-                </ul>
-            </nav>
+            <ul id="segunda">
+                <li id="segundo"><a href="top">Top 5</a></li>
+                <li id="segundo"><a href="novidades" href="Cadastro">Novidades</a></li>
+                <li id="segundo"><a href="proteina">Proteína</a></li>
+                <li id="segundo"><a href="creatina">Creatina</a></li>
+                <li id="segundo"><a href="pre">Pré-treino</a></li>
+                <li id="segundo"><a href="metas">Metas</a></li>
+            </ul>
         </nav>
     </div>
     <?php

@@ -6,9 +6,11 @@
 </head>
 <body>
     <div id="image">
+    <tr class="saiba">
+    <a class="saiba" href="<?= URL."index.php?pg=saiba"?>"><td class= "saiba">SAIBA MAIS</td></a>
+    </tr>
         <img id="banner" src="<?= ASSETS?>image/banner.png">
     </div>
-    <td id= "saiba"href="saiba.html">SAIBA MAIS</td>
     <div id="icone">
     <i id="icon" class="fa-solid fa-truck"></i>&nbsp; <span>Frete grátis à partir de R$200</span>
     <i id="icon" class="fa-solid fa-qrcode"></i>&nbsp;<span>Compre em nossa loja com 5%OFF no PIX</span>

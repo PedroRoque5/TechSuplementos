@@ -91,6 +91,14 @@ form button#lupa {
 
 }
 
+.m {
+    background: none;
+    width: 1500px;
+    margin: -10px;
+    padding: 10px 10px 10px 10px;
+}
+
+
 .sub {
     background: none;
     width: 1500px;
