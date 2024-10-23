@@ -31,8 +31,8 @@ require_once '../../config_serve.php';
         <input type="checkbox" class="form-check-input" id="exampleCheck1">
         <label class="form-check-label" for="exampleCheck1">Lembre-me</label>
       </div>
-      <a  href="<?= URL . "index.php?pg=home"?>"><button id="form" type="submit" class="btn btn-success">Entrar</button></a>
-      <a  href="<?= URL . "index.php?pg=pessoa"?>"><input id="cad" type="submit" class="btn" value="Cadastrar"></a>
+      <a class="btn btn-success" href="<?= URL . 'index.php?pg=home' ?>">Entrar</a>
+      <a  href="<?= URL . "index.php?pg=pessoa"?>"class="btn btn-input">Cadastrar</a>
     </form>
 
 

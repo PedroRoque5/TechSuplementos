@@ -36,13 +36,13 @@
     </div>
     <div id="sub">
         <nav id="submenu">
-            <li id="segundo">
+
                 <button class="dropbtn"> <i id="baricon" class="fa-solid fa-bars"></i></button>
                 <ul class="dropdown-menu" id=navcascata>
                     <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=perfil" ?>"><i class="fa-regular fa-user"></i>Perfil</a></li>
                     <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=config" ?>"><i id="settings" class="fa-solid fa-gear"></i>Configurações<br></a></li>
                 </ul>
-            </li>
+        
         </nav>
         <nav id="menusub">
             <ul id="segunda">

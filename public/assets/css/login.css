@@ -68,34 +68,28 @@ p#rod{
     margin-bottom: 50px;
 }
 
-button#form{
-    background-color: green;
-    width: 100px;
-    height: 30px;
-    margin-top: 20px;
-    margin-right: 10px;
-    font-family: "Montserrat" sans-serif;
-    cursor: pointer;
-    transition:all 0.3s ease;
+.btn{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
-
-button#form:hover{
+.btn-success {
+    background-color: green;
+}
+.btn-success:hover{
     background-color: rgb(3, 126, 3);
     transform: scale(1.1);
     box-shadow: 0 4px 5px black;
 }
-input#cad{
+.btn-input{
     background-color: red;
-    width: 100px;
-    height: 30px;
-    margin-top: 20px;
-    margin-right: 10px;
-    font-family: "Montserrat" sans-serif;
-    cursor: pointer;
-    transition:all 0.3s ease;
 }
 
-input#cad:hover{
+.btn-input:hover{
     background-color: rgb(201, 11, 11);
     transform: scale(1.1);
     box-shadow: 0 4px 5px black;
