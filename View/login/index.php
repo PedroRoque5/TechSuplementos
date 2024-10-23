@@ -31,13 +31,13 @@ require_once '../../config_serve.php';
         <input type="checkbox" class="form-check-input" id="exampleCheck1">
         <label class="form-check-label" for="exampleCheck1">Lembre-me</label>
       </div>
-      <button id="form" type="submit" class="btn btn-success" href="<?= URL."index.php?pg=home"?>">Entrar</button>
-      <input id="cad" type="submit" href="<?= URL."index.php?pg=home"?>" class="btn" value="Cadastrar">
+      <a  href="<?= URL . "index.php?pg=home"?>"><button id="form" type="submit" class="btn btn-success">Entrar</button></a>
+      <a  href="<?= URL . "index.php?pg=pessoa"?>"><input id="cad" type="submit" class="btn" value="Cadastrar"></a>
     </form>
 
 
 </div>
-<div class="rodape">
+<div class="rodape"> 
     <p id="rod">www.TechSuplementos.com.br</p>
 </div>
 </body>
