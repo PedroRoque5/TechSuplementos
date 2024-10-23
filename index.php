@@ -22,10 +22,7 @@ switch ($pagina) {
     case 'perfil': include_once './View/menu/perfil/index.php'; break;
     case 'config': include_once './View/menu/config/index.php'; break;
     case 'saiba': include_once './View/saiba/index.php'; break;
-    
-    
-    
-
+    case 'pessoa': include_once './View/cadastro/pessoa.php'; break;
     
     default:
     include_once './View/error/index.php'; break;
