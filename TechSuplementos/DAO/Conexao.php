@@ -26,9 +26,9 @@ class Conexao {
     private function conectar() {
         try {
             $host = 'localhost'; // Endereço do banco de dados
-            $dbname = 'nome_do_banco'; // Nome do banco de dados
-            $username = 'usuario'; // Nome de usuário do banco de dados
-            $password = 'senha'; // Senha do banco de dados
+            $dbname = 'TechSuplementos'; // Nome do banco de dados
+            $username = 'root'; // Nome de usuário do banco de dados
+            $password = ''; // Senha do banco de dados
 
             // Configurações de DSN (Data Source Name)
             $dsn = "mysql:host=$host;dbname=$dbname";
