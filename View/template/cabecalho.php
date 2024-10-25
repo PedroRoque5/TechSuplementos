@@ -52,7 +52,7 @@
                 <li id="segundo"><a class="menus" href="<?= URL . "index.php?pg=proteina" ?>">Proteína</a></li>
                 <li id="segundo"><a class="menus" href="<?= URL . "index.php?pg=creatina" ?>">Creatina</a></li>
                 <li id="segundo"><a class="menus" href="<?= URL . "index.php?pg=pre" ?>">Pré-treino</a></li>
-                <li id="segundo"><a class="menus" href="metas">Metas</a></li>
+                <li id="segundo"><a class="menus" href="<?= URL . "index.php?pg=metas" ?>">Metas</a></li>
             </ul>
         </nav>
     </div>

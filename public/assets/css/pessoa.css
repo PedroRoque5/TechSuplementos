@@ -1,0 +1,50 @@
+.form {
+   position: absolute;
+   top: 50%;
+   left:40%;
+}
+form{
+    position: absolute;
+    display: block;
+}
+input{
+    font-family: "Montserrat" sans-serif;
+    font-weight: normal;
+    font-size: 13pt;
+}
+input:hover{
+
+    background-color:#aaaa;
+}
+
+.btn{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+.btn-success {
+    background-color: green;
+}
+.btn-success:hover{
+    background-color: rgb(3, 126, 3);
+    transform: scale(1.1);
+    box-shadow: 0 4px 5px black;
+}
+.btn-input{
+    background-color: red;
+}
+
+.btn-input:hover{
+    background-color: rgb(201, 11, 11);
+    transform: scale(1.1);
+    box-shadow: 0 4px 5px black;
+}
+
+div#form{
+
+    margin-top: 10px;
+}
