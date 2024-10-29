@@ -1,5 +1,5 @@
 <?php 
-
+ob_start();
 //Requerimento para funcionamento
 require './vendor/autoload.php';
 require_once './config_serve.php';
@@ -9,7 +9,7 @@ $pagina = isset($_GET['pg']) ? $_GET['pg'] : 'home';
 include_once './View/template/cabecalho.php';
 
 switch ($pagina) {
-    case 'login': header("Location:".URL."View/login/index.php")  ;break;
+    case 'login': header("Location:".URL."View/login/index.php")  ; exit; 
     case 'home': include_once './View/home/index.php'; break;
     case 'suporte': include_once './View/menu/suporte/index.php'; break;
     case 'carrinho': include_once './View/menu/carrinho/index.php'; break;
@@ -30,3 +30,5 @@ switch ($pagina) {
 }
 
 include_once './View/template/rodape.php';
+
+ob_end_flush();
