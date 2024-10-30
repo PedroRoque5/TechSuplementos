@@ -1,7 +1,5 @@
 <?php 
 
-echo "Fazer a conexão";
-
 /**
  * Conexão com o banco de dados
  * 

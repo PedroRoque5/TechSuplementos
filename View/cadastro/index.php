@@ -10,3 +10,8 @@
      <a href="<?= URL . "index.php?pg=home" ?>" class="btn btn-input">Cancelar</a>
    </form>
  </div>
+
+ <script>
+  //código para inserir usuário
+  
+ </script>
