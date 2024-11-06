@@ -6,7 +6,7 @@
      <div><input type="number" id="cpf" placeholder="CPF*" maxlength="11" oninput="if(this.value.length > 11) this.value = this.value.slice(0, 11)"></div>
      <div><input type="tel" id="telefone" placeholder="Telefone*" maxlength="14" pattern="\d{10,11}" title="Insira um telefone válido"></div>
      <div><input type="password" id="senha" placeholder="Senha"></div>
-     <a class="btn btn-success" href="<?= URL . 'index.php?pg=login' ?>">Cadastrar</a>
+     <button class="btn btn-success" href="<?= URL . 'index.php?pg=login' ?>">Cadastrar</button>
      <a href="<?= URL . "index.php?pg=home" ?>" class="btn btn-input">Cancelar</a>
    </form>
  </div>
