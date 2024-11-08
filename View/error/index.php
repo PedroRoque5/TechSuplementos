@@ -11,6 +11,7 @@
     <h1 id="titulo_error">Página não encontrada</h1>
 
     <h1 id="codigo_error">404</h1>
+    <img id="error" src="<?= ASSETS?>image/triste.png">
 
     <a href="<?= URL."index.php?pg=home"?>"><button type="button" id="return_home">Voltar a página principal</button></a>
     
