@@ -24,7 +24,7 @@ class Conexao {
     private function conectar() {
         try {
             $host = 'localhost'; // Endereço do banco de dados
-            $dbname = 'TechSuplementos'; // Nome do banco de dados
+            $dbname = 'techsuplementos'; // Nome do banco de dados
             $username = 'root'; // Nome de usuário do banco de dados
             $password = ''; // Senha do banco de dados
 

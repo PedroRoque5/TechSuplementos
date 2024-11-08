@@ -23,7 +23,10 @@ switch ($pagina) {
     case 'config': include_once './View/menu/config/index.php'; break;
     case 'saiba': include_once './View/saiba/index.php'; break;
     case 'pessoa': include_once './View/cadastro/index.php'; break;
-    
+    case 'produto': include_once './View/cadastro/produto/produto.php'; break;
+    case 'marca': include_once './View/cadastro/produto/marca.php'; break;
+    case 'perguntar': include_once './View/cadastro/produto/pergunta.php'; break;
+
     default:
     include_once './View/error/index.php'; break;
         break;
