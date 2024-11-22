@@ -33,7 +33,12 @@ switch ($pagina) {
     case 'whey-pro-x': include_once './View/menu/proteina/whey-pro-x.php'; break;
     case 'nutri-whey': include_once './View/menu/proteina/nutri-whey.php'; break;
     case 'nitro-whey': include_once './View/menu/proteina/nitro-whey.php'; break;
-
+    case 'barra-growth': include_once './View/menu/proteina/barra-growth.php'; break;
+    case 'bar-integral': include_once './View/menu/proteina/bar-integral.php'; break;
+    case 'bar-supino': include_once './View/menu/proteina/bar-supino.php'; break;
+    case 'mywhey': include_once './View/menu/proteina/mywhey.php'; break;
+    case 'italac-whey': include_once './View/menu/proteina/italac-whey.php'; break;
+    case 'yopro': include_once './View/menu/proteina/yopro.php'; break;
     default:
     include_once './View/error/index.php'; break;
         break;

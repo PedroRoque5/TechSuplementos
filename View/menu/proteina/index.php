@@ -45,44 +45,44 @@
     </li>
 
     <li id="foto07">
-        <a href="<?= URL . "index.php?pg=barra-protein" ?>" class="produto-link">
+        <a href="<?= URL . "index.php?pg=barra-growth" ?>" class="produto-link">
             <div class="produto-imagem"></div>
         </a>
-        <p class="preco"> R$ 51,90</p>
+        <p class="preco"> R$ 7,90</p>
     </li>
 
     <li id="foto08">
-        <a href="<?= URL . "index.php?pg=bar-protein" ?>" class="produto-link">
+        <a href="<?= URL . "index.php?pg=bar-integral" ?>" class="produto-link">
             <div class="produto-imagem"></div>
         </a>
-        <p class="preco">R$ 48,90</p>
+        <p class="preco">R$ 6,90</p>
     </li>
 
     <li id="foto09">
-        <a href="<?= URL . "index.php?pg=sem-gluten" ?>" class="produto-link">
+        <a href="<?= URL . "index.php?pg=bar-supino" ?>" class="produto-link">
             <div class="produto-imagem"></div>
         </a>
         <p class="preco">R$ 4,45</p>
     </li>
 
     <li id="foto10">
-        <a href="<?= URL . "index.php?pg=bebida-whey" ?>" class="produto-link">
+        <a href="<?= URL . "index.php?pg=mywhey" ?>" class="produto-link">
             <div class="produto-imagem"></div>
         </a>
-        <p class="preco">R$ 79,90</p>
+        <p class="preco">R$ 13,19</p>
     </li>
 
     <li id="foto11">
-        <a href="<?= URL . "index.php?pg=fuel" ?>" class="produto-link">
+        <a href="<?= URL . "index.php?pg=italac-whey" ?>" class="produto-link">
             <div class="produto-imagem"></div>
         </a>
-        <p class="preco">R$ 109,90</p>
+        <p class="preco">R$ 24,24</p>
     </li>
 
     <li id="foto12">
         <a href="<?= URL . "index.php?pg=yopro" ?>" class="produto-link">
             <div class="produto-imagem"></div>
         </a>
-            <p class="preco">R$ 89,90</p>
+            <p class="preco">R$ 15,11</p>
     </li>
 </ul>
