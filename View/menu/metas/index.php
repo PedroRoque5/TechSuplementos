@@ -11,7 +11,7 @@
                 <i id="metas" class="fa-solid fa-dumbbell"><h2>Aumentar Massa Muscular</h2></i>
                 
                 <p>Se você deseja ganhar músculos de forma saudável e eficiente, temos os suplementos ideais para ajudar nesse processo.</p>
-                <a href="<?= URL . 'index.php?pg=suplementos_musculo' ?>" class="btn">Veja os Suplementos</a>
+                <a href="<?= URL . 'index.php?pg=creatina' ?>" class="btn">Veja os Suplementos</a>
             </div>
 
             <div class="meta-card">
@@ -23,9 +23,9 @@
 
             <div   class="meta-card">
                 <i id="metas"class="fa-solid fa-heart"></i>
-                <h2>Melhorar a Saúde Cardíaca</h2>
-                <p>Com suplementos focados na saúde do coração, você pode melhorar sua qualidade de vida e a saúde cardiovascular.</p>
-                <a href="<?= URL . 'index.php?pg=suplementos_saude_cardiaca' ?>" class="btn">Veja os Suplementos</a>
+                <h2>Recuperar e construir o tecido Muscular</h2>
+                <p>Com suplementos focados na construção e restauração do tecido muscular, você pode melhorar sua qualidade de vida e a saúde muscular.</p>
+                <a href="<?= URL . 'index.php?pg=proteina' ?>" class="btn">Veja os Suplementos</a>
             </div>
 
             <div   class="meta-card">

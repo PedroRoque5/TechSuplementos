@@ -9,60 +9,60 @@
     </li>
 
     <li id="foto02">
-        <a href="<?= URL . "index.php?pg=whey-protein" ?>" class="produto-link">
+        <a href="<?= URL . "index.php?pg=whey-protein-max" ?>" class="produto-link">
             <div class="produto-imagem"></div>
         </a>
         <p class="preco"> R$ 109,90</p>
     </li>
 
     <li id="foto03">
-        <a href="<?= URL . "index.php?pg=black-whey" ?>" class="produto-link">
+        <a href="<?= URL . "index.php?pg=whey-protein-atlhetica" ?>" class="produto-link">
             <div class="produto-imagem"></div>
         </a>
         <div>
-        <p class="preco"> R$ 119,90</p></div>
+        <p class="preco"> R$ 148,73</p></div>
     </li>
 
     <li id="foto04">
-        <a href="<?= URL . "index.php?pg=whey-sac" ?>" class="produto-link">
+        <a href="<?= URL . "index.php?pg=whey-pro-x" ?>" class="produto-link">
             <div class="produto-imagem"></div>
         </a>
-        <p class="preco">R$ 129,90</p>
+        <p class="preco">R$ 69,90</p>
     </li>
 
     <li id="foto05">
-        <a href="<?= URL . "index.php?pg=whey-voncentrado" ?>" class="produto-link">
+        <a href="<?= URL . "index.php?pg=nutri-whey" ?>" class="produto-link">
             <div class="produto-imagem"></div>
         </a>
-        <p class="preco"> R$ 149,90</p>
+        <p class="preco"> R$ 55,99</p>
     </li>
 
     <li id="foto06">
         <a href="<?= URL . "index.php?pg=nitro-whey" ?>" class="produto-link">
             <div class="produto-imagem"></div>
         </a>
-        <p class="preco">R$ 139,90</p>
+        <p class="preco">R$ 239,90</p>
     </li>
 
     <li id="foto07">
         <a href="<?= URL . "index.php?pg=barra-protein" ?>" class="produto-link">
             <div class="produto-imagem"></div>
         </a>
-        <p class="preco"> R$ 59,90</p>
+        <p class="preco"> R$ 51,90</p>
     </li>
 
     <li id="foto08">
         <a href="<?= URL . "index.php?pg=bar-protein" ?>" class="produto-link">
             <div class="produto-imagem"></div>
         </a>
-        <p class="preco">R$ 69,90</p>
+        <p class="preco">R$ 48,90</p>
     </li>
 
     <li id="foto09">
         <a href="<?= URL . "index.php?pg=sem-gluten" ?>" class="produto-link">
             <div class="produto-imagem"></div>
         </a>
-        <p class="preco">R$ 89,90</p>
+        <p class="preco">R$ 4,45</p>
     </li>
 
     <li id="foto10">

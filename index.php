@@ -28,6 +28,11 @@ switch ($pagina) {
     case 'marca': include_once './View/cadastro/produto/marca.php'; break;
     case 'perguntar': include_once './View/cadastro/produto/pergunta.php'; break;
     case 'whey-fusion': include_once './View/menu/proteina/whey-fusion.php'; break;
+    case 'whey-protein-max': include_once './View/menu/proteina/whey-protein-max.php'; break;
+    case 'whey-protein-atlhetica': include_once './View/menu/proteina/whey-protein-atlhetica.php'; break;
+    case 'whey-pro-x': include_once './View/menu/proteina/whey-pro-x.php'; break;
+    case 'nutri-whey': include_once './View/menu/proteina/nutri-whey.php'; break;
+    case 'nitro-whey': include_once './View/menu/proteina/nitro-whey.php'; break;
 
     default:
     include_once './View/error/index.php'; break;
