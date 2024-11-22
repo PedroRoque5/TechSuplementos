@@ -10,6 +10,7 @@ include_once './View/template/cabecalho.php';
 
 switch ($pagina) {
     case 'login': header("Location:".URL."View/login/index.php")  ; exit; 
+    case 'empresa': header("Location:".URL."View/login/administrador.php")  ; exit; 
     case 'home': include_once './View/home/index.php'; break;
     case 'suporte': include_once './View/menu/suporte/index.php'; break;
     case 'carrinho': include_once './View/menu/carrinho/index.php'; break;

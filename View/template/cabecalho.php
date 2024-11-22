@@ -27,7 +27,15 @@
         <nav id="menu">
             <ul id="principal">
                 <li id="unico"><a href="<?= URL . "index.php?pg=home" ?>"><i class="fa-solid fa-house"></i>&nbsp;Home</a></li>
-                <li id="unico"><a href="<?= URL . "index.php?pg=login" ?>"><i class="fa-solid fa-user"></i>&nbsp; Login/Cadastro</a> </li>
+                <li id="unico">
+                    <a href="#" id="login-dropdown-toggle">
+                        <i class="fa-solid fa-user"></i>&nbsp; Login/Cadastro
+                    </a>
+                    <ul id="login-dropdown" class="hidden">
+                        <li><a href="<?= URL . 'index.php?pg=empresa' ?>"> <i id="produto" class="fa-solid fa-shop"></i>&nbsp;Login Empresa</a></li>
+                        <li><a href="<?= URL . 'index.php?pg=login' ?>"><i class="fa-solid fa-user"></i>&nbsp;Login Usuário</a></li>
+                    </ul>
+                </li>
                 <li id="unico"><a href="<?= URL . "index.php?pg=suporte" ?>"><i class="fa-regular fa-circle-question"></i>&nbsp; Suporte</a>
                 </li>
                 <li id="unico"><a href="<?= URL . "index.php?pg=carrinho" ?>"><i class="fa-solid fa-cart-shopping"></i></a></li>
@@ -37,13 +45,13 @@
     <div id="sub">
         <nav id="submenu">
 
-                <button class="dropbtn"> <i id="baricon" class="fa-solid fa-bars"></i></button>
-                <ul class="dropdown-menu" id=navcascata>
-                    <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=perfil" ?>"><i id="perfil"class="fa-regular fa-user"></i>&nbsp;&nbsp;Perfil</a></li>
-                    <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=config" ?>"><i id="settings" class="fa-solid fa-gear"></i>&nbsp;&nbsp;Configurações<br></a></li>
-                    <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=perguntar" ?>"><i id="produto" class="fa-solid fa-shop"></i>&nbsp;&nbsp;Cadastrar Produto/Marca<br></a></li>
-                </ul>
-        
+            <button class="dropbtn"> <i id="baricon" class="fa-solid fa-bars"></i></button>
+            <ul class="dropdown-menu" id=navcascata>
+                <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=perfil" ?>"><i id="perfil" class="fa-regular fa-user"></i>&nbsp;&nbsp;Perfil</a></li>
+                <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=config" ?>"><i id="settings" class="fa-solid fa-gear"></i>&nbsp;&nbsp;Configurações<br></a></li>
+                <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=perguntar" ?>"><i id="produto" class="fa-solid fa-shop"></i>&nbsp;&nbsp;Cadastrar Produto/Marca<br></a></li>
+            </ul>
+
         </nav>
         <nav id="menusub">
             <ul id="segunda">

@@ -232,3 +232,42 @@ i#perfil{
 i#produto{
     font-size: 20px;
 }
+#login-dropdown {
+    position: absolute;
+    background-color: rgb(50, 50, 50);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 0;
+    list-style: none;
+    display: none; /* Oculto inicialmente */
+    z-index: 10;
+    margin: 0;
+    min-width: 200px;
+}
+
+#login-dropdown li {
+    text-align: left;
+    padding: 10px 20px;
+}
+
+#login-dropdown li a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    display: block;
+    width: 100%;
+}
+
+#login-dropdown li a:hover {
+    background-color: black;
+    color: red;
+}
+
+.hidden {
+    display: none;
+}
+
+#menu li:hover #login-dropdown {
+    display: block;
+}
