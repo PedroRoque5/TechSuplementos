@@ -27,6 +27,7 @@ switch ($pagina) {
     case 'produto': include_once './View/cadastro/produto/produto.php'; break;
     case 'marca': include_once './View/cadastro/produto/marca.php'; break;
     case 'perguntar': include_once './View/cadastro/produto/pergunta.php'; break;
+    case 'whey-fusion': include_once './View/menu/proteina/whey-fusion.php'; break;
 
     default:
     include_once './View/error/index.php'; break;

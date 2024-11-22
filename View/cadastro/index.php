@@ -12,6 +12,7 @@
  </div>
 
  <?php
+ //código para inserir usuário
 require_once './TechSuplementos/DAO/Conexao.php'; // Certifique-se de incluir o arquivo que contém a classe Conexao
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
