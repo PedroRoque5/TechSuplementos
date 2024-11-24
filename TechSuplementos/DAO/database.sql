@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `promoção/desconto` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela techsuplementos.usuário
-CREATE TABLE IF NOT EXISTS `usuário` (
+CREATE TABLE IF NOT EXISTS `usuario` (
   `Telefone` int(11) DEFAULT NULL,
   `E-Mail` varchar(50) DEFAULT NULL,
   `CPF/CNPJ` int(11) DEFAULT NULL,

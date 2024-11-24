@@ -31,3 +31,24 @@
             <button type="button" class="btn" onclick="savePrivacySettings()">Salvar Configurações</button>
         </form>
     </div>
+    <script>
+        function savePrivacySettings() {
+            const purchaseHistory = document.getElementById('purchaseHistory').checked;
+            const trackingCookies = document.getElementById('trackingCookies').checked;
+            const emailMarketing = document.getElementById('emailMarketing').checked;
+            const dataSharingPartners = document.getElementById('dataSharingPartners').checked;
+
+            const statusMessage = document.getElementById('statusMessage');
+
+            statusMessage.textContent = "Salvando configurações...";
+            setTimeout(() => {
+                statusMessage.textContent = `
+                    Configurações salvas: 
+                    Histórico de Compras: ${purchaseHistory ? 'Ativado' : 'Desativado'}, 
+                    Cookies de Rastreamento: ${trackingCookies ? 'Ativado' : 'Desativado'}, 
+                    Ofertas por E-mail: ${emailMarketing ? 'Ativado' : 'Desativado'}, 
+                    Compartilhamento com Parceiros: ${dataSharingPartners ? 'Ativado' : 'Desativado'}.
+                `;
+            }, 1000);
+        }
+    </script>

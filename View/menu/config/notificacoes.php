@@ -26,3 +26,22 @@
             <button type="button" class="btn" onclick="saveNotificationSettings()">Salvar Configurações</button>
         </form>
     </div>
+    <script>
+        function saveNotificationSettings() {
+            const promoEmails = document.getElementById('promoEmails').checked;
+            const orderStatus = document.getElementById('orderStatus').checked;
+            const smsAlerts = document.getElementById('smsAlerts').checked;
+
+            const statusMessage = document.getElementById('statusMessage');
+
+            statusMessage.textContent = "Salvando configurações...";
+            setTimeout(() => {
+                statusMessage.textContent = `
+                    Configurações salvas: 
+                    E-mails Promocionais: ${promoEmails ? 'Ativado' : 'Desativado'}, 
+                    Status do Pedido: ${orderStatus ? 'Ativado' : 'Desativado'}, 
+                    SMS: ${smsAlerts ? 'Ativado' : 'Desativado'}, 
+                `;
+            }, 1000);
+        }
+    </script>

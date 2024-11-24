@@ -18,3 +18,20 @@
             <button type="button" class="btn" onclick="validatePassword()">Alterar Senha</button>
         </form>
     </div>
+    <script>
+        function validatePassword() {
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (newPassword !== confirmPassword) {
+                errorMessage.textContent = "As senhas não coincidem!";
+            } else if (newPassword.length < 6) {
+                errorMessage.textContent = "A nova senha deve ter pelo menos 6 caracteres.";
+            } else {
+                errorMessage.textContent = "";
+                alert("Senha alterada com sucesso!"); // Simulação
+                document.getElementById('passwordForm').reset();
+            }
+        }
+    </script>

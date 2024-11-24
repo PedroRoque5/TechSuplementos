@@ -27,3 +27,26 @@
 
         <div id="message" class="message"></div>
     </div>
+    <script>
+        // Função para simular o salvamento de dados
+        function salvarDados(event) {
+            event.preventDefault(); // Impede o envio do formulário
+
+            // Recupera os dados do formulário
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const telefone = document.getElementById('telefone').value;
+            const endereco = document.getElementById('endereco').value;
+
+            // Simula o salvamento e exibe uma mensagem de sucesso
+            const messageDiv = document.getElementById('message');
+            messageDiv.innerHTML = `<p>Dados atualizados com sucesso!</p>
+                                    <ul>
+                                        <li><strong>Nome:</strong> ${nome}</li>
+                                        <li><strong>Email:</strong> ${email}</li>
+                                        <li><strong>Telefone:</strong> ${telefone}</li>
+                                        <li><strong>Endereço:</strong> ${endereco}</li>
+                                    </ul>`;
+            messageDiv.style.color = 'green';
+        }
+    </script>
