@@ -240,7 +240,7 @@ i#produto{
     border-radius: 4px;
     padding: 10px 0;
     list-style: none;
-    display: none; /* Oculto inicialmente */
+    display: none; 
     z-index: 10;
     margin: 0;
     min-width: 200px;

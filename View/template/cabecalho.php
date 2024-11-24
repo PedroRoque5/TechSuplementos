@@ -45,11 +45,13 @@
     <div id="sub">
         <nav id="submenu">
 
+            
+
             <button class="dropbtn"> <i id="baricon" class="fa-solid fa-bars"></i></button>
             <ul class="dropdown-menu" id=navcascata>
                 <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=perfil" ?>"><i id="perfil" class="fa-regular fa-user"></i>&nbsp;&nbsp;Perfil</a></li>
                 <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=config" ?>"><i id="settings" class="fa-solid fa-gear"></i>&nbsp;&nbsp;Configurações<br></a></li>
-                <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=perguntar" ?>"><i id="produto" class="fa-solid fa-shop"></i>&nbsp;&nbsp;Cadastrar Produto/Marca<br></a></li>
+                <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=produto" ?>"><i id="produto" class="fa-solid fa-shop"></i>&nbsp;&nbsp;Cadastrar Produto<br></a></li>
             </ul>
 
         </nav>

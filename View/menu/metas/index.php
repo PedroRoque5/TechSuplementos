@@ -14,13 +14,6 @@
                 <a href="<?= URL . 'index.php?pg=creatina' ?>" class="btn">Veja os Suplementos</a>
             </div>
 
-            <div class="meta-card">
-                <i  id="metas" class="fa-solid fa-weight-scale"></i>
-                <h2>Emagrecimento</h2>
-                <p>Se sua meta é perder peso, temos uma seleção de suplementos que auxiliam no processo de emagrecimento e queimar gordura.</p>
-                <a href="<?= URL . 'index.php?pg=suplementos_emagrecimento' ?>" class="btn">Veja os Suplementos</a>
-            </div>
-
             <div   class="meta-card">
                 <i id="metas"class="fa-solid fa-heart"></i>
                 <h2>Recuperar e construir o tecido Muscular</h2>
@@ -32,14 +25,7 @@
                 <i id="metas" class="fa-solid fa-bolt"></i>
                 <h2>Aumentar a Energia</h2>
                 <p>Se você precisa de mais disposição para o dia a dia ou para os treinos, nossos suplementos energéticos são a escolha certa.</p>
-                <a href="<?= URL . 'index.php?pg=suplementos_energia' ?>" class="btn">Veja os Suplementos</a>
-            </div>
-
-            <div  class="meta-card">
-                <i  id="metas" class="fa-solid fa-sun"></i>
-                <h2>Melhorar a Imunidade</h2>
-                <p>Suplementos que fortalecem seu sistema imunológico para que você se sinta mais saudável e protegido.</p>
-                <a href="<?= URL . 'index.php?pg=suplementos_imunidade' ?>" class="btn">Veja os Suplementos</a>
+                <a href="<?= URL . 'index.php?pg=pre' ?>" class="btn">Veja os Suplementos</a>
             </div>
         </div>
     </div>

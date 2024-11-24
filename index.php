@@ -27,7 +27,6 @@ switch ($pagina) {
     case 'cad': include_once './View/cadastro/cadastrar.php'; break;
     case 'produto': include_once './View/cadastro/produto/produto.php'; break;
     case 'marca': include_once './View/cadastro/produto/marca.php'; break;
-    case 'perguntar': include_once './View/cadastro/produto/pergunta.php'; break;
     case 'whey-fusion': include_once './View/menu/proteina/whey-fusion.php'; break;
     case 'whey-protein-max': include_once './View/menu/proteina/whey-protein-max.php'; break;
     case 'whey-protein-atlhetica': include_once './View/menu/proteina/whey-protein-atlhetica.php'; break;
@@ -40,6 +39,19 @@ switch ($pagina) {
     case 'mywhey': include_once './View/menu/proteina/mywhey.php'; break;
     case 'italac-whey': include_once './View/menu/proteina/italac-whey.php'; break;
     case 'yopro': include_once './View/menu/proteina/yopro.php'; break;
+    case 'blackscull': include_once './View/menu/creatina/blackscull.php'; break;
+    case 'darklab': include_once './View/menu/creatina/darklab.php'; break;
+    case 'darkness': include_once './View/menu/creatina/darkness.php'; break;
+    case 'dux': include_once './View/menu/creatina/dux.php'; break;
+    case 'growth': include_once './View/menu/creatina/growth.php'; break;
+    case 'integral': include_once './View/menu/creatina/integral.php'; break;
+    case 'max': include_once './View/menu/creatina/max.php'; break;
+    case 'oficialfarma': include_once './View/menu/creatina/oficialfarma.php'; break;
+    case 'on': include_once './View/menu/creatina/on.php'; break;
+    case 'ronnie': include_once './View/menu/creatina/ronnie.php'; break;
+    case 'soldier': include_once './View/menu/creatina/soldier.php'; break;
+    case 'vegana': include_once './View/menu/creatina/vegana.php'; break;
+  
     default:
     include_once './View/error/index.php'; break;
         break;
