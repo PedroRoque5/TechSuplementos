@@ -19,7 +19,9 @@
     <h2 class="preco">R$ 60,00</h2>
 
     <div class="actions">
+    <a href="<?= URL . 'index.php?pg=pagamento' ?>">
         <button class="payment-button">Outras formas de pagamento</button>
+        </a>
         <button class="buy-button">Comprar Agora</button>
         <button class="cart-button">
             <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho

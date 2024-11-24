@@ -51,6 +51,16 @@ switch ($pagina) {
     case 'ronnie': include_once './View/menu/creatina/ronnie.php'; break;
     case 'soldier': include_once './View/menu/creatina/soldier.php'; break;
     case 'vegana': include_once './View/menu/creatina/vegana.php'; break;
+    case 'alterar': include_once './View/menu/config/alterar.php'; break;
+    case 'notificacoes': include_once './View/menu/config/notificacoes.php'; break;
+    case 'privacidade': include_once './View/menu/config/privacidade.php'; break;
+    case 'rastrear': include_once './View/menu/perfil/rastrear.php'; break;
+    case 'historico': include_once './View/menu/perfil/historico.php'; break;
+    case 'dados': include_once './View/menu/perfil/dados.php'; break;
+    case 'pagamento': include_once './View/compra/pagamento.php'; break;
+  
+  
+  
   
     default:
     include_once './View/error/index.php'; break;

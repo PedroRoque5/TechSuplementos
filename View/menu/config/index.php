@@ -6,11 +6,9 @@
 <body>
     <div id="opcoes-configuracao">
         <h2>Configurações da Conta</h2>
-        <a href="alterar_senha.html" class="opcao"><i class="fa-solid fa-key"></i> Alterar Senha</a><br>
-        <a href="notificacoes.html" class="opcao"><i class="fa-solid fa-bell"></i> Notificações</a><br>
-        <a href="privacidade.html" class="opcao"><i class="fa-solid fa-user-lock"></i> Privacidade</a><br>
-        <a href="suporte.html" class="opcao"><i class="fa-solid fa-headset"></i> Suporte</a><br>
-        <a href="logout.html" class="opcao"><i class="fa-solid fa-sign-out-alt"></i> Sair</a>
+        <a href="<?= URL . "index.php?pg=alterar" ?>" class="opcao"><i class="fa-solid fa-key"></i> Alterar Senha</a><br>
+        <a href="<?= URL . "index.php?pg=notificacoes" ?>" class="opcao"><i class="fa-solid fa-bell"></i> Notificações</a><br>
+        <a href="<?= URL . "index.php?pg=privacidade" ?>" class="opcao"><i class="fa-solid fa-user-lock"></i> Privacidade</a><br>
     </div>
 </body>
 </html>
