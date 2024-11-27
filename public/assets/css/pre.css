@@ -45,51 +45,51 @@ ul#album li a .produto-imagem {
 }
 
 ul#album li#foto01 a .produto-imagem {
-    background-image: url("../image/");
+    background-image: url("../image/pre_darkLab.jpg");
 }
 
 ul#album li#foto02 a .produto-imagem {
-    background-image: url("../image/");
+    background-image: url("../image/pre_darkness.jpg");
 }
 
 ul#album li#foto03 a .produto-imagem {
-    background-image: url("../image/");
+    background-image: url("../image/pre_growth.jpg");
 }
 
 ul#album li#foto04 a .produto-imagem {
-    background-image: url("../image/");
+    background-image: url("../image/pre_growth2.jpg");
 }
 
 ul#album li#foto05 a .produto-imagem {
-    background-image: url("../image/");
+    background-image: url("../image/pre_integralMedica.jpg");
 }
 
 ul#album li#foto06 a .produto-imagem {
-    background-image: url("../image/");
+    background-image: url("../image/pre_max.jpg");
 }
 
 ul#album li#foto07 a .produto-imagem {
-    background-image: url("../image/");
+    background-image: url("../image/pre_max2.jpg");
 }
 
 ul#album li#foto08 a .produto-imagem {
-    background-image: url("../image/");
+    background-image: url("../image/pre_oficialFarma.jpg");
 }
 
 ul#album li#foto09 a .produto-imagem {
-    background-image: url("../image/");
+    background-image: url("../image/pre_RC.jpg");
 }
 
 ul#album li#foto10 a .produto-imagem {
-    background-image: url("../image/");
+    background-image: url("../image/pre_underLabz.jpg");
 }
 
 ul#album li#foto11 a .produto-imagem {
-    background-image: url("../image/");
+    background-image: url("../image/termo_darkLab.jpg");
 }
 
 ul#album li#foto12 a .produto-imagem {
-    background-image: url("../image/");
+    background-image: url("../image/termo_growth.jpg");
 }
 ul#album li:hover .produto-imagem {
     background-size: 100% 100%; 

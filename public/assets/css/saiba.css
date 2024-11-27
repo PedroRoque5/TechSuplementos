@@ -1,0 +1,25 @@
+
+header {
+    background: transparent;
+    color: #fff;
+    padding: 20px 10px;
+    text-align: center;
+}
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    background: transparent;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+h1, h2 {
+    color: red;
+}
+ul {
+    padding-left: 20px;
+    color: white;
+}
+p{
+    color: white;
+}

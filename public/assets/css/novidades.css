@@ -4,16 +4,18 @@ ul#album {
     width: 700px;
     margin: 0 auto;
     padding: 50px;
-    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 10px; 
     list-style: none;
 }
 
 ul#album li {
     position: relative;
-    float: left;
     width: 200px;
     height: 300px; 
-    margin: 10px;
+    margin: 0; 
     border: 5px solid red;
     background-color: rgb(255, 255, 255);
     box-shadow: 1px 1px 3px rgba(0, 0, 0, .4);
@@ -23,6 +25,7 @@ ul#album li {
     justify-content: flex-end;
     cursor: pointer;
 }
+
 
 ul#album li:hover {
     z-index: 10; 
@@ -42,6 +45,12 @@ ul#album li a .produto-imagem {
     background-size: cover; 
     width: 100%;
     height: 80%; 
+}
+
+
+
+ul#album li:nth-last-child(-n+2) {
+    align-self: center; 
 }
 
 ul#album li#foto01 a .produto-imagem {
@@ -64,38 +73,10 @@ ul#album li#foto05 a .produto-imagem {
     background-image: url("../image/");
 }
 
-ul#album li#foto06 a .produto-imagem {
-    background-image: url("../image/");
-}
-
-ul#album li#foto07 a .produto-imagem {
-    background-image: url("../image/");
-}
-
-ul#album li#foto08 a .produto-imagem {
-    background-image: url("../image/");
-}
-
-ul#album li#foto09 a .produto-imagem {
-    background-image: url("../image/");
-}
-
-ul#album li#foto10 a .produto-imagem {
-    background-image: url("../image/");
-}
-
-ul#album li#foto11 a .produto-imagem {
-    background-image: url("../image/");
-}
-
-ul#album li#foto12 a .produto-imagem {
-    background-image: url("../image/");
-}
 ul#album li:hover .produto-imagem {
     background-size: 100% 100%; 
 }
 
-/* Estilos para o preço */
 ul#album li .preco {
     text-align: center;
     margin: 10px 0;

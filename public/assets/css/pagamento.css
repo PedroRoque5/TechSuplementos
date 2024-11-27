@@ -14,10 +14,12 @@
 
 .payment-option {
     margin-bottom: 10px;
+    color: white;
 }
 
 .payment-option input {
     margin-right: 10px;
+    color:white;
 }
 
 .payment-option label {
@@ -27,6 +29,7 @@
 
 #paymentDetails {
     margin-top: 20px;
+    color: white;
 }
 
 #paymentDetails input {

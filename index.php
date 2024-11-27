@@ -58,9 +58,23 @@ switch ($pagina) {
     case 'historico': include_once './View/menu/perfil/historico.php'; break;
     case 'dados': include_once './View/menu/perfil/dados.php'; break;
     case 'pagamento': include_once './View/compra/pagamento.php'; break;
+    case 'venom': include_once './View/menu/pre/venom.php'; break;
+    case 'pre_darkness': include_once './View/menu/pre/pre_darkness.php'; break;
+    case 'haze': include_once './View/menu/pre/haze.php'; break;
+    case 'insanity': include_once './View/menu/pre/insanity.php'; break;
+    case 'huger': include_once './View/menu/pre/huger.php'; break;
+    case 'egide': include_once './View/menu/pre/egide.php'; break;
+    case 'horus': include_once './View/menu/pre/horus.php'; break;
+    case 'oficial': include_once './View/menu/pre/oficial.php'; break;
+    case 'yeah': include_once './View/menu/pre/yeah.php'; break;
+    case 'warzone': include_once './View/menu/pre/warzone.php'; break;
+    case 'dark': include_once './View/menu/pre/dark.php'; break;
+    case 'hot': include_once './View/menu/pre/hot.php'; break;
+    case 'gold': include_once './View/menu/top5/gold.php'; break;
+    case 'beta': include_once './View/menu/top5/beta.php'; break;
+    
   
-  
-  
+    
   
     default:
     include_once './View/error/index.php'; break;

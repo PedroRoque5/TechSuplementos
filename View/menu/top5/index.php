@@ -2,14 +2,14 @@
 
 <ul id="album">
     <li id="foto01">
-        <a href="<?= URL . "index.php?pg=" ?>" class="produto-link">
+        <a href="<?= URL . "index.php?pg=gold" ?>" class="produto-link">
             <div class="produto-imagem"></div>
         </a>
-        <p class="preco">R$ </p>
+        <p class="preco">R$ 480,85</p>
     </li>
 
     <li id="foto02">
-        <a href="<?= URL . "index.php?pg=" ?>" class="produto-link">
+        <a href="<?= URL . "index.php?pg=beta" ?>" class="produto-link">
             <div class="produto-imagem"></div>
         </a>
         <p class="preco"> R$ </p>

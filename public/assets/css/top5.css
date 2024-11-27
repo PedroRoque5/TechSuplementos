@@ -54,11 +54,11 @@ ul#album li:nth-last-child(-n+2) {
 }
 
 ul#album li#foto01 a .produto-imagem {
-    background-image: url("../image/");
+    background-image: url("../image/goldstandard.jpg");
 }
 
 ul#album li#foto02 a .produto-imagem {
-    background-image: url("../image/");
+    background-image: url("../image/BetaHD.png");
 }
 
 ul#album li#foto03 a .produto-imagem {

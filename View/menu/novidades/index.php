@@ -36,53 +36,5 @@
         </a>
         <p class="preco"> R$ </p>
     </li>
-
-    <li id="foto06">
-        <a href="<?= URL . "index.php?pg=" ?>" class="produto-link">
-            <div class="produto-imagem"></div>
-        </a>
-        <p class="preco">R$ </p>
-    </li>
-
-    <li id="foto07">
-        <a href="<?= URL . "index.php?pg=" ?>" class="produto-link">
-            <div class="produto-imagem"></div>
-        </a>
-        <p class="preco"> R$ </p>
-    </li>
-
-    <li id="foto08">
-        <a href="<?= URL . "index.php?pg=" ?>" class="produto-link">
-            <div class="produto-imagem"></div>
-        </a>
-        <p class="preco">R$ </p>
-    </li>
-
-    <li id="foto09">
-        <a href="<?= URL . "index.php?pg=" ?>" class="produto-link">
-            <div class="produto-imagem"></div>
-        </a>
-        <p class="preco">R$ </p>
-    </li>
-
-    <li id="foto10">
-        <a href="<?= URL . "index.php?pg=" ?>" class="produto-link">
-            <div class="produto-imagem"></div>
-        </a>
-        <p class="preco">R$ </p>
-    </li>
-
-    <li id="foto11">
-        <a href="<?= URL . "index.php?pg=" ?>" class="produto-link">
-            <div class="produto-imagem"></div>
-        </a>
-        <p class="preco">R$ </p>
-    </li>
-
-    <li id="foto12">
-        <a href="<?= URL . "index.php?pg=" ?>" class="produto-link">
-            <div class="produto-imagem"></div>
-        </a>
-            <p class="preco">R$ </p>
-    </li>
+   
 </ul>
