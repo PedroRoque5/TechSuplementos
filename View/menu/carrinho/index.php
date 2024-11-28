@@ -22,9 +22,9 @@
     <script>
         // Exemplo de itens do carrinho (normalmente viria de um backend)
         let cartItems = [
-            { name: 'Produto 1', price: 99.90, quantity: 1 },
-            { name: 'Produto 2', price: 49.99, quantity: 2 },
-            { name: 'Produto 3', price: 149.90, quantity: 1 },
+            { name: 'Whey-Protein Concentrado Max Titanium Pro', price: 109.90, quantity: 1 },
+            { name: 'CREATINE - CREATINA MONOHIDRATADA - 300G', price: 89.90, quantity: 1 },
+            { name: 'WARZONE', price: 149.90, quantity: 1 },
         ];
 
         // Função para exibir os itens no carrinho

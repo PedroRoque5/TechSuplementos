@@ -72,9 +72,9 @@ switch ($pagina) {
     case 'hot': include_once './View/menu/pre/hot.php'; break;
     case 'gold': include_once './View/menu/top5/gold.php'; break;
     case 'beta': include_once './View/menu/top5/beta.php'; break;
-    
-  
-    
+    case 'creatina-universal': include_once './View/menu/top5/creatina-universal.php'; break;
+    case 'arginine': include_once './View/menu/novidades/arginine.php'; break;
+    case 'whey-dark': include_once './View/menu/novidades/whey-dark.php'; break;
   
     default:
     include_once './View/error/index.php'; break;

@@ -1,36 +1,57 @@
 <link href="<?= ASSETS ?>css/pagamento.css" rel="stylesheet">
 <div class="payment-container">
-        <h2>Escolha a Forma de Pagamento</h2>
-        <form id="paymentForm">
-            <div class="payment-option">
-                <label for="creditCard">
-                    <input type="radio" id="creditCard" name="paymentMethod" value="cartao" checked>
-                    Cartão de Crédito/Débito 10x sem juros
-                </label>
-            </div>
-            <div class="payment-option">
-                <label for="pix">
-                    <input type="radio" id="pix" name="paymentMethod" value="pix">
-                    Pix 5%OFF
-                </label>
-            </div>
-            <div id="paymentDetails">
-            </div>
+    <h2>Escolha a Forma de Pagamento</h2>
+    <form id="paymentForm">
+        <div class="payment-option">
+            <label for="creditCard">
+                <input type="radio" id="creditCard" name="paymentMethod" value="cartao" checked>
+                Cartão de Crédito/Débito 10x sem juros
+            </label>
+        </div>
+        <div class="payment-option">
+            <label for="pix">
+                <input type="radio" id="pix" name="paymentMethod" value="pix">
+                Pix 5% OFF
+            </label>
+        </div>
+        <div id="paymentDetails"></div>
+        <button type="submit" class="btn">Confirmar Pagamento</button>
+    </form>
 
-            <button type="submit" class="btn">Confirmar Pagamento</button>
-        </form>
+    <!-- Mensagem de sucesso -->
+    <div id="successMessage" class="hidden">
+        <p>Pagamento realizado com sucesso! Obrigado por sua compra.</p>
     </div>
+</div>
 
-
-    <script>
-        // Função para atualizar os detalhes de pagamento conforme a opção selecionada
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
         const paymentForm = document.getElementById('paymentForm');
         const paymentDetails = document.getElementById('paymentDetails');
+        const successMessage = document.getElementById('successMessage');
 
+        // Atualiza os detalhes do pagamento
         paymentForm.addEventListener('change', updatePaymentDetails);
+
+        paymentForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // Evita o envio do formulário para simular o sucesso
+
+            // Exibe a mensagem de sucesso
+            successMessage.classList.remove('hidden');
+            successMessage.classList.add('success');
+
+            // Oculta o formulário após a mensagem de sucesso
+            paymentForm.style.display = 'none';
+        });
 
         function updatePaymentDetails() {
             const selectedPaymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+
+            const existingValues = {
+                cardNumber: document.getElementById('cardNumber')?.value || '',
+                cardExpiry: document.getElementById('cardExpiry')?.value || '',
+                cardCVV: document.getElementById('cardCVV')?.value || ''
+            };
 
             let detailsHTML = '';
 
@@ -57,8 +78,15 @@
             }
 
             paymentDetails.innerHTML = detailsHTML;
+
+            if (selectedPaymentMethod === 'cartao') {
+                document.getElementById('cardNumber').value = existingValues.cardNumber;
+                document.getElementById('cardExpiry').value = existingValues.cardExpiry;
+                document.getElementById('cardCVV').value = existingValues.cardCVV;
+            }
         }
 
-        // Atualizar os detalhes de pagamento inicialmente
+        // Atualiza os detalhes do pagamento inicialmente
         updatePaymentDetails();
-    </script>
+    });
+</script>

@@ -12,28 +12,28 @@
         <a href="<?= URL . "index.php?pg=beta" ?>" class="produto-link">
             <div class="produto-imagem"></div>
         </a>
-        <p class="preco"> R$ </p>
+        <p class="preco"> R$ 70,00 </p>
     </li>
 
     <li id="foto03">
-        <a href="<?= URL . "index.php?pg=" ?>" class="produto-link">
+        <a href="<?= URL . "index.php?pg=creatina-universal" ?>" class="produto-link">
             <div class="produto-imagem"></div>
         </a>
         <div>
-        <p class="preco"> R$ </p></div>
+        <p class="preco"> R$ 119,00 </p></div>
     </li>
 
     <li id="foto04">
-        <a href="<?= URL . "index.php?pg=" ?>" class="produto-link">
+        <a href="<?= URL . "index.php?pg=barra-growth" ?>" class="produto-link">
             <div class="produto-imagem"></div>
         </a>
-        <p class="preco">R$ </p>
+        <p class="preco">R$ 7,90</p>
     </li>
 
     <li id="foto05">
-        <a href="<?= URL . "index.php?pg=" ?>" class="produto-link">
+        <a href="<?= URL . "index.php?pg=dark" ?>" class="produto-link">
             <div class="produto-imagem"></div>
         </a>
-        <p class="preco"> R$ </p>
+        <p class="preco"> R$ 49,90</p>
     </li>
 </ul>

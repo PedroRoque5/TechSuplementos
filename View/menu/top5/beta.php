@@ -9,6 +9,7 @@
         <div class="descreve">
             <p class="descrição">
             O Pré-HD Elite é um suplemento pré-treino desenvolvido para potencializar seu desempenho físico e mental durante os treinos. Formulado com uma combinação estratégica de ingredientes, ele oferece energia, foco e resistência, tudo isso de forma equilibrada e com segurança.<br>
+            <strong>ANTES DE COMPRAR CONSULTE UM CARDIOLOGISTA</strong>
             </p>
             <div class="sabor">
                 <h3>sabor: Uva com Morango</h3>
