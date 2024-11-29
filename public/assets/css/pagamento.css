@@ -68,3 +68,11 @@
 .hidden {
     display: none;
 }
+.hidden {
+    display: none;
+}
+
+.success {
+    color: green;
+    font-weight: bold;
+}

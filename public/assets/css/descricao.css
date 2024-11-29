@@ -189,6 +189,7 @@ h2.preco {
   display: flex;
   justify-content: center;
   gap: 10px;
+  color: white;
 }
 
 .avaliacao label {
@@ -201,15 +202,7 @@ h2.preco {
 
 .avaliacao input[type="radio"] {
   display: none;
-}
-
-.avaliacao input[type="radio"]:checked+label {
-  color: #ffc107;
-}
-
-.avaliacao label:hover,
-.avaliacao label:hover~label {
-  color: #9c7501;
+  color: white;
 }
 
 
@@ -237,4 +230,27 @@ textarea#comentario {
 
 .submit-button:hover {
   background-color: #218838;
+}
+.avaliacao {
+  display: flex;
+  gap: 5px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.estrela {
+  color: #ccc; /* Cor padrão (não selecionada) */
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.estrela.selecionada {
+  color: #ffc107; /* Cor das estrelas selecionadas (amarelo) */
+}
+
+.estrela:hover {
+  color: #ffd700; /* Cor quando o mouse passar sobre as estrelas */
+}
+.estrela:hover ~ .estrela {
+  color: #ccc; /* Cor das estrelas à direita, se o mouse passar sobre uma estrela (não as selecionadas) */
 }
