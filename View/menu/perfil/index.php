@@ -1,12 +1,26 @@
+<?php 
+$file = __DIR__ . '/../../cadastro/cadastrar.php';
+if (file_exists($file)){
+    require_once $file;
+} else {
+    echo "Erro: Arquivo não encontrado.";
+}
+
+$nome = $_SESSION['nome'] ?? 'Visitante';
+$email = $_SESSION['email'] ?? 'Não cadastrado';
+$telefone = $_SESSION['telefone'] ?? 'Não cadastrado';
+?>
+
 <div>
     <h1>Seja bem-vindo</h1>
 </div>
     <link href="<?= ASSETS ?>css/perfil.css" rel="stylesheet">
     <div id="dados-usuario">
-        <h2>Maria da Silva</h2>
-        <p><i class="fa-solid fa-location-dot"></i> São Paulo, SP</p>
-        <p><i class="fa-solid fa-envelope"></i> maria.silva@gmail.com</p>
-        <p><i class="fa-solid fa-phone"></i> (11) 98765-4321</p>
+       <?php echo "<h2>$nome</h2>";
+        echo "<p><i class='fa-solid fa-location-dot'></i> São Paulo, SP</p>";
+        echo "<p><i class='fa-solid fa-envelope'></i> $email</p>";
+        echo "<p><i class='fa-solid fa-phone'></i> $telefone</p>";
+        ?>
     </div>
     </div>
 

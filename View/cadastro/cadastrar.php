@@ -39,9 +39,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Por favor, preencha todos os campos corretamente.";
     }
 }
+
+session_start();
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $_SESSION['nome'] = $nome;
+    $_SESSION['email'] = $email;
+    $_SESSION['cpf'] = $cpf;
+    $_SESSION['telefone'] = $telefone;
+}
 ?>
 
-<link href="<?= ASSETS ?>css/pessoa.css" rel='stylesheet'>
-<form action="<?= URL. 'index.php?pg=login'?>" method="post">
-<button class="btn btn-success">Ir para tela de Login</button>
-</form>
