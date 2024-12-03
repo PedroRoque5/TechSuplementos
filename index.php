@@ -75,6 +75,7 @@ switch ($pagina) {
     case 'creatina-universal': include_once './View/menu/top5/creatina-universal.php'; break;
     case 'arginine': include_once './View/menu/novidades/arginine.php'; break;
     case 'whey-dark': include_once './View/menu/novidades/whey-dark.php'; break;
+    case 'function': include_once './app/controller/Descricao.js'; break;
   
     default:
     include_once './View/error/index.php'; break;

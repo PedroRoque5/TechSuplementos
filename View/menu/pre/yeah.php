@@ -24,16 +24,22 @@
         </div>
     </div>
 
-    <h2 class="preco">R$ 99,90</h2>
+    <h2 class="preco" id="produto-preco">R$ 99,90</h2>
 
     <div class="actions">
         <a href="<?= URL . 'index.php?pg=pagamento' ?>">
             <button class="buy-button">Comprar Agora</button>
         </a>
-        <button class="cart-button">
+        <button class="cart-button"  id="cart-button">
             <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
         </button>
     </div>
+    <div class="quantity-controls" id="quantity-controls" style="display: none;">
+    <button id="decrease-quantity" class="quantity-button">-</button>
+    <span id="quantity-display">1</span>
+    <button id="increase-quantity" class="quantity-button">+</button>
+    <button id="confirm-cart-button" class="confirm-button">Confirmar</button>
+</div>
     </div>
 
     <section class="curiosidades">
@@ -69,84 +75,7 @@
         </section>
     </main>
 
-    <script>
- document.addEventListener('DOMContentLoaded', () => {
-    const stars = document.querySelectorAll('.estrela');
-    const submitButton = document.getElementById('submit-button');
-    const reviewsList = document.getElementById('reviews-list');
-    const comentarioInput = document.getElementById('comentario');
-
-    let selectedRating = 0; // Avaliação atual selecionada
-
-    // Adiciona eventos de interação nas estrelas
-    stars.forEach(star => {
-        star.addEventListener('mouseenter', () => {
-            highlightStars(star.dataset.value);
-        });
-
-        star.addEventListener('mouseleave', () => {
-            highlightStars(selectedRating);
-        });
-
-        star.addEventListener('click', () => {
-            selectedRating = star.dataset.value; // Define avaliação
-            highlightStars(selectedRating);
-        });
-    });
-
-    // Função para destacar estrelas
-    function highlightStars(rating) {
-        stars.forEach(star => {
-            if (star.dataset.value <= rating) {
-                star.classList.add('hover');
-            } else {
-                star.classList.remove('hover');
-            }
-        });
-    }
-
-    // Adiciona novo comentário ao clicar no botão
-    submitButton.addEventListener('click', () => {
-        const comentario = comentarioInput.value.trim();
-
-        if (!selectedRating || !comentario) {
-            alert('Por favor, selecione uma avaliação e escreva um comentário.');
-            return;
-        }
-
-        // Cria novo elemento de avaliação
-        const newReview = document.createElement('li');
-        newReview.textContent = `${'⭐ '.repeat(selectedRating).trim()} - "${comentario}"`;
-
-        // Adiciona à lista de avaliações
-        reviewsList.appendChild(newReview);
-
-        // Salva no localStorage
-        saveComment(selectedRating, comentario);
-
-        // Reseta o formulário
-        comentarioInput.value = '';
-        selectedRating = 0;
-        highlightStars(selectedRating);
-    });
-
-    // Salva comentários no localStorage
-    function saveComment(rating, text) {
-        const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
-        savedComments.push({ rating, text });
-        localStorage.setItem('comments', JSON.stringify(savedComments));
-    }
-
-    // Carrega comentários do localStorage ao abrir a página
-    function loadComments() {
-        const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
-        savedComments.forEach(comment => {
-            const newReview = document.createElement('li');
-            newReview.textContent = `${'⭐ '.repeat(comment.rating).trim()} - "${comment.text}"`;
-            reviewsList.appendChild(newReview);
-        });
-    }
-
-    loadComments(); // Chama a função ao carregar a página
-});
-</script>
+    <script src="<?= CONTROLLER ?>descricao.js">
+   loadComments();
+   initCarrinho();
+   </script>

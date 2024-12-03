@@ -4,6 +4,7 @@ if (file_exists($file)){
     require_once $file;
 } else {
     echo "Erro: Arquivo não encontrado.";
+    exit;
 }
 
 $nome = $_SESSION['nome'] ?? 'Visitante';
@@ -17,7 +18,6 @@ $telefone = $_SESSION['telefone'] ?? 'Não cadastrado';
     <link href="<?= ASSETS ?>css/perfil.css" rel="stylesheet">
     <div id="dados-usuario">
        <?php echo "<h2>$nome</h2>";
-        echo "<p><i class='fa-solid fa-location-dot'></i> São Paulo, SP</p>";
         echo "<p><i class='fa-solid fa-envelope'></i> $email</p>";
         echo "<p><i class='fa-solid fa-phone'></i> $telefone</p>";
         ?>
