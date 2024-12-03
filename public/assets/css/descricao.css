@@ -52,8 +52,10 @@ h2.preco {
   text-align: center;
   margin-top: 20px;
 }
+
 .payment-button {
-  background-color: #ffc107; /* Amarelo para chamar atenção */
+  background-color: #ffc107;
+  /* Amarelo para chamar atenção */
   color: #333;
   border: none;
   padding: 10px 20px;
@@ -96,9 +98,11 @@ h2.preco {
   font-weight: bold;
   transition: background-color 0.3s ease;
 }
+
 .cart-button .fas {
-  font-size: 18px; 
+  font-size: 18px;
 }
+
 .cart-button:hover {
   background-color: #0056b3;
 }
@@ -231,6 +235,7 @@ textarea#comentario {
 .submit-button:hover {
   background-color: #218838;
 }
+
 .avaliacao {
   display: flex;
   gap: 5px;
@@ -239,21 +244,27 @@ textarea#comentario {
 }
 
 .estrela {
-  color: #ccc; /* Cor padrão (não selecionada) */
+  color: #ccc;
+  /* Cor padrão (não selecionada) */
   cursor: pointer;
   transition: color 0.3s ease;
 }
 
 .estrela.selecionada {
-  color: #ffc107; /* Cor das estrelas selecionadas (amarelo) */
+  color: #ffc107;
+  /* Cor das estrelas selecionadas (amarelo) */
 }
 
 .estrela:hover {
-  color: #ffd700; /* Cor quando o mouse passar sobre as estrelas */
+  color: #ffd700;
+  /* Cor quando o mouse passar sobre as estrelas */
 }
-.estrela:hover ~ .estrela {
-  color: #ccc; /* Cor das estrelas à direita, se o mouse passar sobre uma estrela (não as selecionadas) */
+
+.estrela:hover~.estrela {
+  color: #ccc;
+  /* Cor das estrelas à direita, se o mouse passar sobre uma estrela (não as selecionadas) */
 }
+
 .quantity-controls {
   display: flex;
   align-items: center;
@@ -271,6 +282,7 @@ textarea#comentario {
   font-size: 18px;
   font-weight: bold;
 }
+
 .quantity-controls {
   display: flex;
   align-items: center;
@@ -302,4 +314,3 @@ textarea#comentario {
 .confirm-button:hover {
   background-color: #45a049;
 }
-

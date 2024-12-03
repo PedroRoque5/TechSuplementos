@@ -17,7 +17,7 @@
                 <select name="sabores" id="sabores">
                     <option value="chocolate">Chocolate</option>
                     <option value="baunilha"> Baunilha</option>
-                    <option value="morango">cookies</option>
+                    <option value="cookies">cookies</option>
                 </select>
             </div>
         </div>

@@ -13,10 +13,10 @@
             <div class="sabor">
                 <h3>Escolha o sabor:</h3>
                 <select name="sabores" id="sabores">
-                    <option value="chocolate">Baunilha</option>
-                    <option value="baunilha">Chocolate</option>
+                    <option value="baunilha">Baunilha</option>
+                    <option value="chocolate">Chocolate</option>
                     <option value="morango">Morango</option>
-                    <option value="morango">Banana</option>
+                    <option value="banana">Banana</option>
                 </select>
             </div>
         </div>

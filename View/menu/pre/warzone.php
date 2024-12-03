@@ -28,10 +28,10 @@
             <div class="sabor">
                 <h3>Escolha o sabor:</h3>
                 <select name="sabores" id="sabores">
-                    <option value="chocolate">Blood battle</option>
-                    <option value="baunilha">Purple heart punch</option>
-                    <option value="morango">Green Bomb</option>
-                    <option value="morango">Passion & Fury</option>
+                    <option value="blood">Blood battle</option>
+                    <option value="purple">Purple heart punch</option>
+                    <option value="green">Green Bomb</option>
+                    <option value="passion">Passion & Fury</option>
                 </select>
             </div>
         </div>

@@ -24,8 +24,8 @@
                     <option value="chocolate">Chocolate</option>
                     <option value="baunilha">Baunilha</option>
                     <option value="morango">Morango</option>
-                    <option value="morango">Banana</option>
-                    <option value="cookies">Coco</option>
+                    <option value="banana">Banana</option>
+                    <option value="coco">Coco</option>
                 </select>
             </div>
         </div>

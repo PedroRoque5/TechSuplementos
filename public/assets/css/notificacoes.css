@@ -1,4 +1,3 @@
-
 .notifications-container {
     background-color: transparent;
     padding: 20px;
@@ -12,6 +11,7 @@
     text-align: center;
     color: white;
 }
+
 .notifications-container p {
     font-size: 14px;
     color: #ffffff;

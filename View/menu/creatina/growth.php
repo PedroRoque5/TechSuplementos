@@ -20,49 +20,49 @@
 
     <h2 class="preco" id="produto-preco">R$ 79,92</h2>
 
-<div class="actions">
-    <a href="<?= URL . 'index.php?pg=pagamento' ?>">
-        <button class="buy-button">Comprar Agora</button>
-    </a>
-    <button class="cart-button" id="cart-button">
-        <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
-    </button>
-</div>
+    <div class="actions">
+        <a href="<?= URL . 'index.php?pg=pagamento' ?>">
+            <button class="buy-button">Comprar Agora</button>
+        </a>
+        <button class="cart-button" id="cart-button">
+            <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+        </button>
+    </div>
 
-<!-- Controles de quantidade ocultos inicialmente -->
-<div class="quantity-controls" id="quantity-controls" style="display: none;">
-    <button id="decrease-quantity" class="quantity-button">-</button>
-    <span id="quantity-display">1</span>
-    <button id="increase-quantity" class="quantity-button">+</button>
-    <button id="confirm-cart-button" class="confirm-button">Confirmar</button>
-</div>
+    <!-- Controles de quantidade ocultos inicialmente -->
+    <div class="quantity-controls" id="quantity-controls" style="display: none;">
+        <button id="decrease-quantity" class="quantity-button">-</button>
+        <span id="quantity-display">1</span>
+        <button id="increase-quantity" class="quantity-button">+</button>
+        <button id="confirm-cart-button" class="confirm-button">Confirmar</button>
+    </div>
 
-</div>
+    </div>
 
     <section class="curiosidades">
         <h3>Curiosidades sobre o produto</h3>
         <p>
-        A creatina monohidratada é um dos suplementos mais populares do mercado. Além disso, é o suplemento mais estudado pela ciência esportiva. Ela é usada por atletas de diversas modalidades, incluindo fisiculturistas profissionais. O foco da sua aplicação na dieta é o ganho de massa muscular, garantindo a energia que seu músculo precisa para crescer cada vez mais. Entre os seus benefícios, a creatina aumenta a capacidade do músculo de gerar força. Ajuda diretamente na hipertrofia muscular, aumenta sua capacidade de treino, previne o catabolismo e influencia a transcrição gênica.<br>
+            A creatina monohidratada é um dos suplementos mais populares do mercado. Além disso, é o suplemento mais estudado pela ciência esportiva. Ela é usada por atletas de diversas modalidades, incluindo fisiculturistas profissionais. O foco da sua aplicação na dieta é o ganho de massa muscular, garantindo a energia que seu músculo precisa para crescer cada vez mais. Entre os seus benefícios, a creatina aumenta a capacidade do músculo de gerar força. Ajuda diretamente na hipertrofia muscular, aumenta sua capacidade de treino, previne o catabolismo e influencia a transcrição gênica.<br>
 
-        Caso o seu objetivo seja atingir a hipertrofia, o melhor a fazer é comprar Creatina Monohidratada da Growth Supplements, procurar um nutricionista de sua confiança e começar a tomá-la de forma estratégica.
+            Caso o seu objetivo seja atingir a hipertrofia, o melhor a fazer é comprar Creatina Monohidratada da Growth Supplements, procurar um nutricionista de sua confiança e começar a tomá-la de forma estratégica.
 
         </p>
     </section>
 
 
     <main>
-    <section class="comentarios">
-    <h3>Avalie este produto:</h3>
-    <div class="avaliacao" id="avaliacao">
-        <span class="estrela" data-value="1">⭐</span>
-        <span class="estrela" data-value="2">⭐</span>
-        <span class="estrela" data-value="3">⭐</span>
-        <span class="estrela" data-value="4">⭐</span>
-        <span class="estrela" data-value="5">⭐</span>
-    </div>
-    <textarea name="comentario" id="comentario" placeholder="Escreva seu comentário aqui..." rows="5" required></textarea>
-    <button type="button" class="submit-button" id="submit-button">Enviar Comentário</button>
-</section>
+        <section class="comentarios">
+            <h3>Avalie este produto:</h3>
+            <div class="avaliacao" id="avaliacao">
+                <span class="estrela" data-value="1">⭐</span>
+                <span class="estrela" data-value="2">⭐</span>
+                <span class="estrela" data-value="3">⭐</span>
+                <span class="estrela" data-value="4">⭐</span>
+                <span class="estrela" data-value="5">⭐</span>
+            </div>
+            <textarea name="comentario" id="comentario" placeholder="Escreva seu comentário aqui..." rows="5" required></textarea>
+            <button type="button" class="submit-button" id="submit-button">Enviar Comentário</button>
+        </section>
 
         <!-- Lista de Avaliações -->
         <section class="reviews">
@@ -74,6 +74,6 @@
     </main>
 
     <script src="<?= CONTROLLER ?>descricao.js">
-   loadComments();
-   initCarrinho();
-   </script>
+        loadComments();
+        initCarrinho();
+    </script>

@@ -9,8 +9,8 @@ div#dashboard {
 
 img#logo {
     margin-top: -90px;
-    width:auto;
-    height:auto;
+    width: auto;
+    height: auto;
 }
 
 nav#menu {
@@ -100,17 +100,18 @@ form button#lupa {
 
 nav#submenu {
     display: block;
-    position:relative;
+    position: relative;
 }
 
-nav#menusub{
+nav#menusub {
     display: block;
 }
+
 nav#menusub ul#segunda {
     list-style: none;
     text-transform: uppercase;
     position: absolute;
-    top:  85px;
+    top: 85px;
     left: 250px;
 }
 
@@ -124,14 +125,15 @@ nav#menusub li#segundo {
 }
 
 nav#menusub li#segundo:hover {
-    background-color: rgb(255, 0, 0);;
+    background-color: rgb(255, 0, 0);
+    ;
 }
 
 nav#menusub h2 {
     display: none;
 }
 
-nav#menusub .menus{
+nav#menusub .menus {
     display: block;
     padding: 8px;
     color: rgb(255, 255, 255);
@@ -164,7 +166,7 @@ nav#submenu li.cascata {
 }
 
 nav#submenu li.cascata {
-    background: rgb(50,50,50) ;
+    background: rgb(50, 50, 50);
 }
 
 nav#submenu a {
@@ -225,13 +227,14 @@ i#settings {
     font-size: 20px;
 }
 
-i#perfil{
+i#perfil {
     font-size: 20px;
 }
 
-i#produto{
+i#produto {
     font-size: 20px;
 }
+
 #login-dropdown {
     position: absolute;
     background-color: rgb(50, 50, 50);
@@ -240,7 +243,7 @@ i#produto{
     border-radius: 4px;
     padding: 10px 0;
     list-style: none;
-    display: none; 
+    display: none;
     z-index: 10;
     margin: 0;
     min-width: 200px;

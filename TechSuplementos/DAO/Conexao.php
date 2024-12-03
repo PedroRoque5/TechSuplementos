@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * Conexão com o banco de dados
@@ -16,12 +16,14 @@
  * }
  */
 
-class Conexao {
+class Conexao
+{
 
     private $pdo;
 
     // Função privada para ligar a conexão com o banco de dados
-    private function conectar() {
+    private function conectar()
+    {
         try {
             $host = 'localhost'; // Endereço do banco de dados
             $dbname = 'techsuplementos'; // Nome do banco de dados
@@ -36,19 +38,20 @@ class Conexao {
 
             // Define o modo de erro do PDO para lançar exceções
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
         } catch (PDOException $e) {
             echo "Erro na conexão: " . $e->getMessage();
         }
     }
 
     // Função privada para desligar a conexão
-    private function desconectar() {
+    private function desconectar()
+    {
         $this->pdo = null; // Fecha a conexão
     }
 
     // Função pública para buscar dados
-    public function buscar($query, $params = []) {
+    public function buscar($query, $params = [])
+    {
         $this->conectar();
         try {
             $stmt = $this->pdo->prepare($query);
@@ -63,7 +66,8 @@ class Conexao {
     }
 
     // Função pública para inserir dados
-    public function inserir($query, $params = []) {
+    public function inserir($query, $params = [])
+    {
         $this->conectar();
         try {
             $stmt = $this->pdo->prepare($query);
@@ -77,7 +81,8 @@ class Conexao {
     }
 
     // Função pública para atualizar dados
-    public function atualizar($query, $params = []) {
+    public function atualizar($query, $params = [])
+    {
         $this->conectar();
         try {
             $stmt = $this->pdo->prepare($query);
@@ -91,7 +96,8 @@ class Conexao {
     }
 
     // Função pública para deletar dados
-    public function deletar($query, $params = []) {
+    public function deletar($query, $params = [])
+    {
         $this->conectar();
         try {
             $stmt = $this->pdo->prepare($query);
@@ -104,4 +110,3 @@ class Conexao {
         }
     }
 }
-

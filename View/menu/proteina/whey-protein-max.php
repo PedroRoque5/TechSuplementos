@@ -17,7 +17,7 @@
                     <option value="chocolate">Chocolate</option>
                     <option value="baunilha">Baunilha</option>
                     <option value="morango">Morango</option>
-                    <option value="cookies">Vitamina de frutas</option>
+                    <option value="vitamina">Vitamina de frutas</option>
                 </select>
             </div>
         </div>

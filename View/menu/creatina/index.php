@@ -20,7 +20,8 @@
             <div class="produto-imagem"></div>
         </a>
         <div>
-        <p class="preco"> R$ 100,00</p></div>
+            <p class="preco"> R$ 100,00</p>
+        </div>
     </li>
 
     <li id="foto04">
@@ -83,6 +84,6 @@
         <a href="<?= URL . "index.php?pg=vegana" ?>" class="produto-link">
             <div class="produto-imagem"></div>
         </a>
-            <p class="preco">R$ 232,43</p>
+        <p class="preco">R$ 232,43</p>
     </li>
 </ul>

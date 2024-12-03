@@ -14,7 +14,7 @@
                 <h3>Escolha o sabor:</h3>
                 <select name="sabores" id="sabores">
                     <option value="chocolate">Chocolate</option>
-                    <option value="baunilha">Coco</option>
+                    <option value="coco">Coco</option>
                     <option value="morango">Morango</option>
                     <option value="cookies">Cookies N Cream</option>
                 </select>

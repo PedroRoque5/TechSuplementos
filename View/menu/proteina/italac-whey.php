@@ -17,12 +17,12 @@
             <div class="sabor">
                 <h3>Escolha o sabor:</h3>
                 <select name="sabores" id="sabores">
-                    <option value="chocolate">Capuccino</option>
-                    <option value="baunilha">Pasta de amendoim</option>
-                    <option value="morango">Frutas vermelhas</option>
-                    <option value="morango">Banana</option>
-                    <option value="cookies">Baunilha</option>
-                    <option value="cookies">Chocolate</option>
+                    <option value="capuccino">Capuccino</option>
+                    <option value="amendoim">Pasta de amendoim</option>
+                    <option value="vermelha">Frutas vermelhas</option>
+                    <option value="banana">Banana</option>
+                    <option value="baunilha">Baunilha</option>
+                    <option value="chocolate">Chocolate</option>
                 </select>
             </div>
         </div>

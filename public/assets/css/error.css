@@ -1,10 +1,10 @@
-body{
+body {
     background-color: rgb(50, 50, 50);
     color: red;
 
 }
 
-h1#titulo_error{
+h1#titulo_error {
     font-size: 50px;
     position: absolute;
     top: 37%;
@@ -12,7 +12,7 @@ h1#titulo_error{
 
 }
 
-h1#codigo_error{
+h1#codigo_error {
     font-size: 120px;
     position: absolute;
     top: 25%;
@@ -20,7 +20,7 @@ h1#codigo_error{
 
 }
 
-button#return_home{
+button#return_home {
     font-size: 30px;
     position: absolute;
     top: 60%;
@@ -44,7 +44,8 @@ button#return_home{
     transform: scale(1.1);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-img#error{
+
+img#error {
     width: 80px;
     height: 80px;
 }

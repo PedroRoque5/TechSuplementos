@@ -20,7 +20,8 @@
             <div class="produto-imagem"></div>
         </a>
         <div>
-        <p class="preco"> R$ 103,50 </p></div>
+            <p class="preco"> R$ 103,50 </p>
+        </div>
     </li>
 
     <li id="foto04">
@@ -83,6 +84,6 @@
         <a href="<?= URL . "index.php?pg=hot" ?>" class="produto-link">
             <div class="produto-imagem"></div>
         </a>
-            <p class="preco">R$ 37,80</p>
+        <p class="preco">R$ 37,80</p>
     </li>
 </ul>

@@ -17,11 +17,11 @@
                 <h3>Escolha o sabor:</h3>
                 <select name="sabores" id="sabores">
                     <option value="chocolate">Chocolate</option>
-                    <option value="chocolate">Chocolate Branco</option>
+                    <option value="branco">Chocolate Branco</option>
                     <option value="baunilha">Sorvete de Baunilha</option>
                     <option value="morango">Morango</option>
-                    <option value="morango">Beijinho de coco</option>
-                    <option value="cookies">Leite ninho</option>
+                    <option value="beijinho">Beijinho de coco</option>
+                    <option value="ninho">Leite ninho</option>
                 </select>
             </div>
         </div>

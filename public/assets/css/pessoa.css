@@ -1,21 +1,24 @@
 .form {
-   margin-top:5%;
-   margin-left: 40%;
+    margin-top: 5%;
+    margin-left: 40%;
 }
-form{
+
+form {
     display: block;
 }
-input{
+
+input {
     font-family: "Montserrat" sans-serif;
     font-weight: normal;
     font-size: 13pt;
 }
-input:hover{
 
-    background-color:#aaaa;
+input:hover {
+
+    background-color: #aaaa;
 }
 
-.btn{
+.btn {
     display: inline-block;
     padding: 10px 20px;
     font-size: 16px;
@@ -24,34 +27,37 @@ input:hover{
     border-radius: 5px;
     transition: background-color 0.3s;
 }
+
 .btn-success {
     background-color: green;
 }
-.btn-success:hover{
+
+.btn-success:hover {
     background-color: rgb(3, 126, 3);
     transform: scale(1.1);
     box-shadow: 0 4px 5px black;
 }
-.btn-input{
+
+.btn-input {
     background-color: red;
 }
 
-.btn-input:hover{
+.btn-input:hover {
     background-color: rgb(201, 11, 11);
     transform: scale(1.1);
     box-shadow: 0 4px 5px black;
 }
 
-div#form{
+div#form {
 
     margin-top: 10px;
 }
 
-h1.Cad{
+h1.Cad {
     color: white;
     text-align: center;
- }
- .echo{
-    color:transparent
- }
+}
 
+.echo {
+    color: transparent
+}

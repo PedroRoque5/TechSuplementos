@@ -1,7 +1,7 @@
 <br>
 <br>
 
-<?php 
+<?php
 
 //código para inserir usuário
 require_once './TechSuplementos/DAO/Conexao.php'; // Certifique-se de incluir o arquivo que contém a classe Conexao
@@ -31,7 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         try {
             $userId = $conexao->inserir($query, $params);
-            echo "<p class='echo'> Usuário cadastrado com sucesso! ID do usuário:  " . $userId; echo " </p>";
+            echo "<p class='echo'> Usuário cadastrado com sucesso! ID do usuário:  " . $userId;
+            echo " </p>";
         } catch (Exception $e) {
             echo "Erro ao cadastrar usuário: " . $e->getMessage();
         }
@@ -41,11 +42,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 session_start();
-if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $_SESSION['nome'] = $nome;
     $_SESSION['email'] = $email;
     $_SESSION['cpf'] = $cpf;
     $_SESSION['telefone'] = $telefone;
 }
 ?>
-
