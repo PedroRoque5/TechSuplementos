@@ -43,13 +43,17 @@ CREATE TABLE IF NOT EXISTS `gestão de pedido` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela techsuplementos.produto/marca
-CREATE TABLE IF NOT EXISTS `produto/marca` (
-  `ID` int(10) DEFAULT NULL,
-  `Ano de fundação` date DEFAULT NULL,
-  `Nome` varchar(50) DEFAULT NULL,
-  `País de origem` varchar(50) DEFAULT NULL,
-  `idPromoções/descontos` int(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE produtos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    pais_origem VARCHAR(100),
+    ano_fundacao YEAR,
+    descricao TEXT,
+    preco DECIMAL(10,2),
+    catalogo ENUM('creatina', 'whey', 'pre_treino', 'top_5', 'novidades') NOT NULL,
+    imagem VARCHAR(255)
+);
+
 
 -- Exportação de dados foi desmarcado.
 

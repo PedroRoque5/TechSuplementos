@@ -20,7 +20,8 @@
             <div class="produto-imagem"></div>
         </a>
         <div>
-        <p class="preco"> R$ 119,00 </p></div>
+            <p class="preco"> R$ 119,00 </p>
+        </div>
     </li>
 
     <li id="foto04">

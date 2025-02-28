@@ -20,7 +20,8 @@
             <div class="produto-imagem"></div>
         </a>
         <div>
-        <p class="preco"> R$ 148,73</p></div>
+            <p class="preco"> R$ 148,73</p>
+        </div>
     </li>
 
     <li id="foto04">
@@ -83,6 +84,6 @@
         <a href="<?= URL . "index.php?pg=yopro" ?>" class="produto-link">
             <div class="produto-imagem"></div>
         </a>
-            <p class="preco">R$ 15,11</p>
+        <p class="preco">R$ 15,11</p>
     </li>
 </ul>

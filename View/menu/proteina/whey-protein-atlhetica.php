@@ -29,46 +29,46 @@
     <h2 class="preco" id="produto-preco">R$ 148,73</h2>
 
     <div class="actions">
-    <a href="<?= URL . 'index.php?pg=pagamento' ?>">
-    <button class="buy-button">Comprar Agora</button>
+        <a href="<?= URL . 'index.php?pg=pagamento' ?>">
+            <button class="buy-button">Comprar Agora</button>
         </a>
-        <button class="cart-button"  id="cart-button">
+        <button class="cart-button" id="cart-button">
             <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
         </button>
     </div>
     <div class="quantity-controls" id="quantity-controls" style="display: none;">
-    <button id="decrease-quantity" class="quantity-button">-</button>
-    <span id="quantity-display">1</span>
-    <button id="increase-quantity" class="quantity-button">+</button>
-    <button id="confirm-cart-button" class="confirm-button">Confirmar</button>
-</div>
+        <button id="decrease-quantity" class="quantity-button">-</button>
+        <span id="quantity-display">1</span>
+        <button id="increase-quantity" class="quantity-button">+</button>
+        <button id="confirm-cart-button" class="confirm-button">Confirmar</button>
+    </div>
     </div>
 
     <section class="curiosidades">
         <h3>Curiosidades sobre o produto</h3>
         <p>Produzido com proteínas de alto valor biológico, importadas diretamente dos EUA.<br>
-    Cada porção fornece 24g de proteínas, ideal para atender às demandas dos treinos mais intensos.<br>
-    Feito a partir do soro do leite utilizando técnicas modernas para manter a pureza e a qualidade.<br>
-    Contém alto teor de BCAAs, fundamentais para a recuperação e o crescimento muscular.<br>
-    Especialmente formulado para suprir as necessidades de atletas que enfrentam grandes desgastes nos treinos.<br>
-    Pode ser usado como um pós-treino ou como um complemento em receitas, garantindo praticidade no dia a dia.<br>
-    Fabricado pela Atlhetica Nutrition, referência em suplementos de alta performance.<br>
-    </p>
+            Cada porção fornece 24g de proteínas, ideal para atender às demandas dos treinos mais intensos.<br>
+            Feito a partir do soro do leite utilizando técnicas modernas para manter a pureza e a qualidade.<br>
+            Contém alto teor de BCAAs, fundamentais para a recuperação e o crescimento muscular.<br>
+            Especialmente formulado para suprir as necessidades de atletas que enfrentam grandes desgastes nos treinos.<br>
+            Pode ser usado como um pós-treino ou como um complemento em receitas, garantindo praticidade no dia a dia.<br>
+            Fabricado pela Atlhetica Nutrition, referência em suplementos de alta performance.<br>
+        </p>
     </section>
 
     <main>
-    <section class="comentarios">
-    <h3>Avalie este produto:</h3>
-    <div class="avaliacao" id="avaliacao">
-        <span class="estrela" data-value="1">⭐</span>
-        <span class="estrela" data-value="2">⭐</span>
-        <span class="estrela" data-value="3">⭐</span>
-        <span class="estrela" data-value="4">⭐</span>
-        <span class="estrela" data-value="5">⭐</span>
-    </div>
-    <textarea name="comentario" id="comentario" placeholder="Escreva seu comentário aqui..." rows="5" required></textarea>
-    <button type="button" class="submit-button" id="submit-button">Enviar Comentário</button>
-</section>
+        <section class="comentarios">
+            <h3>Avalie este produto:</h3>
+            <div class="avaliacao" id="avaliacao">
+                <span class="estrela" data-value="1">⭐</span>
+                <span class="estrela" data-value="2">⭐</span>
+                <span class="estrela" data-value="3">⭐</span>
+                <span class="estrela" data-value="4">⭐</span>
+                <span class="estrela" data-value="5">⭐</span>
+            </div>
+            <textarea name="comentario" id="comentario" placeholder="Escreva seu comentário aqui..." rows="5" required></textarea>
+            <button type="button" class="submit-button" id="submit-button">Enviar Comentário</button>
+        </section>
 
         <!-- Lista de Avaliações -->
         <section class="reviews">
@@ -80,6 +80,6 @@
     </main>
 
     <script src="<?= CONTROLLER ?>descricao.js">
-   loadComments();
-   initCarrinho();
-   </script>
+        loadComments();
+        initCarrinho();
+    </script>

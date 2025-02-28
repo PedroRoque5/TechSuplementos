@@ -216,6 +216,9 @@ switch ($pagina) {
     case 'function':
         include_once './app/controller/Descricao.js';
         break;
+  case 'salva_produto':
+            include_once './View/cadastro/produto/salvar_produto.php';
+            break;
 
     default:
         include_once './View/error/index.php';

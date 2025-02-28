@@ -106,4 +106,5 @@
         // Atualiza os detalhes do pagamento inicialmente
         updatePaymentDetails();
     });
+    
 </script>
