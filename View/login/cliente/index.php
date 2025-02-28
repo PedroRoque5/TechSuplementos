@@ -1,6 +1,6 @@
 <?php
-require '../../vendor/autoload.php';
-require_once '../../config_serve.php';
+require '../../../vendor/autoload.php';
+require_once '../../../config_serve.php';
 ?>
 
 <!DOCTYPE html>
@@ -24,14 +24,14 @@ require_once '../../config_serve.php';
   <img id="banner" src="<?= ASSETS ?>image/anuncio.png">
 
   <div class="form">
-    <form>
-      <div id="email"><input type="email" placeholder="E-mail ou CPF/CNPJ"></div>
-      <div><input type="password" placeholder="Senha"></div>
+    <form action="<?= URL . 'index.php?pg=confirmaLogin' ?>" method="POST">
+      <div id="email"><input name="email" type="email" placeholder="E-mail ou CPF/CNPJ"></div>
+      <div><input name="senha" type="password" placeholder="Senha"></div>
       <div id="form">
         <input type="checkbox" class="form-check-input" id="exampleCheck1">
         <label class="form-check-label" for="exampleCheck1">Lembre-me</label>
       </div>
-      <a class="btn btn-success" href="<?= URL . 'index.php?pg=home' ?>">Entrar</a>
+      <button type="submit">Entrar</button>
       <a href="<?= URL . "index.php?pg=pessoa" ?>" class="btn btn-input">Cadastrar</a>
     </form>
 

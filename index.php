@@ -10,13 +10,19 @@ include_once './View/template/cabecalho.php';
 
 switch ($pagina) {
     case 'login':
-        header("Location:" . URL . "View/login/index.php");
+        header("Location:" . URL . "View/login/cliente/index.php");
         exit;
     case 'empresa':
         header("Location:" . URL . "View/login/administrador.php");
         exit;
+    case 'confirmaLogin';
+        include_once './View/login/cliente/validar_login.php';
+        break;
     case 'home':
         include_once './View/home/index.php';
+        break;
+    case 'cliente_home';
+        include_once './View/home/cliente/index.php';
         break;
     case 'suporte':
         include_once './View/menu/suporte/index.php';

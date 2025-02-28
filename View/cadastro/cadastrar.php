@@ -32,6 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         try {
             $userId = $conexao->inserir($query, $params);
             echo "<p class='echo'> Usuário cadastrado com sucesso! ID do usuário:  " . $userId;
+            sleep(2);
+            header("Location: index.php?pg=cliente_home");
             echo " </p>";
         } catch (Exception $e) {
             echo "Erro ao cadastrar usuário: " . $e->getMessage();
@@ -40,6 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Por favor, preencha todos os campos corretamente.";
     }
 }
+
 
 session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
