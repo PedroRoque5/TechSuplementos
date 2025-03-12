@@ -38,31 +38,6 @@
                 </li>
                 <li id="unico"><a href="<?= URL . "index.php?pg=suporte" ?>"><i class="fa-regular fa-circle-question"></i>&nbsp; Suporte</a>
                 </li>
-                <li id="unico"><a href="<?= URL . "index.php?pg=carrinho" ?>"><i class="fa-solid fa-cart-shopping"></i></a></li>
-            </ul>
-        </nav>
-    </div>
-    <div id="sub">
-        <nav id="submenu">
-
-
-
-            <button class="dropbtn"> <i id="baricon" class="fa-solid fa-bars"></i></button>
-            <ul class="dropdown-menu" id=navcascata>
-                <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=perfil" ?>"><i id="perfil" class="fa-regular fa-user"></i>&nbsp;&nbsp;Perfil</a></li>
-                <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=config" ?>"><i id="settings" class="fa-solid fa-gear"></i>&nbsp;&nbsp;Configurações<br></a></li>
-                <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=produto" ?>"><i id="produto" class="fa-solid fa-shop"></i>&nbsp;&nbsp;Cadastrar Produto<br></a></li>
-            </ul>
-
-        </nav>
-        <nav id="menusub">
-            <ul id="segunda">
-                <li id="segundo"><a class="menus" href="<?= URL . "index.php?pg=top5" ?>">Top 5</a></li>
-                <li id="segundo"><a class="menus" href="<?= URL . "index.php?pg=novidades" ?>">Novidades</a></li>
-                <li id="segundo"><a class="menus" href="<?= URL . "index.php?pg=proteina" ?>">Proteína</a></li>
-                <li id="segundo"><a class="menus" href="<?= URL . "index.php?pg=creatina" ?>">Creatina</a></li>
-                <li id="segundo"><a class="menus" href="<?= URL . "index.php?pg=pre" ?>">Pré-treino</a></li>
-                <li id="segundo"><a class="menus" href="<?= URL . "index.php?pg=metas" ?>">Metas</a></li>
             </ul>
         </nav>
     </div>

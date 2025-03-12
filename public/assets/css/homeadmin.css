@@ -25,18 +25,3 @@ span {
     font-family: "Montserrat" sans-serif;
     padding: 10px;
 }
-
-.saiba {
-    font-size: 30px;
-    color: white;
-    padding: 5px;
-    border: solid 3px white;
-    border-radius: 10px;
-    text-decoration: none;
-    position: absolute;
-    top: 370px;
-    left: 150px;
-}
-a.saiba{
-    color: white;
-}

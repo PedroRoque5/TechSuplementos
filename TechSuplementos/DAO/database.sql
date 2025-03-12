@@ -46,8 +46,6 @@ CREATE TABLE IF NOT EXISTS `gestão de pedido` (
 CREATE TABLE produtos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
-    pais_origem VARCHAR(100),
-    ano_fundacao YEAR,
     descricao TEXT,
     preco DECIMAL(10,2),
     catalogo ENUM('creatina', 'whey', 'pre_treino', 'top_5', 'novidades') NOT NULL,
@@ -67,11 +65,11 @@ CREATE TABLE IF NOT EXISTS `promoção/desconto` (
 
 -- Copiando estrutura para tabela techsuplementos.usuário
 CREATE TABLE IF NOT EXISTS `usuario` (
-  `Telefone` int(11) DEFAULT NULL,
-  `E-Mail` varchar(50) DEFAULT NULL,
-  `CPF/CNPJ` int(11) DEFAULT NULL,
-  `Nome` varchar(50) DEFAULT NULL,
-  `Senha` varchar(50) DEFAULT NULL
+  `email` int(11) DEFAULT NULL,
+  `nome` varchar(50) DEFAULT NULL,
+  `cpf` int(11) DEFAULT NULL,
+  `telefone` varchar(50) DEFAULT NULL,
+  `senha` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Exportação de dados foi desmarcado.

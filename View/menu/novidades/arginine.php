@@ -69,7 +69,10 @@
         </section>
     </main>
 
-    <script src="<?= CONTROLLER ?>descricao.js">
-        loadComments();
-        initCarrinho();
+    <script src="<?= CONTROLLER ?>descricao.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            loadComments();
+            initCarrinho();
+        });
     </script>

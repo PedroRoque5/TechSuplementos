@@ -234,6 +234,9 @@ i#perfil {
 i#produto {
     font-size: 20px;
 }
+i#estoque {
+    font-size: 20px;
+}
 
 #login-dropdown {
     position: absolute;

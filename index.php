@@ -19,7 +19,10 @@ switch ($pagina) {
         include_once './View/login/cliente/validar_login.php';
         break;
     case 'home':
-        include_once './View/home/index.php';
+        include_once './View/home/cliente/index.php';
+        break;
+    case 'homeadmin':
+        include_once './View/home/administrador/index.php';
         break;
     case 'cliente_home';
         include_once './View/home/cliente/index.php';

@@ -1,12 +1,10 @@
-<link href="<?= ASSETS ?>css/produto.css" rel='stylesheet'>
+<link href="<?= ASSETS?>css/produto.css" rel='stylesheet'>
 
 <div class="form">
   <form id="Cadastro" action="<?= URL . 'index.php?pg=salva_produto' ?>" method="post" enctype="multipart/form-data">
     <h1 class="Cad">Cadastre o seu produto:</h1>
 
     <div><input type="text" id="produto_nome" name="produto_nome" placeholder="Nome do Produto" required></div>
-    <div><input type="text" id="pais_origem" name="pais_origem" placeholder="País de Origem"></div>
-    <div><input type="date" id="ano_fundacao" name="ano_fundacao" placeholder="Ano de Fundação"></div>
     <div><input type="text" id="descricao" name="descricao" placeholder="Descrição do Produto"></div>
     <div><input type="number" id="preco" name="preco" placeholder="Preço (R$)"></div>
 

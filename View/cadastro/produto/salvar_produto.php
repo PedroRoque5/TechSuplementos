@@ -4,8 +4,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Captura os dados do formulário
     $produto_nome = $_POST['produto_nome'];
-    $pais_origem = $_POST['pais_origem'];
-    $ano_fundacao = $_POST['ano_fundacao'];
     $descricao = $_POST['descricao'];
     $preco = $_POST['preco'];
     $catalogo = $_POST['catalogo'];
@@ -38,13 +36,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Query SQL para inserir o produto
         $query = "INSERT INTO produtos (nome, pais_origem, ano_fundacao, descricao, preco, catalogo, imagem) 
-                  VALUES (:produto_nome, :pais_origem, :ano_fundacao, :descricao, :preco, :catalogo, :imagem)";
+                  VALUES (:produto_nome, :descricao, :preco, :catalogo, :imagem)";
 
         // Preparar os parâmetros para a query
         $params = [
             ':produto_nome' => $produto_nome,
-            ':pais_origem' => $pais_origem,
-            ':ano_fundacao' => $ano_fundacao,
             ':descricao' => $descricao,
             ':preco' => $preco,
             ':catalogo' => $catalogo,
@@ -78,8 +74,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <h1 class="Cad">Cadastre o seu produto:</h1>
 
         <div><input type="text" id="produto_nome" name="produto_nome" placeholder="Nome do Produto" required></div>
-        <div><input type="text" id="pais_origem" name="pais_origem" placeholder="País de Origem"></div>
-        <div><input type="date" id="ano_fundacao" name="ano_fundacao" placeholder="Ano de Fundação"></div>
         <div><input type="text" id="descricao" name="descricao" placeholder="Descrição do Produto"></div>
         <div><input type="number" id="preco" name="preco" placeholder="Preço (R$)"></div>
 
