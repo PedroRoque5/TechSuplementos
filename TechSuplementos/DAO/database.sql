@@ -48,6 +48,7 @@ CREATE TABLE produtos (
     nome VARCHAR(255) NOT NULL,
     descricao TEXT,
     preco DECIMAL(10,2),
+    sabor TEXT,
     catalogo ENUM('creatina', 'whey', 'pre_treino', 'top_5', 'novidades') NOT NULL,
     imagem VARCHAR(255)
 );
