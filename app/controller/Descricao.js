@@ -78,11 +78,12 @@ document.addEventListener('DOMContentLoaded', () => {
     loadComments(); // Chama a função ao carregar a página
 });
 
-// Função principal para inicializar o controle do carrinho
 function initCarrinho() {
     // Elementos HTML
     const cartButton = document.getElementById('cart-button'); // Botão "Adicionar ao Carrinho"
     const precoElemento = document.getElementById('produto-preco'); // Preço do produto
+    const nomeElemento = document.querySelector('.produto'); // Nome do produto (com a classe "produto")
+    const saborElemento = document.querySelector('.sabor select'); // Sabor do produto (dentro do <select> com a classe "sabores")
     const quantityControls = document.getElementById('quantity-controls'); // Controles de quantidade
     const decreaseButton = document.getElementById('decrease-quantity'); // Botão "-"
     const increaseButton = document.getElementById('increase-quantity'); // Botão "+"
@@ -129,11 +130,44 @@ function initCarrinho() {
         // Exibe um alerta com as informações
         alert(`Você adicionou ${quantidade} unidade(s) ao carrinho.\nTotal: R$ ${total}`);
 
+        // Adiciona o item ao carrinho no localStorage
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+        console.log('Carrinho atual:', cartItems); // Exibe o carrinho atual no console
+
+        // Captura o nome do produto e o sabor selecionado
+        const nomeProduto = nomeElemento.textContent.trim();  // Nome do produto
+        const saborProduto = saborElemento ? saborElemento.value : 'Sem sabor'; // Captura o sabor selecionado (do <select> com a classe "sabores")
+
+        // Verifica se o item já está no carrinho
+        let itemExistente = cartItems.find(item => item.name === nomeProduto && item.sabor === saborProduto);
+
+        if (itemExistente) {
+            // Se já existir, aumenta a quantidade
+            itemExistente.quantity += quantidade;
+            console.log(`Atualizando quantidade de ${itemExistente.name} (${itemExistente.sabor}) para ${itemExistente.quantity}`);
+        } else {
+            // Caso não exista, adiciona o item novo
+            cartItems.push({
+                name: nomeProduto, // Usa o nome do produto
+                sabor: saborProduto, // Agora estamos também armazenando o sabor
+                price: precoProduto,
+                quantity: quantidade
+            });
+            console.log(`Adicionando novo item: ${nomeProduto} (${saborProduto}) com quantidade ${quantidade}`);
+        }
+
+        // Atualiza o localStorage
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+        // Verifica se os dados foram salvos corretamente
+        console.log('Carrinho após salvar:', JSON.parse(localStorage.getItem('cartItems')));
+
         // Reseta a interface para o estado inicial
         quantityControls.style.display = 'none'; // Oculta os controles de quantidade
         cartButton.style.display = 'inline-block'; // Mostra o botão "Adicionar ao Carrinho"
         quantidade = 1; // Reseta a quantidade para 1
-        updateQuantityDisplay(); // Atualiza o display da quantidade
+        updateQuantityDisplay(); // Atualiza a exibição da quantidade
     });
 }
 
