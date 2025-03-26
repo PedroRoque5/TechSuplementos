@@ -24,9 +24,6 @@ switch ($pagina) {
     case 'homeadmin':
         include_once './View/home/administrador/index.php';
         break;
-    case 'cliente_home';
-        include_once './View/home/cliente/index.php';
-        break;
     case 'suporte':
         include_once './View/menu/suporte/index.php';
         break;

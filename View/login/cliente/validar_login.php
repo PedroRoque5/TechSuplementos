@@ -7,7 +7,7 @@ require_once '../TechSuplementos/TechSuplementos/DAO/Conexao.php'; // Ajuste par
 // Verifica se os campos email e senha foram enviados via POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-    $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
+    $senha = $_POST['senha'];
 
     if (!$email || !$senha) {
         echo "Erro: Preencha todos os campos!";
@@ -19,24 +19,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $conexao = new Conexao();
 
         // Verificar se o usuário existe no banco
-        $query = "SELECT id, email, senha, tipo FROM usuario WHERE email = :email";
+        $query = "SELECT id, email, senha FROM usuario WHERE email = :email";
         $params = [':email' => $email];
-        $usuario = $conexao->buscar($query, $params);
+        $usuarios = $conexao->buscar($query, $params);
 
-        if ($usuario) {
+        // Verifica se o usuário foi encontrado
+        if ($usuarios && count($usuarios) > 0) {
+            // Acessa o primeiro usuário retornado
+            $usuario = $usuarios[0];
+
+            // Depure o usuário retornado
+            var_dump($usuario);
+
             // Verifica se a senha está correta
             if (password_verify($senha, $usuario['senha'])) {
                 // Iniciar sessão do usuário
                 $_SESSION['usuario_id'] = $usuario['id'];
                 $_SESSION['email'] = $usuario['email'];
-                $_SESSION['tipo'] = $usuario['tipo'];
 
-                // Redirecionamento baseado no tipo de usuário
-                if ($usuario['tipo'] === 'cliente') {
-                    header("Location: " . URL . "View/home/cliente_home.php");
-                } else {
-                    header("Location: " . URL . "View/home/admin_home.php");
-                }
+                // Redirecionamento para tela principal do usuário
+                header("Location: " . URL . "index.php?pg=home");
+
+                echo "Login realizado com sucesso!";
                 exit;
             } else {
                 echo "Erro: Senha incorreta!";
