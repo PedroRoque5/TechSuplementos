@@ -65,12 +65,13 @@ CREATE TABLE IF NOT EXISTS `promoção/desconto` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela techsuplementos.usuário
-CREATE TABLE IF NOT EXISTS `usuario` (
-  `email` int(11) DEFAULT NULL,
-  `nome` varchar(50) DEFAULT NULL,
-  `cpf` int(11) DEFAULT NULL,
-  `telefone` varchar(50) DEFAULT NULL,
-  `senha` varchar(50) DEFAULT NULL
+CREATE TABLE IF NOT EXISTS usuario (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  nome VARCHAR(50) DEFAULT NULL,
+  cpf VARCHAR(14) NOT NULL UNIQUE,
+  telefone VARCHAR(50) DEFAULT NULL,
+  senha VARCHAR(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Exportação de dados foi desmarcado.
