@@ -219,9 +219,21 @@ switch ($pagina) {
     case 'function':
         include_once './app/controller/Descricao.js';
         break;
-  case 'salva_produto':
-            include_once './View/cadastro/produto/salvar_produto.php';
-            break;
+    case 'salva_produto':
+        include_once './View/cadastro/produto/salvar_produto.php';
+        break;
+    case 'deleta_produto':
+        include_once './View/cadastro/produto/deleta_produto.php';
+        break;
+    case 'atualiza_produto':
+        include_once './View/cadastro/produto/atualiza_produto.php';
+        break;
+    case 'busca_produto':
+        include_once './View/cadastro/produto/busca_produto.php';
+        break;
+    case 'sistemaestoque':
+        include_once './View/menu/estoque/sistemaestoque.php';
+        break;
 
     default:
         include_once './View/error/index.php';

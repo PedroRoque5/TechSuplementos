@@ -17,8 +17,8 @@
     <div id=dashboard>
         <img id="logo" src="<?= ASSETS ?>image/img.png">
         <nav id="navmenu">
-            <form id="formmenu">
-                <input id="search" type="search" placeholder="  O que você procura?">
+            <form id="formmenu" method="POST" action="">
+                <input id="search" type="search" name="pesquisa" placeholder="  O que você procura?" value="<?= htmlspecialchars($termo_pesquisa ?? '') ?>">
                 <button id="lupa" type="submit">
                     <i class="fa fa-search"></i>
                 </button>
@@ -41,9 +41,32 @@
             </ul>
         </nav>
     </div>
-    <?php
 
+    <?php
+    require_once './TechSuplementos/DAO/Conexao.php';
+    $termo_pesquisa = $_POST['pesquisa'] ?? '';
+    $resultados = [];
+
+    if ($termo_pesquisa) {
+        $conexao = new Conexao();
+        $query = "SELECT * FROM produtos WHERE nome LIKE :termo";
+        $params = ['termo' => "%" . $termo_pesquisa . "%"];
+        $resultados = $conexao->buscar($query, $params);
+    }
     ?>
+
+    <?php if ($termo_pesquisa): ?>
+        <h2>Resultados para: "<?= htmlspecialchars($termo_pesquisa) ?>"</h2>
+        <?php if (count($resultados) > 0): ?>
+            <ul>
+                <?php foreach ($resultados as $produto): ?>
+                    <li><?= htmlspecialchars($produto['nome']) ?> - <?= htmlspecialchars($produto['descricao']) ?></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php else: ?>
+            <p>Nenhum produto encontrado.</p>
+        <?php endif; ?>
+    <?php endif; ?>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -62,3 +85,5 @@
             });
         });
     </script>
+</body>
+</html>

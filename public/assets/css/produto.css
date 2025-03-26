@@ -7,13 +7,12 @@ form {
 }
 
 input {
-    font-family: "Montserrat" sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: normal;
     font-size: 13pt;
 }
 
 input:hover {
-
     background-color: #aaaa;
 }
 
@@ -48,14 +47,81 @@ input:hover {
 }
 
 div#form {
-
     margin-top: 10px;
 }
 
 h1.Cad {
     color: white;
 }
-#foto{
-    color: white;
 
+#foto {
+    color: white;
+}
+
+/* Novos botões CRUD */
+.crud-buttons {
+    display: flex;
+    justify-content: flex-end; /* Alinha os botões à direita */
+    margin-top: 10px;
+}
+
+.crud-buttons form {
+    margin-left: 10px;
+}
+
+.crud-buttons button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-info {
+    background-color: #17a2b8;
+}
+
+.btn-info:hover {
+    background-color: #138496;
+    transform: scale(1.1);
+    box-shadow: 0 4px 5px black;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+    transform: scale(1.1);
+    box-shadow: 0 4px 5px black;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    transform: scale(1.1);
+    box-shadow: 0 4px 5px black;
+}
+.btn-primary{
+    background-color: #ffe600;
+}
+.btn-primary:hover{
+    background-color: #ffae00;
+    transform: scale(1.1);
+    box-shadow: 0 4px 5px black;
+}
+.atualizar{
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
 }

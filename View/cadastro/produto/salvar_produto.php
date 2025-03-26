@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $conexao = new Conexao();
 
         // Query SQL para inserir o produto
-        $query = "INSERT INTO produtos (nome, pais_origem, ano_fundacao, descricao, preco, catalogo, imagem) 
+        $query = "INSERT INTO produtos (nome, descricao, preco, catalogo, imagem) 
                   VALUES (:produto_nome, :descricao, :preco, :catalogo, :imagem)";
 
         // Preparar os parâmetros para a query
@@ -94,3 +94,70 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <a href="<?= URL . "index.php?pg=home" ?>" class="btn btn-input">Cancelar</a>
     </form>
 </div>
+<?php
+// Verifique se o formulário foi enviado
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    // Captura os dados do formulário
+    $produto_nome = $_POST['produto_nome'];
+    $descricao = $_POST['descricao'];
+    $preco = $_POST['preco'];
+    $catalogo = $_POST['catalogo'];
+
+    // Inicializar variáveis para imagem
+    $img_name = null;
+    $img_dir = 'uploads/'; // Diretório para salvar as imagens
+
+    // Verificar se o arquivo de imagem foi enviado e se não houve erro
+    if (isset($_FILES['produto_img']) && $_FILES['produto_img']['error'] == 0) {
+        // Captura o nome temporário do arquivo
+        $img_temp = $_FILES['produto_img']['tmp_name'];
+        // Captura o nome original da imagem
+        $img_name = $_FILES['produto_img']['name'];
+        // Mover a imagem para o diretório de uploads
+        if (!move_uploaded_file($img_temp, $img_dir . $img_name)) {
+            // Se houver erro no upload da imagem
+            echo "Erro ao salvar a imagem.";
+            exit;
+        }
+    }
+
+    // Importando a classe Conexao
+    require_once '../TechSuplementos/TechSuplementos/DAO/Conexao.php'; // Verifique se o caminho está correto
+
+    // Inserir os dados no banco de dados
+    try {
+        // Conectar com o banco de dados
+        $conexao = new Conexao();
+
+        // Query SQL para inserir o produto
+        $query = "INSERT INTO produtos (nome, descricao, preco, catalogo, imagem) 
+                  VALUES (:produto_nome, :descricao, :preco, :catalogo, :imagem)";
+
+        // Preparar os parâmetros para a query
+        $params = [
+            ':produto_nome' => $produto_nome,
+            ':descricao' => $descricao,
+            ':preco' => $preco,
+            ':catalogo' => $catalogo,
+            ':imagem' => $img_name // Salvar o nome da imagem
+        ];
+
+        // Chamar o método de inserção na classe Conexao
+        $produtoId = $conexao->inserir($query, $params);
+
+        // Verificar se o produto foi inserido
+        if ($produtoId) {
+            echo "Produto cadastrado com sucesso!";
+            // Pode redirecionar o usuário para a página de produtos ou outra página
+            header("Location: " . URL . "index.php?pg=produto");
+            exit;
+        } else {
+            echo "Erro ao cadastrar produto.";
+        }
+    } catch (Exception $e) {
+        // Exibir erro caso ocorra
+        echo "Erro: " . $e->getMessage();
+    }
+}
+?>
