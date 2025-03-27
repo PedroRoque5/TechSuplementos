@@ -26,17 +26,24 @@ span {
     padding: 10px;
 }
 
-.saiba {
-    font-size: 30px;
-    color: white;
-    padding: 5px;
-    border: solid 3px white;
-    border-radius: 10px;
-    text-decoration: none;
-    position: absolute;
-    top: 370px;
-    left: 150px;
+.saibamais {
+    font-size: 20px !important;
+    color: white !important;
+    padding: 5px !important;
+    border: solid 3px white !important;
+    border-radius: 10px !important;
+    text-decoration: none !important;
+    position: absolute !important;
+    top: 370px !important;
+    left: 150px !important;
 }
-a.saiba{
-    color: white;
+a.saibamais{
+    color: white !important;
+}
+tr.saibamais{
+    color: white !important;
+}
+td.saibamais{
+    color: white !important;
+
 }

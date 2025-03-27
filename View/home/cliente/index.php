@@ -43,9 +43,9 @@
             </ul>
         </nav>
         <div id="image">
-            <tr class="saiba">
-                <a class="saiba" href="<?= URL . "index.php?pg=saiba" ?>">
-                    <td class="saiba">SAIBA MAIS</td>
+            <tr class="saibamais">
+                <a class="saibamais" href="<?= URL . "index.php?pg=saiba" ?>">
+                    <td class="saibamais">SAIBA MAIS</td>
                 </a>
             </tr>
             <img id="banner" src="<?= ASSETS ?>image/banner.png">

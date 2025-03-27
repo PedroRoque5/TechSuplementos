@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `promoção/desconto` (
 
 -- Exportação de dados foi desmarcado.
 
--- Copiando estrutura para tabela techsuplementos.usuário
+-- Copiando estrutura para tabela techsuplementos.usuário.
 CREATE TABLE IF NOT EXISTS usuario (
   id INT AUTO_INCREMENT PRIMARY KEY,
   email VARCHAR(255) NOT NULL UNIQUE,
