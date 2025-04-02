@@ -17,7 +17,7 @@
     <div id=dashboard>
         <img id="logo" src="<?= ASSETS ?>image/img.png">
         <nav id="navmenu">
-            <form id="formmenu" method="POST" action="">
+            <form id="formmenu" method="POST" action="<?= URL . "index.php?pg=resultado" ?>">
                 <input id="search" type="search" name="pesquisa" placeholder="  O que você procura?" value="<?= htmlspecialchars($termo_pesquisa ?? '') ?>">
                 <button id="lupa" type="submit">
                     <i class="fa fa-search"></i>
@@ -60,7 +60,7 @@
         <?php if (count($resultados) > 0): ?>
             <ul>
                 <?php foreach ($resultados as $produto): ?>
-                    <li><?= htmlspecialchars($produto['nome']) ?> - <?= htmlspecialchars($produto['descricao']) ?></li>
+                    <li><?= htmlspecialchars($produto['nome']) ?> - <?= htmlspecialchars($produto['descricao']) ?> <?= htmlspecialchars($produto['preco']) ?> - <?= htmlspecialchars($produto['sabor'])?> - <?= htmlspecialchars($produto['catalogo']) ?> <?= htmlspecialchars($produto['imagem']) ?>   </li>
                 <?php endforeach; ?>
             </ul>
         <?php else: ?>

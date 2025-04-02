@@ -231,6 +231,9 @@ switch ($pagina) {
     case 'sistemaestoque':
         include_once './View/menu/estoque/sistemaestoque.php';
         break;
+    case 'resultado':
+            include_once './View/menu/pesquisa/index.php';
+            break;
 
     default:
         include_once './View/error/index.php';

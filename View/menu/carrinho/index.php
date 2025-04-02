@@ -1,11 +1,19 @@
+<?php
+session_start();
+
+// Verifica se o usuário está logado
+$usuario_logado = isset($_SESSION['usuario_id']);
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho de Compras</title>
     <link rel="stylesheet" href="<?= ASSETS ?>css/carrinho.css">
 </head>
+
 <body>
     <div class="cart-container">
         <h2>Carrinho de Compras</h2>
@@ -76,15 +84,23 @@
 
         // Função para finalizar a compra
         function finalizarCompra() {
+            const usuarioLogado = <?= json_encode($usuario_logado); ?>; // Converte a variável PHP para JavaScript
+
+            if (!usuarioLogado) {
+                alert("Você precisa estar logado para finalizar a compra.");
+                window.location.href = '<?= URL . 'index.php?pg=login' ?>'; // Redireciona para login
+                return;
+            }
+
             if (cartItems.length > 0) {
-                alert('Compra finalizada com sucesso!');
-                localStorage.removeItem('cartItems');
-                cartItems = [];
-                displayCartItems();
+                alert("Redirecionando para a página de pagamento...");
+                window.location.href = '<?= URL . 'index.php?pg=pagamento' ?>';
             } else {
-                alert('O carrinho está vazio!');
+                alert("O carrinho está vazio!");
             }
         }
+
+
 
         // Função para adicionar produtos ao carrinho
         function adicionarAoCarrinho(nome, preco) {
@@ -94,11 +110,16 @@
 
             // Verifica se o item já existe no carrinho, considerando o nome e o sabor
             let existingItem = cartItems.find(item => item.name === nome && item.sabor === saborProduto);
-            
+
             if (existingItem) {
                 existingItem.quantity += 1;
             } else {
-                cartItems.push({ name: nome, sabor: saborProduto, price: preco, quantity: 1 });
+                cartItems.push({
+                    name: nome,
+                    sabor: saborProduto,
+                    price: preco,
+                    quantity: 1
+                });
             }
 
             localStorage.setItem('cartItems', JSON.stringify(cartItems)); // Salva no localStorage
@@ -110,4 +131,5 @@
         window.onload = displayCartItems;
     </script>
 </body>
+
 </html>
