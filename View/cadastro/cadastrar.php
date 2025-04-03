@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $userId = $conexao->inserir($query, $params);
             echo "<p class='echo'> Usuário cadastrado com sucesso! ID do usuário:  " . $userId;
             sleep(2);
-            header("Location: index.php?pg=cliente_home");
+            header("Location: index.php?pg=login");
             echo " </p>";
         } catch (Exception $e) {
             echo "Erro ao cadastrar usuário: " . $e->getMessage();
