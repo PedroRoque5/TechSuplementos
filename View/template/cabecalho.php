@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="<?= ASSETS ?>css/cabecalho.css" rel="stylesheet">
+    <link href="<?= ASSETS ?>css/resultado.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,9 +59,9 @@
     <?php if ($termo_pesquisa): ?>
         <h2>Resultados para: "<?= htmlspecialchars($termo_pesquisa) ?>"</h2>
         <?php if (count($resultados) > 0): ?>
-            <ul>
+            <ul class="result-list">
                 <?php foreach ($resultados as $produto): ?>
-                    <li><?= htmlspecialchars($produto['nome']) ?> - <?= htmlspecialchars($produto['descricao']) ?> <?= htmlspecialchars($produto['preco']) ?> - <?= htmlspecialchars($produto['sabor'])?> - <?= htmlspecialchars($produto['catalogo']) ?> <?= htmlspecialchars($produto['imagem']) ?>   </li>
+                    <li class="result-list"><?= htmlspecialchars($produto['nome']) ?> <br> <?= htmlspecialchars($produto['descricao']) ?> <br> <?= htmlspecialchars($produto['preco']) ?> <br> <?= htmlspecialchars($produto['sabor'])?> <br> <?= htmlspecialchars($produto['catalogo']) ?> <br>    <img class="result-item" src="<?= ASSETS ?>uploads/<?= htmlspecialchars($produto['imagem']) ?>" alt="<?= htmlspecialchars($produto['nome']) ?>">  </li>
                 <?php endforeach; ?>
             </ul>
         <?php else: ?>
