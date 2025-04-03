@@ -19,7 +19,6 @@ if ($termo_pesquisa) {
     <title>Resultados da Pesquisa</title>
 </head>
 <body>
-    <h1>Resultados para: "<?= htmlspecialchars($termo_pesquisa) ?>"</h1>
 
     <?php if ($termo_pesquisa && count($resultados) > 0): ?>
         <ul>
@@ -28,7 +27,7 @@ if ($termo_pesquisa) {
             <?php endforeach; ?>
         </ul>
     <?php else: ?>
-        <p>Nenhum produto encontrado.</p>
+       
     <?php endif; ?>
 
     <a href="index.php">Voltar</a>
