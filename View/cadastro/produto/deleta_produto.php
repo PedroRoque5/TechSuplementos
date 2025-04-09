@@ -3,11 +3,11 @@
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['deletar_produto_nome'])) {
     
     // Captura o nome do produto a ser deletado
-    $produto_nome = $_POST['deletar_produto_nome'];
+    $produto_nome = trim($_POST['deletar_produto_nome']);
 
     // Importando a classe Conexao
-    require_once '../TechSuplementos/TechSuplementos/DAO/Conexao.php';
-    
+    require_once '../TechSuplementos/TechSuplementos/DAO/Conexao.php'; // Caminho ajustado
+
     try {
         // Conectar com o banco de dados
         $conexao = new Conexao();
@@ -23,13 +23,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['deletar_produto_nome']
         
         // Verificar se a exclusão foi bem-sucedida
         if ($resultado) {
-            echo "<script>alert('Produto \"$produto_nome\" deletado com sucesso!'); window.location.href='" . URL . "index.php?pg=produto';</script>";
+            echo "<script>
+                alert('Produto \"$produto_nome\" deletado com sucesso!');
+                window.location.href='" . URL . "index.php?pg=produto';
+            </script>";
             exit;
         } else {
-            echo "<script>alert('Erro ao deletar o produto.');</script>";
+            echo "<script>alert('Nenhum produto com esse nome foi encontrado.');</script>";
         }
     } catch (Exception $e) {
-        // Exibir erro caso ocorra
         echo "<script>alert('Erro: " . $e->getMessage() . "');</script>";
     }
 }
