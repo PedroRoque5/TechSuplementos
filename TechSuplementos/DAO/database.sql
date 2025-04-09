@@ -80,5 +80,13 @@ CREATE TABLE sabores (
     nome VARCHAR(100) NOT NULL UNIQUE
 );
 
+CREATE TABLE produto_sabor (
+    id_produto INT,
+    id_sabor INT,
+    PRIMARY KEY (id_produto, id_sabor),
+    FOREIGN KEY (id_produto) REFERENCES produtos(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_sabor) REFERENCES sabores(id) ON DELETE CASCADE
+);
+
 
 -- Exportação de dados foi desmarcado.
