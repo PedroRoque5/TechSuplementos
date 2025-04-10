@@ -35,3 +35,21 @@
     </nav>
     <img id="banner" src="<?= ASSETS ?>image/banner-tech.jpg">
 </body>
+<script>
+       document.addEventListener('DOMContentLoaded', function() {
+            const dropbtn = document.querySelector('.dropbtn');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+
+            dropbtn.addEventListener('click', function(event) {
+                event.stopPropagation();
+
+                dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+            });
+            document.addEventListener('click', function() {
+                if (dropdownMenu.style.display === 'block') {
+                    dropdownMenu.style.display = 'none';
+                }
+            });
+        });
+
+</script>

@@ -74,4 +74,19 @@ CREATE TABLE IF NOT EXISTS usuario (
   senha VARCHAR(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+
+CREATE TABLE sabores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL UNIQUE
+);
+
+CREATE TABLE produto_sabor (
+    id_produto INT,
+    id_sabor INT,
+    PRIMARY KEY (id_produto, id_sabor),
+    FOREIGN KEY (id_produto) REFERENCES produtos(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_sabor) REFERENCES sabores(id) ON DELETE CASCADE
+);
+
+
 -- Exportação de dados foi desmarcado.

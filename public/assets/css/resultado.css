@@ -1,66 +1,121 @@
 body {
-    background-color: #222;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.titulo-pesquisa {
+    text-align: center;
     color: white;
-    font-family: "Montserrat", sans-serif;
-    margin: 0;
-    padding: 0;
+    margin-top: 20px;
 }
 
 .container {
-    width: 80%;
-    margin: auto;
-    padding-top: 20px;
-}
-
-h1 {
-    color: #ff0000;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.result-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-.result-item {
-    background-color: #333;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-    margin-bottom: 10px;
     display: flex;
-    align-items: center;
-    gap: 15px;
+    flex-direction: column;
+    gap: 40px;
+    padding: 20px;
 }
 
-.result-item img {
-    width: 80px;
-    height: 80px;
-    border-radius: 5px;
-    object-fit: cover;
+.produto-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
 }
 
-.result-item p {
-    margin: 0;
+.produto-img img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
 }
 
-.btn-voltar {
-    display: block;
-    width: fit-content;
-    margin: 20px auto;
-    padding: 10px 20px;
-    font-size: 16px;
+.produto-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     color: white;
-    background-color: red;
+    font-family: 'Montserrat', sans-serif;
+    max-width: 400px;
+}
+
+.botoes-acao {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.descricao-produto {
+    margin-top: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.descricao-oculta {
+    display: none !important;
+}
+
+.mensagem-erro {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.comprar-btn {
+    background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.comprar-btn:hover {
+    background-color: #218838;
+}
+
+.voltar-btn {
+    background-color: #e00d0d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
     border-radius: 5px;
     text-decoration: none;
-    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
     transition: 0.3s;
 }
+.voltar-btn:hover {
+    background-color: rgb(146, 8, 8);
+}
 
-.btn-voltar:hover {
-    background-color: darkred;
-    transform: scale(1.1);
-    box-shadow: 0 4px 5px black;
+.descricao-btn {
+    background-color: #080cf0;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.descricao-btn:hover {
+    background-color: rgb(8, 0, 128);
+}
+.preco{
+    color: #0bc733;
+    font-size: 20px;
+    border: 2px 2px 2px #1e1e1e;
+    text-shadow: 1px 1px 1px #0bc733;
+}
+h1{
+    color: #e00d0d;
 }

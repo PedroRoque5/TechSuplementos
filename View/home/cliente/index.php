@@ -57,3 +57,21 @@
             <i id="icon" class="fa-regular fa-credit-card"></i>&nbsp;<span>Compras em até 10X sem juros</span>
         </div>
     </body>
+<script>
+       document.addEventListener('DOMContentLoaded', function() {
+            const dropbtn = document.querySelector('.dropbtn');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+
+            dropbtn.addEventListener('click', function(event) {
+                event.stopPropagation();
+
+                dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+            });
+            document.addEventListener('click', function() {
+                if (dropdownMenu.style.display === 'block') {
+                    dropdownMenu.style.display = 'none';
+                }
+            });
+        });
+
+</script>
