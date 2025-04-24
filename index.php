@@ -63,6 +63,9 @@ switch ($pagina) {
     case 'cad':
         include_once './View/cadastro/cadastrar.php';
         break;
+    case 'cademp':
+        include_once './View/cadastro/cadastrar_empresa.php';
+        break;
     case 'produto':
         include_once './View/cadastro/produto/produto.php';
         break;
@@ -232,8 +235,8 @@ switch ($pagina) {
         include_once './View/menu/estoque/sistemaestoque.php';
         break;
     case 'resultado':
-            include_once './View/menu/pesquisa/index.php';
-            break;
+        include_once './View/menu/pesquisa/index.php';
+        break;
 
     default:
         include_once './View/error/index.php';

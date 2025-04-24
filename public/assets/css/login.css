@@ -14,11 +14,25 @@ img#logo {
 }
 
 #login {
-    margin-top: -145px;
+    margin-top: 13%;
     position: absolute;
-    left: 50%;
+    left: 58%;
     text-align: center;
     font-family: "Montserrat" sans-serif;
+    width: 400px;
+    height: 400px;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    position: absolute;
+    transform: translate(-50%, -50%); 
+    background-color:rgb(50, 50, 50);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: #000 4px 4px 4px;
+    border-color: #000;
+    border: 2px solid black ;
+    color: red;
 }
 
 body {
@@ -105,10 +119,10 @@ div#form {
 }
 
 img#banner {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     position: absolute;
-    top: 20%;
+    top: 30%;
     left: 53%;
 
 }

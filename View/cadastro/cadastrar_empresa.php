@@ -41,13 +41,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         ];
 
         try {
-            // Tentando inserir os dados
-            $empresaId = $conexao->inserir($query, $params);
-            echo "Empresa cadastrada com sucesso! ID: " . $empresaId;
-        } catch (Exception $e) {
-            // Se houver erro ao cadastrar
-            echo "Erro ao cadastrar empresa: " . $e->getMessage();
-        }
+            echo "<script>
+            alert('Empresa cadastrada com sucesso!');
+            window.location.href='" . URL . "index.php?pg=empresa';
+        </script>";
+        exit;
+
+    } catch (Exception $e) {
+        echo "Erro: " . $e->getMessage();
+    }
     } else {
         // Se algum campo obrigatório estiver vazio
         echo "Por favor, preencha todos os campos obrigatórios corretamente.";

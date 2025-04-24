@@ -1,7 +1,7 @@
 <link href="<?= ASSETS ?>css/pessoa.css" rel='stylesheet'>
  <h1 Class="Cad">Cadastre o sua Empresa:</h1>
  <div class="form">
-   <form id="Cadastro" action="<?= URL . 'index.php?pg=cad' ?>" method="POST">
+   <form id="Cadastro" action="<?= URL . 'index.php?pg=cademp' ?>" method="POST">
      <div><input type="email" name="email" id="email" placeholder="E-mail*" required></div>
      <div><input type="text" name="nome" id="nome" placeholder="Nome*" required></div>
      <div><input type="number" name="cpf" id="cpf" placeholder="CNPJ*" maxlength="11" required></div>
@@ -13,3 +13,4 @@
      <a href="<?= URL . "index.php?pg=home" ?>" class="btn btn-input">Cancelar</a>
    </form>
  </div>
+ 
