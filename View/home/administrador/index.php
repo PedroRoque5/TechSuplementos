@@ -9,17 +9,16 @@
 <body class="admin">
     <nav id="menu">
         <ul id="principal">
-            <li id="unico"><a href="<?= URL . "index.php?pg=homeadmin" ?>"><i class="fa-solid fa-house"></i>&nbsp;Home</a></li>
+            <li id="unico"><a href="<?= URL . "index.php?pg=homeadmin" ?>">Home</a></li>
             <li id="unico">
-                <a href="#" id="login-dropdown-toggle">
-                    <i class="fa-solid fa-user"></i>&nbsp; Login/Cadastro
+                <a href="#" id="login-dropdown-toggle">Login/Cadastro
                 </a>
                 <ul id="login-dropdown" class="hidden">
-                    <li><a href="<?= URL . 'index.php?pg=empresa' ?>"> <i id="produto" class="fa-solid fa-shop"></i>&nbsp;Login Empresa</a></li>
-                    <li><a href="<?= URL . 'index.php?pg=login' ?>"><i class="fa-solid fa-user"></i>&nbsp;Login Usuário</a></li>
+                    <li><a href="<?= URL . 'index.php?pg=empresa' ?>">Login Empresa</a></li>
+                    <li><a href="<?= URL . 'index.php?pg=login' ?>">Login Usuário</a></li>
                 </ul>
-            </li>
-            <li id="unico"><a href="<?= URL . "index.php?pg=suporte" ?>"><i class="fa-regular fa-circle-question"></i>&nbsp; Suporte</a></li>
+            </li> 
+            <li id="unico"><a href="<?= URL . "index.php?pg=suporte" ?>">Suporte</a></li>
             <button class="dropbtn"> <i id="baricon" class="fa-solid fa-bars"></i></button>
             <div id="sub">
                 <nav id="submenu">

@@ -1,16 +1,17 @@
 div#dashboard {
-    background-color: rgb(255, 0, 0);
+    background-color: #262626;
     width: 1500px;
-    height: 80px;
+    height: 45px;
     margin: -10px;
     box-shadow: 0px 0px 5px black;
     padding: 10px 10px 10px 10px;
 }
 
 img#logo {
-    margin-top: -90px;
-    width: auto;
-    height: auto;
+    margin-top:-12px;
+    margin-left: 50px;
+    width: 80px;
+    height: 80px;
 }
 
 nav#menu {
@@ -19,23 +20,18 @@ nav#menu {
 
 nav#menu ul#principal {
     list-style: none;
-    text-transform: uppercase;
     position: absolute;
-    top: 10px;
+    top: -10px;
     left: 800px;
 }
 
 nav#menu li#unico {
     display: inline;
     float: left;
-    background-color: #ff0000;
+    background-color: transparent;
     padding: 10px;
     margin: 0px;
     transition: background-color 0.1s;
-}
-
-nav#menu li#unico:hover {
-    background-color: rgb(187, 160, 160);
 }
 
 nav#menu h2 {
@@ -47,12 +43,12 @@ nav#menu a {
     font-family: "Montserrat", sans-serif;
     display: block;
     padding: 8px;
-    color: rgb(0, 0, 0);
+    color: #f5f5f5;
     text-decoration: none;
 }
 
 nav#menu a:hover {
-    color: #ff0000;
+    color: #d72638;
     text-decoration: underline;
 }
 
@@ -68,27 +64,37 @@ nav#navmenu form#formmenu {
 }
 
 body {
-    background-color: rgb(50, 50, 50);
+    background-color: #262626;
+}
+#formmenu {
+    position: relative;
+    margin-top: -90px;
+}
+
+#lupa {
+    position: absolute;
+    top: 25px;   /* ajuste vertical */
+    left: 800px; /* ajuste horizontal para alinhar com o input */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#lupa i[data-lucide] {
+    width: 10px !important;
+    height: 10px !important;
+    color: #ffffff !important;
 }
 
 form input#search {
-    background-color: rgb(255, 255, 255);
+    background-color: #2e2e2e;
     border: none;
     width: 500px;
     height: 30px;
     position: absolute;
-    top: 35px;
+    top: 20px;
     left: 300px;
-}
-
-form button#lupa {
-    background: none;
-    border: none;
-    position: absolute;
-    top: 43px;
-    left: 770px;
-
-
+    border-radius: 10px;
 }
 
 .sub {
@@ -109,24 +115,17 @@ nav#menusub {
 
 nav#menusub ul#segunda {
     list-style: none;
-    text-transform: uppercase;
     position: absolute;
-    top: 85px;
+    top: 30px;
     left: 250px;
 }
 
 nav#menusub li#segundo {
     display: inline;
     float: left;
-    background-color: rgba(50, 50, 50);
+    background-color: transparent;
     padding: 10px;
     margin: 0px;
-    transition: background-color 0.1s;
-}
-
-nav#menusub li#segundo:hover {
-    background-color: rgb(255, 0, 0);
-    ;
 }
 
 nav#menusub h2 {
@@ -136,20 +135,19 @@ nav#menusub h2 {
 nav#menusub .menus {
     display: block;
     padding: 8px;
-    color: rgb(255, 255, 255);
+    color: #f5f5f5;
     text-decoration: none;
     font-size: 10pt;
     font-family: "Montserrat", sans-serif;
 }
 
 nav#menusub .menus:hover {
-    color: #000000;
+    color: #d72638;
     text-decoration: underline;
 }
 
 nav#submenu ul#navcascata {
     list-style: none;
-    text-transform: uppercase;
     position: absolute;
     top: -10px;
     left: 0;
@@ -162,17 +160,13 @@ nav#submenu li.cascata {
     background: none;
     padding: 10px;
     margin: 0px;
-    transition: background-color 0.1s;
 }
 
-nav#submenu li.cascata {
-    background: rgb(50, 50, 50);
-}
 
 nav#submenu a {
     display: block;
     padding: 8px;
-    color: #ffffff;
+    color: #f5f5f5;
     text-decoration: none;
     font-size: 10pt;
     font-family: "Montserrat", sans-serif;
@@ -180,14 +174,14 @@ nav#submenu a {
 }
 
 nav#submenu a:hover {
-    color: red;
+    color: #d72638;
     text-decoration: underline;
 }
 
 
 .dropbtn {
     background: none;
-    color: white;
+    color: #f5f5f5;
     padding: 10px 20px;
     font-size: 16px;
     border: none;
@@ -196,7 +190,7 @@ nav#submenu a:hover {
 
 .dropdown-menu {
     display: none;
-    background: rgb(50, 50, 50);
+    background: #2e2e2e;
     min-width: 200px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
@@ -204,10 +198,11 @@ nav#submenu a:hover {
     padding: 25px;
     margin: 140px;
     right: 1000px;
+    border-radius: 10px;
 }
 
 .dropdown-item {
-    color: black;
+    color: #f5f5f5;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -218,31 +213,11 @@ nav#submenu a:hover {
     background: none;
 }
 
-i#baricon {
-    font-size: 25px;
-    margin-top: 5px;
-}
-
-i#settings {
-    font-size: 20px;
-}
-
-i#perfil {
-    font-size: 20px;
-}
-
-i#produto {
-    font-size: 20px;
-}
-i#estoque {
-    font-size: 20px;
-}
-
 #login-dropdown {
     position: absolute;
-    background-color: rgb(50, 50, 50);
+    background-color: #2e2e2e;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid #ddd;
+    border: 1px solid #f5f5f5;
     border-radius: 4px;
     padding: 10px 0;
     list-style: none;
@@ -259,15 +234,14 @@ i#estoque {
 
 #login-dropdown li a {
     text-decoration: none;
-    color: white;
+    color: #f5f5f5;
     font-size: 14px;
     display: block;
     width: 100%;
 }
 
 #login-dropdown li a:hover {
-    background-color: black;
-    color: red;
+    color: #d72638;
 }
 
 .hidden {

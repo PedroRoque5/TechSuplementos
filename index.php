@@ -244,6 +244,4 @@ switch ($pagina) {
         break;
 }
 
-include_once './View/template/rodape.php';
-
 ob_end_flush();

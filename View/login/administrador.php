@@ -17,12 +17,11 @@ require_once '../../config_serve.php';
 
 <body>
   <div id=dashboard>
-    <img id="logo" src="<?= ASSETS ?>image/img.png">
-    <h1 id="login">Faça seu login</h1>
+    <img id="logo" src="<?= ASSETS ?>image/Techlogo.png">
   </div>
-
-  <img id="banner" src="<?= ASSETS ?>image/anuncio.png">
-
+  
+  <div class="container">
+  <div id="login">Faça seu login</div>
   <div class="form">
     <form>
       <div id="email"><input type="email" placeholder="E-mail ou CNPJ"></div>
@@ -36,10 +35,7 @@ require_once '../../config_serve.php';
     </form>
 
 
-  </div>
-  <div class="rodape">
-    <p id="rod">www.TechSuplementos.com.br</p>
-  </div>
+  </div>>
 </body>
 
 </html>
