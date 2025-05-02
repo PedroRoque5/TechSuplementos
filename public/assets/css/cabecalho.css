@@ -78,6 +78,7 @@ body {
     background-color: transparent;
     border: none;
     cursor: pointer;
+    color: #f5f5f5;
 }
 
 #lupa i[data-lucide] {

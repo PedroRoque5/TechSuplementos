@@ -1,40 +1,48 @@
- a {
-     display: block;
-     padding: 8px;
-     color: #ffffff;
-     text-decoration: none;
-     font-size: 10pt;
-     font-family: "Montserrat", sans-serif;
-     text-shadow: 5px 5px 5px rgb(0, 0, 0);
- }
+a {
+    display: block; /* Faz o link ocupar a largura total do seu contêiner */
+    padding: 8px; /* Adiciona espaçamento interno ao redor do texto do link */
+    color: #ffffff; /* Texto branco */
+    text-decoration: none; /* Remove o sublinhado padrão */
+    font-size: 10pt; /* Tamanho da fonte */
+    font-family: "Montserrat", sans-serif; /* Fonte Montserrat */
+    text-shadow: 5px 5px 5px rgb(0, 0, 0); /* Sombra no texto (horizontal, vertical, blur, cor) */
+}
 
- a:hover {
-     color: red;
-     text-decoration: underline;
- }
+/* Estilos para links no estado de "hover" (quando o mouse passa por cima) */
+a:hover {
+    color: red; /* Texto vermelho ao passar o mouse */
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
 
+/* Estilos para o cabeçalho de nível 1 */
+h1 {
+    color: red; /* Texto vermelho */
+    text-shadow: 5px 5px 5px black; /* Sombra preta no texto */
+}
 
- h1 {
-     color: red;
-     text-shadow: 5px 5px 5px black;
- }
+/* Estilos para o cabeçalho de nível 2 */
+h2 {
+    font-size: 12pt; /* Tamanho da fonte */
+    display: block; /* Faz o cabeçalho ocupar a largura total do seu contêiner */
+    padding: 8px; /* Adiciona espaçamento interno */
+    color: #ffffff; /* Texto branco */
+    text-decoration: none; /* Remove qualquer decoração de texto */
+    font-family: "Montserrat", sans-serif; /* Fonte Montserrat */
+    text-shadow: 5px 5px 5px rgb(0, 0, 0); /* Sombra no texto */
+}
 
- h2 {
-     font-size: 12pt;
-     display: block;
-     padding: 8px;
-     color: #ffffff;
-     text-decoration: none;
-     font-family: "Montserrat", sans-serif;
-     text-shadow: 5px 5px 5px rgb(0, 0, 0);
- }
+/* Estilos para parágrafos */
+p {
+    display: block; /* Faz o parágrafo ocupar a largura total do seu contêiner */
+    padding: 8px; /* Adiciona espaçamento interno */
+    color: #ffffff; /* Texto branco */
+    text-decoration: none; /* Remove qualquer decoração de texto */
+    font-size: 10pt; /* Tamanho da fonte */
+    font-family: "Montserrat", sans-serif; /* Fonte Montserrat */
+    text-shadow: 5px 5px 5px rgb(0, 0, 0); /* Sombra no texto */
+}
 
- p {
-     display: block;
-     padding: 8px;
-     color: #ffffff;
-     text-decoration: none;
-     font-size: 10pt;
-     font-family: "Montserrat", sans-serif;
-     text-shadow: 5px 5px 5px rgb(0, 0, 0);
- }
+i [data-lucide]{
+    width: 30px;
+    height: 30px;
+}

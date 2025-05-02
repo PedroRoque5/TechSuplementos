@@ -5,6 +5,8 @@
     <link href="<?= ASSETS ?>css/cabecalho.css" rel="stylesheet">
     <link href="<?= ASSETS ?>css/rodape.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide@latest/dist/lucide.css">
+   
 </head>
 
 <body class="usuario">
@@ -26,8 +28,8 @@
         <div id="sub">
             <nav id="submenu">
                 <ul class="dropdown-menu" id="navcascata">
-                    <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=perfil" ?>"><i id="perfil" class="fa-regular fa-user"></i>&nbsp;&nbsp;Perfil</a></li>
-                    <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=config" ?>"><i id="settings" class="fa-solid fa-gear"></i>&nbsp;&nbsp;Configurações<br></a></li>
+                    <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=perfil" ?>"><i id="perfil" data-lucide="user"></i>&nbsp;&nbsp;Perfil</a></li>
+                    <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=config" ?>"><i id="settings" data-lucide="settings"></i>&nbsp;&nbsp;Configurações<br></a></li>
                 </ul>
             </nav>
         </div>
@@ -51,7 +53,7 @@
         </div>
         <div id="icone">
         <div><i data-lucide="truck"></i> Frete grátis a partir de R$200</div>
-            <div><i data-lucide="qrcode"></i> 5% OFF no PIX</div>
+            <div><i data-lucide="qr-code"></i> 5% OFF no PIX</div>
             <div><i data-lucide="percent"></i> Use um cupom de desconto</div>
             <div><i data-lucide="credit-card"></i> Até 10x sem juros</div>
         </div>

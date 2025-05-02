@@ -7,10 +7,13 @@
     <body>
         <div id="opcoes-configuracao">
             <h2>Configurações da Conta</h2>
-            <a href="<?= URL . "index.php?pg=alterar" ?>" class="opcao"><i class="fa-solid fa-key"></i> Alterar Senha</a><br>
-            <a href="<?= URL . "index.php?pg=notificacoes" ?>" class="opcao"><i class="fa-solid fa-bell"></i> Notificações</a><br>
-            <a href="<?= URL . "index.php?pg=privacidade" ?>" class="opcao"><i class="fa-solid fa-user-lock"></i> Privacidade</a><br>
+            <a href="<?= URL . "index.php?pg=alterar" ?>" class="opcao"><i data-lucide="key-round"></i> Alterar Senha</a><br>
+            <a href="<?= URL . "index.php?pg=notificacoes" ?>" class="opcao"><i data-lucide="bell"></i> Notificações</a><br>
+            <a href="<?= URL . "index.php?pg=privacidade" ?>" class="opcao"><i data-lucide="lock-keyhole"></i> Privacidade</a><br>
         </div>
     </body>
 
     </html>
+    <script>
+        lucide.createIcons()
+    </script>

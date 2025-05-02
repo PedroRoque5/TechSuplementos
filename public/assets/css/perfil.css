@@ -1,40 +1,84 @@
- a {
-     display: block;
-     padding: 8px;
-     color: #ffffff;
-     text-decoration: none;
-     font-size: 10pt;
-     font-family: "Montserrat", sans-serif;
-     text-shadow: 5px 5px 5px rgb(0, 0, 0);
- }
+div > h1 {
+    color: #d72638; /* Vermelho para o título */
+    margin-bottom: 20px;
+    text-align: center;
+}
+div > hr{
+    background-color: #d72638;
+}
 
- a:hover {
-     color: red;
-     text-decoration: underline;
- }
+/* Estilo para a seção de dados do usuário */
+#dados-usuario {
+    background-color: #262626; /* Cinza escuro para o fundo da seção */
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
 
+#dados-usuario h2 {
+    color: #f5f5f5; /* Branco para o nome do usuário */
+    margin-top: 0;
+    margin-bottom: 10px;
+}
 
- h1 {
-     color: red;
-     text-shadow: 5px 5px 5px black;
- }
+#dados-usuario p {
+    color: #f5f5f5; /* Cinza claro para as informações */
+    margin-bottom: 5px;
+}
 
- h2 {
-     font-size: 12pt;
-     display: block;
-     padding: 8px;
-     color: #ffffff;
-     text-decoration: none;
-     font-family: "Montserrat", sans-serif;
-     text-shadow: 5px 5px 5px rgb(0, 0, 0);
- }
+#dados-usuario i {
+    margin-right: 8px; /* Espaço entre o ícone e o texto */
+    color: #d72638; /* Vermelho para os ícones */
+}
 
- p {
-     display: block;
-     padding: 8px;
-     color: #ffffff;
-     text-decoration: none;
-     font-size: 10pt;
-     font-family: "Montserrat", sans-serif;
-     text-shadow: 5px 5px 5px rgb(0, 0, 0);
- }
+/* Estilo para a seção de opções do perfil */
+#opcoes-perfil {
+    display: flex;
+    flex-direction: column;
+    /* Removido o posicionamento absoluto */
+    gap: 10px; /* Espaçamento entre os links */
+    width: 80%;
+    max-width: 300px;
+    /* Adicionado para centralizar horizontalmente */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilo para cada link de opção */
+#opcoes-perfil a.opcao {
+    display: block;
+    background-color: #2e2e2e; /* Cinza um pouco mais claro para os botões */
+    color: #f5f5f5;
+    padding: 12px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+#opcoes-perfil a.opcao:hover {
+    background-color: #d72638; /* Vermelho ao passar o mouse */
+    color: #f5f5f5;
+}
+
+#opcoes-perfil a.opcao i {
+    margin-right: 8px;
+}
+
+/* Estilos responsivos (opcional) */
+@media (max-width: 600px) {
+    body {
+        padding-top: 10px;
+    }
+
+    #opcoes-perfil {
+        width: 95%;
+        max-width: none;
+    }
+
+    #dados-usuario {
+        padding: 15px;
+    }
+}
