@@ -76,6 +76,8 @@
                 case 'cartao':
                     detailsHTML = `
                     <h3>Informações do Cartão</h3>
+                    <label for="cardName">Nome no Cartão:</label>
+                    <input type="text" id="cardNome" name="cardNome" placeholder="Nome" required>
                     <label for="cardNumber">Número do Cartão:</label>
                     <input type="text" id="cardNumber" name="cardNumber" placeholder="**** **** **** ****" required>
                     <label for="cardExpiry">Data de Validade:</label>

@@ -119,3 +119,18 @@ body {
 h1{
     color: #e00d0d;
 }
+
+.status-produto strong {
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+.status-ativo {
+    color: green;
+    font-weight: bold;
+}
+
+.status-inativo {
+    color: red;
+    font-weight: bold;
+}

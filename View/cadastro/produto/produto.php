@@ -26,7 +26,7 @@
         <!-- Preço -->
         <div>
             <input type="text" id="preco" name="preco" placeholder="Preço (R$)">
-            <small style="font-size: 12px; color: #666;"></small>
+            <small style="font-size: 12px; color: #f5f5f5;"></small>
         </div>
 
         <!-- Catálogo -->

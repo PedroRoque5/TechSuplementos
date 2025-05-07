@@ -19,14 +19,14 @@
                 </ul>
             </li> 
             <li id="unico"><a href="<?= URL . "index.php?pg=suporte" ?>">Suporte</a></li>
-            <button class="dropbtn"> <i id="baricon" class="fa-solid fa-bars"></i></button>
+            <button class="dropbtn"> <i id="baricon" data-lucide="menu"></i></button>
             <div id="sub">
                 <nav id="submenu">
                     <ul class="dropdown-menu" id="navcascata">
-                        <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=perfil" ?>"><i id="perfil" class="fa-regular fa-user"></i>&nbsp;&nbsp;Perfil</a></li>
-                        <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=config" ?>"><i id="settings" class="fa-solid fa-gear"></i>&nbsp;&nbsp;Configurações<br></a></li>
-                        <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=produto" ?>"><i id="produto" class="fa-solid fa-shop"></i>&nbsp;&nbsp;Cadastrar Produto<br></a></li>
-                        <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=sistemaestoque" ?>"><i id="estoque" class="fa-solid fa-store"></i>&nbsp;&nbsp;Gerenciar estoque<br></a></li>
+                        <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=perfil" ?>"><i id="perfil" data-lucide="user"></i>Perfil</a></li>
+                        <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=config" ?>"><i id="settings" data-lucide="settings"></i>Configurações<br></a></li>
+                        <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=produto" ?>"><i id="produto"data-lucide="shopping-basket"></i>Cadastrar Produto<br></a></li>
+                        <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=sistemaestoque" ?>"><i id="estoque" data-lucide="store"></i>&nbsp;&nbsp;Gerenciar estoque<br></a></li>
                     </ul>
                 </nav>
             </div>
@@ -50,5 +50,7 @@
                 }
             });
         });
+
+        lucide.createIcons();
 
 </script>

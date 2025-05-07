@@ -25,3 +25,10 @@ span {
     font-family: "Montserrat" sans-serif;
     padding: 10px;
 }
+#icone i[data-lucide] {
+    margin: 10px 0 0 0; /* Margem para separar o texto superior do ícone */
+    font-size: 10px; /* Tamanho da fonte */
+    line-height: 1.2; /* Espaçamento entre linhas */
+    width: 30px;
+    height: 30px;
+}
