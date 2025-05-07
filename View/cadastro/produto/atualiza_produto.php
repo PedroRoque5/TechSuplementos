@@ -122,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['atualizar_produto_nome
 
         <!-- Campo para controlar o status do produto -->
         <label>
-            Produto <?= $produto['status'] ? 'Ativo' : 'Inativo' ?>
+            Produto <?= $produto['status'] ? 'Em estoque' : 'Esgotado' ?>
             <input type="checkbox" name="status" <?= $produto['status'] ? 'checked' : '' ?>> Ativar/Desativar
         </label>
 

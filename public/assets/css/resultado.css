@@ -125,12 +125,12 @@ h1{
     margin-right: 5px;
 }
 
-.status-ativo {
+.status-Emestoque{
     color: green;
     font-weight: bold;
 }
 
-.status-inativo {
+.status-Esgotado {
     color: red;
     font-weight: bold;
 }

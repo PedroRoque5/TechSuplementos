@@ -72,7 +72,7 @@ if ($termo_pesquisa) {
                         <!-- Exibir Status -->
                         <p class="status-produto">
                             <strong>Status:</strong> 
-                            <?= $produto['status'] ? '<span class="status-ativo">Ativo</span>' : '<span class="status-inativo">Inativo</span>' ?>
+                            <?= $produto['status'] ? '<span class="status-Emestoque">Em estoque</span>' : '<span class="status-Esgotado">Esgotado</span>' ?>
                         </p>
 
                         <!-- Buscar sabores -->
