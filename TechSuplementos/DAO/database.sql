@@ -51,6 +51,8 @@ CREATE TABLE produtos (
     sabor TEXT,
     catalogo ENUM('creatina', 'whey', 'pre_treino', 'top_5', 'novidades') NOT NULL,
     imagem VARCHAR(255)
+    ALTER TABLE produtos ADD COLUMN status BOOLEAN DEFAULT TRUE;
+
 );
 
 
