@@ -1,9 +1,10 @@
 <link href="<?= ASSETS ?>css/produto.css" rel="stylesheet">
 <link href="<?= ASSETS ?>css/rodape.css" rel="stylesheet">
-<div class="form">
+<body class="body">
+<div class="container">
+<div id="cad"><h1>Cadastre o seu produto:</h1></div>
     <!-- Formulário de Cadastro -->
-    <form action="<?= URL . 'index.php?pg=salva_produto' ?>" method="post" enctype="multipart/form-data">
-        <h1 class="Cad">Cadastre o seu produto:</h1>
+    <form class="form" action="<?= URL . 'index.php?pg=salva_produto' ?>" method="post" enctype="multipart/form-data">
 
         <div>
             <input type="text" id="produto_nome" name="produto_nome" placeholder="Nome do Produto" required>
@@ -45,11 +46,12 @@
 
         <!-- Botões -->
         <button type="submit" class="btn btn-success">Cadastrar</button>
-        <form action="<?= URL . 'index.php?pg=atualiza_produto' ?>" method="post">
-        <button type="submit" class="btn btn-warning">Atualizar Produto</button>
-        </form>
         <a href="<?= URL . 'index.php?pg=home' ?>" class="btn btn-input">Cancelar</a>
     </form>
+    <form action="<?= URL . 'index.php?pg=atualiza_produto' ?>" method="post">
+        <button type="submit" class="btn btn-warning">Atualizar Produto</button>
+        </form>
+</div>
 </div>
 
 <!-- Script para adicionar/remover campos de sabor -->
@@ -69,3 +71,4 @@ function removerSabor(botao) {
     botao.parentElement.remove();
 }
 </script>
+</body>

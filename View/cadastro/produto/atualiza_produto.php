@@ -1,4 +1,4 @@
-<link href="<?= ASSETS ?>css/produto.css" rel="stylesheet">
+<link href="<?= ASSETS ?>css/produto.css" rel="stylesheet"> 
 
 <?php
 require_once '../TechSuplementos/TechSuplementos/DAO/Conexao.php';
@@ -47,17 +47,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['atualizar_produto_nome
     $preco = str_replace(',', '.', $_POST['preco']); // Aqui é a conversão da vírgula para ponto
     $catalogo = $_POST['catalogo'];
     $saboresAtualizados = $_POST['sabores'] ?? [];
+    $status = isset($_POST['status']) ? true : false; // Verifica se o checkbox está marcado
 
     try {
         $conexao = new Conexao();
 
         // Atualizar produto
-        $query = "UPDATE produtos SET descricao = :descricao, preco = :preco, catalogo = :catalogo WHERE nome = :produto_nome";
+        $query = "UPDATE produtos SET descricao = :descricao, preco = :preco, catalogo = :catalogo, status = :status WHERE nome = :produto_nome";
         $params = [
             ':produto_nome' => $produto_nome,
             ':descricao' => $descricao,
             ':preco' => $preco,
-            ':catalogo' => $catalogo
+            ':catalogo' => $catalogo,
+            ':status' => $status
         ];
         $conexao->atualizar($query, $params);
 
@@ -110,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['atualizar_produto_nome
         
         <!-- Campo de preço atualizado -->
         <input type="text" name="preco" placeholder="Preço" value="<?= htmlspecialchars(number_format($produto['preco'], 2, ',', '')) ?>" required>
-        <small style="font-size: 12px; color: #666;">Use vírgula para os centavos (ex: 49,90)</small>
+        <small style="font-size: 12px; color: #f5f5f5;">Use vírgula para os centavos (ex: 49,90)</small>
 
         <select name="catalogo" required>
             <option value="creatina" <?= $produto['catalogo'] == 'creatina' ? 'selected' : '' ?>>Creatina</option>
@@ -118,8 +120,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['atualizar_produto_nome
             <option value="pre_treino" <?= $produto['catalogo'] == 'pre_treino' ? 'selected' : '' ?>>Pré-Treino</option>
         </select>
 
+        <!-- Campo para controlar o status do produto -->
+        <label>
+            Produto <?= $produto['status'] ? 'Ativo' : 'Inativo' ?>
+            <input type="checkbox" name="status" <?= $produto['status'] ? 'checked' : '' ?>> Ativar/Desativar
+        </label>
+
         <!-- Campos de sabores -->
-        <label>Sabores:</label>
         <div id="sabores-container">
             <?php foreach ($sabores as $sabor) : ?>
                 <div class="sabor-input">

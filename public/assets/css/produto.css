@@ -1,38 +1,66 @@
-.form {
+.body {
+    background-image: url('../image/fundologin.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0; 
+    }
+    
+    .container {
+        display: flex;
+        gap: 20px;
+        max-width: 800px;
+        flex-direction: row;
+        margin: 50px auto; /* Centralizar horizontalmente e adicionar margem superior */
+        height: auto; /* Ajustar altura para auto */
+    }
+    
+    #cad {
+        background-color: #d72638; /* Fundo vermelho */
+        width: 1000px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Montserrat", sans-serif;
+        font-size: 24px; 
+        height: 450px; 
+        box-shadow: #000 4px 4px 4px;
+        border-radius: 20px;
+    }
+    h1{
+    color: #f5f5f5; /* Texto branco \*/
+    font-size: 24px;
+    margin-left: 10px;
+    }
+    
+    .form {
+    background-color: #2e2e2e; 
+    color: #f5f5f5; /* Texto branco \*/
     width: 450px;
     height: 410px;
+    display: flex;
     flex-direction: column;
-    align-items: center; 
-    justify-content: center; 
-    position: absolute;
-    top: 56%;
-    left: 50%;
-    transform: translate(-50%, -50%); 
-    background-color:rgba(0, 0, 0, 0.1); 
-    padding: 40px;
+    justify-content: center;
+    padding: 20px;
     border-radius: 20px;
     box-shadow: #000 4px 4px 4px;
     border-color: #000;
     border: 2px solid black ;
-}
-
-form {
-    display: block;
-}
-
-input {
+    margin-left: -20px;
+    }
+    
+    input {
     font-family: "Montserrat", sans-serif;
     font-weight: normal;
     font-size: 13pt;
-    width: 400px;
-    margin-bottom: 10px;
-}
-
-input:hover {
+    margin-bottom: 10px; 
+    }
+    
+    input:hover {
     background-color: #aaaa;
-}
-
-.btn {
+    }
+    
+    .btn {
     display: inline-block;
     padding: 10px 20px;
     font-size: 16px;
@@ -40,54 +68,53 @@ input:hover {
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s;
-}
-
-.btn-success {
+    }
+    
+    .btn-success {
     background-color: green;
-}
-
-.btn-success:hover {
+    }
+    
+    .btn-success\:hover {
     background-color: rgb(3, 126, 3);
     transform: scale(1.1);
     box-shadow: 0 4px 5px black;
-}
-
-.btn-input {
-    background-color: red;
+    }
+    
+    .btn-input {
+    background-color: #d72638;
     margin-top: 10px;
-}
-
-.btn-input:hover {
+    }
+    
+    .btn-input:hover {
     background-color: rgb(201, 11, 11);
     transform: scale(1.1);
     box-shadow: 0 4px 5px black;
-}
-
-div#form {
+    }
+    
+    div#form {
     margin-top: 10px;
-}
-
-h1.Cad {
+    }
+    
+    h1.Cad {
     color: white;
-}
-
-#foto {
+    }
+    
+    #foto {
     color: white;
     margin-top: 10px;
-}
-
-/* Novos botões CRUD */
-.crud-buttons {
+    }
+    
+    .crud-buttons {
     display: flex;
-    justify-content: flex-end; /* Alinha os botões à direita */
+    justify-content: flex-end; /* Alinha os botões à direita \*/
     margin-top: 10px;
-}
-
-.crud-buttons form {
+    }
+    
+    .crud-buttons form {
     margin-left: 10px;
-}
-
-.crud-buttons button {
+    }
+    
+    .crud-buttons button {
     margin: 5px;
     padding: 10px 20px;
     font-size: 16px;
@@ -95,36 +122,41 @@ h1.Cad {
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s, transform 0.3s;
-}
-.btn-primary{
+    }
+    .btn-primary{
     background-color: #ffe600;
-}
-.btn-primary:hover{
+    }
+    .btn-primary:hover{
     background-color: #ffae00;
     transform: scale(1.1);
     box-shadow: 0 4px 5px black;
-}
-
-.btn-info {
+    }
+    
+    .btn-info {
     background-color: #17a2b8;
-}
-
-.btn-info:hover {
+    }
+    
+    .btn-info:hover {
     background-color: #138496;
     transform: scale(1.1);
     box-shadow: 0 4px 5px black;
-}
-
-.btn-warning {
+    }
+    
+    .btn-warning {
     background-color: #ffc107;
-}
-
-.btn-warning:hover {
+    border: none;
+    margin-top: 400px;
+    margin-right: 300px;
+    color:#d72638;
+    text-shadow: #000 1px 1px 1px;
+    }
+    
+    .btn-warning:hover {
     background-color: #e0a800;
     transform: scale(1.1);
     box-shadow: 0 4px 5px black;
-}
-.atualizar{
+    }
+    .atualizar{
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -132,21 +164,23 @@ h1.Cad {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-}
-.rodape {
-    background-color: rgb(255, 0, 0);
-    width: 1500px;
-    height: 50px;
-    margin-top: 40%;
-    margin-left: -10px;
-    box-shadow: 0px 0px 5px black;
-}
-
-p#rod {
+    }
+    
+    a{
     text-align: center;
-    color: black;
-    font-size: 30px;
-    font-family: "Montserrat" sans-serif;
-    padding: 5px;
-    position: center;
-}
+    }
+    
+    label {
+        color: #f5f5f5;
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        margin-top: 15px;
+    }
+    
+    label input[type="checkbox"] {
+        margin-left: 10px;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
