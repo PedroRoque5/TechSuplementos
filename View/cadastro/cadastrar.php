@@ -31,7 +31,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         try {
             $userId = $conexao->inserir($query, $params);
-            echo "<p class='echo'> Usuário cadastrado com sucesso! ID do usuário:  " . $userId;
+            echo "<script>
+            alert('Cadastrado com sucesso')
+            </script>";
             sleep(2);
             header("Location: index.php?pg=login");
             echo " </p>";
