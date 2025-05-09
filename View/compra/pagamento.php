@@ -1,112 +1,95 @@
-<link href="<?= ASSETS ?>css/pagamento.css" rel="stylesheet">
-<div class="payment-container">
-    <h2>Escolha a Forma de Pagamento</h2>
-    <form id="paymentForm">
-        <div class="payment-option">
-            <label for="creditCard">
-                <input type="radio" id="creditCard" name="paymentMethod" value="cartao" checked>
-                Cartão de Crédito/Débito 10x sem juros
-            </label>
-        </div>
-        <div class="payment-option">
-            <label for="pix">
-                <input type="radio" id="pix" name="paymentMethod" value="pix">
-                Pix 5% OFF
-            </label>
-        </div>
-        <div id="paymentDetails"></div>
-        <button type="submit" class="btn">Confirmar Pagamento</button>
-    </form>
+<!DOCTYPE html>
 
-    <!-- Mensagem de sucesso -->
-    <div id="successMessage" class="hidden">
-        <p>Pagamento realizado com sucesso! Obrigado por sua compra.</p>
-        <p>Seu código de rastreio é: <strong id="trackingCode"></strong></p>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cartão de Crédito</title>
+  <link href="<?= ASSETS ?>css/card.css" rel="stylesheet">
+</head>
+<body class="card-body">
+  <div class="container-card">
+    <div class="card-display">
+      <div class="card">
+        <div class="card-label">CARTÃO DE CRÉDITO</div>
+        <div class="chip"></div>
+        <div id="display-number" class="card-number">0000 0000 0000 0000</div>
+        <div id="display-name" class="card-name">MARIA DA SILVA</div>
+        <div class="card-footer">
+          <div id="display-exp" class="card-exp">00/00</div>
+          <div id="display-cvv" class="card-cvv">123</div> <!-- CVV visível na frente -->
+        </div>
+      </div>
     </div>
+
+```
+<div class="form-section">
+  <form id="card-form">
+    <label for="name">NOME NO CARTÃO</label>
+    <input type="text" id="name" placeholder="ex. Maria da Silva" maxlength="24">
+
+    <label for="number">NUMERO DO CARTÃO</label>
+    <input type="text" id="number" placeholder="ex. 1234 5678 9123 0000" maxlength="19">
+
+    <div class="row">
+      <div class="col">
+        <label>DATA DE VALIDADE</label>
+        <div class="exp-inputs">
+          <input type="text" id="month" placeholder="MM" maxlength="2">
+          <input type="text" id="year" placeholder="YY" maxlength="2">
+        </div>
+      </div>
+      <div class="col">
+        <label for="cvc">CVV</label>
+        <input type="text" id="cvc" placeholder="ex. 123" maxlength="3">
+      </div>
+    </div>
+
+    <button type="submit">Confirmar</button>
+  </form>
 </div>
+```
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const paymentForm = document.getElementById('paymentForm');
-        const paymentDetails = document.getElementById('paymentDetails');
-        const successMessage = document.getElementById('successMessage');
-        const trackingCodeElement = document.getElementById('trackingCode');
+  </div>
 
-        // Atualiza os detalhes do pagamento
-        paymentForm.addEventListener('change', updatePaymentDetails);
+  <script> document.addEventListener("DOMContentLoaded", () => {
+  const nameInput = document.getElementById("name");
+  const numberInput = document.getElementById("number");
+  const monthInput = document.getElementById("month");
+  const yearInput = document.getElementById("year");
+  const cvcInput = document.getElementById("cvc");  // Novo campo para capturar o CVV
 
-        paymentForm.addEventListener('submit', (event) => {
-            event.preventDefault(); // Evita o envio do formulário para simular o sucesso
+  const displayName = document.getElementById("display-name");
+  const displayNumber = document.getElementById("display-number");
+  const displayExp = document.getElementById("display-exp");
+  const displayCvv = document.getElementById("display-cvv"); // Onde o CVV será exibido
 
-            // Gera um código de rastreio aleatório
-            const trackingCode = generateTrackingCode();
+  nameInput.addEventListener("input", () => {
+    displayName.textContent = nameInput.value || "MARIA DA SILVA";
+  });
 
-            // Exibe a mensagem de sucesso com o código de rastreio
-            successMessage.classList.remove('hidden');
-            successMessage.classList.add('success');
+  numberInput.addEventListener("input", () => {
+    let raw = numberInput.value.replace(/\D/g, "").substring(0, 16);
+    let formatted = raw.replace(/(.{4})/g, "$1 ").trim();
+    numberInput.value = formatted;
+    displayNumber.textContent = formatted || "0000 0000 0000 0000";
+  });
 
-            // Mostra o código de rastreio na tela
-            trackingCodeElement.textContent = trackingCode;
+  function updateExp() {
+    const mm = monthInput.value.padStart(2, '0');
+    const yy = yearInput.value.padStart(2, '0');
+    displayExp.textContent = `${mm}/${yy}`;
+  }
 
-            // Oculta o formulário após a mensagem de sucesso
-            paymentForm.style.display = 'none';
-        });
+  monthInput.addEventListener("input", updateExp);
+  yearInput.addEventListener("input", updateExp);
 
-        function generateTrackingCode() {
-            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-            let trackingCode = 'TRK-';
-            for (let i = 0; i < 8; i++) {
-                trackingCode += chars.charAt(Math.floor(Math.random() * chars.length));
-            }
-            return trackingCode;
-        }
-
-        function updatePaymentDetails() {
-            const selectedPaymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
-
-            const existingValues = {
-                cardNumber: document.getElementById('cardNumber')?.value || '',
-                cardExpiry: document.getElementById('cardExpiry')?.value || '',
-                cardCVV: document.getElementById('cardCVV')?.value || ''
-            };
-
-            let detailsHTML = '';
-
-            switch (selectedPaymentMethod) {
-                case 'cartao':
-                    detailsHTML = `
-                    <h3>Informações do Cartão</h3>
-                    <label for="cardName">Nome no Cartão:</label>
-                    <input type="text" id="cardNome" name="cardNome" placeholder="Nome" required>
-                    <label for="cardNumber">Número do Cartão:</label>
-                    <input type="text" id="cardNumber" name="cardNumber" placeholder="**** **** **** ****" required>
-                    <label for="cardExpiry">Data de Validade:</label>
-                    <input type="month" id="cardExpiry" name="cardExpiry" required>
-                    <label for="cardCVV">CVV:</label>
-                    <input type="text" id="cardCVV" name="cardCVV" placeholder="***" required>
-                `;
-                    break;
-                case 'pix':
-                    detailsHTML = `
-                    <h3>Pix</h3>
-                    <p>Você será redirecionado para o pagamento via Pix.</p>
-                `;
-                    break;
-                default:
-                    detailsHTML = '';
-            }
-
-            paymentDetails.innerHTML = detailsHTML;
-
-            if (selectedPaymentMethod === 'cartao') {
-                document.getElementById('cardNumber').value = existingValues.cardNumber;
-                document.getElementById('cardExpiry').value = existingValues.cardExpiry;
-                document.getElementById('cardCVV').value = existingValues.cardCVV;
-            }
-        }
-
-        // Atualiza os detalhes do pagamento inicialmente
-        updatePaymentDetails();
-    });
-    
+  // Adicionando o evento de input para o campo CVC
+  cvcInput.addEventListener("input", () => {
+    displayCvv.textContent = cvcInput.value || "123"; // Atualiza o CVV no display
+  });
+});
 </script>
+
+</body>
+</html>
