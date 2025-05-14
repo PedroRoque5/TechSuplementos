@@ -188,3 +188,9 @@ button:hover {
     .card-footer { display: flex; justify-content: space-between; }
     #qrcode { margin-top: 15px; }
 
+#parcelas{
+  display: none;
+  height: 40px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
