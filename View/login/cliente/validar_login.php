@@ -46,10 +46,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Redirecionamento para tela principal do usuário
                 header("Location: " . URL . "index.php?pg=home");
 
-                echo "Login realizado com sucesso!";
+                echo "<script>
+                    alert('Login realizado com sucesso!')
+                </script>";
                 exit;
             } else {
-                echo "Erro: Senha incorreta!";
+                echo "<script>
+                    window.alert(Erro: Senha incorreta!)
+                </script>";
             }
         } else {
             echo "Erro: Usuário não encontrado!";
