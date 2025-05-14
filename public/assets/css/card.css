@@ -1,148 +1,190 @@
-.card-body{
-background: linear-gradient(120deg, #000000, #d72838,#4d0202);
-
+.card-body {
+  background: linear-gradient(120deg, #000000, #d72838, #4d0202);
 }
 
 .container-card {
-display: flex;
-min-height: 100vh;
-align-items: center; /* Centraliza verticalmente os itens */
-justify-content: space-between; /* Distribui o espaço entre os itens \*/
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px;
+  min-height: 100vh;
 }
 
+/* Bloco de seleção de pagamento */
+.payment-options {
+  flex: 1;
+  background: #1a1a1a;
+  padding: 40px;
+  margin-right: 20px;
+  border-radius: 20px;
+  color: #f5f5f5;
+  max-width: 300px;
+}
+
+.payment-options label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.payment-options input[type="radio"] {
+  margin-right: 10px;
+}
+
+/* Cartão */
 .card-display {
-flex: 1; 
-background: linear-gradient(120deg, black, #660000);
-display: flex;
-justify-content: center; /* Centraliza o cartão dentro da sua área \*/
-align-items: center;
-padding: 40px;
-border-radius: 20px;
-width: 200px;
+  flex: 1;
+  background: linear-gradient(120deg, black, #660000);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  border-radius: 20px;
+  width: 200px;
 }
 
 .card {
-width: 250px;
-height: 350px;
-border-radius: 20px;
-background: url('../image/Cartao.png') no-repeat center/cover;
-background-size: 500px 900px;
-position: relative;
-color: #f5f5f5;
-padding: 20px;
-margin: 0 auto;
-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  width: 250px;
+  height: 350px;
+  border-radius: 20px;
+  background: url('../image/Cartao.png') no-repeat center/cover;
+  background-size: 500px 900px;
+  position: relative;
+  color: #f5f5f5;
+  padding: 20px;
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
+.card-label {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
 
 .card-number {
-position: absolute;
-top: 180px;
-left: 20px;
-font-size: 18px;
-letter-spacing: 2px;
+  position: absolute;
+  top: 180px;
+  left: 20px;
+  font-size: 18px;
+  letter-spacing: 2px;
 }
 
 .card-name {
-position: absolute;
-bottom: 60px;
-left: 20px;
-font-size: 14px;
-text-transform: uppercase;
+  position: absolute;
+  bottom: 60px;
+  left: 20px;
+  font-size: 14px;
+  text-transform: uppercase;
 }
 
 .card-footer {
-position: absolute;
-bottom: 30px;
-left: 20px;
-font-size: 12px;
+  position: absolute;
+  bottom: 30px;
+  left: 20px;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column; /* Isso força os elementos a ficarem um abaixo do outro */
+  gap: 4px; /* Espaço entre data e CVV */
+  align-items: flex-start; /* Alinha à esquerda */
 }
 
+/* Formulários */
 .form-section {
-flex: 1; 
-background: #2e2e2e;
-padding: 40px;
-color: #f5f5f5;
-width: 240px;
-height: 400px ;
-border-radius: 20px;
-border: black 4px;
-margin-left: -20px;
+  flex: 1;
+  background: #2e2e2e;
+  padding: 40px;
+  color: #f5f5f5;
+  width: 240px;
+  height: auto;
+  border-radius: 20px;
+  border: black 4px;
+  display: none;
+}
+
+.form-section.active {
+  display: block;
 }
 
 form {
-display: flex;
-flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 label {
-font-size: 12px;
-margin-bottom: 4px;
-font-weight: bold;
+  font-size: 12px;
+  margin-bottom: 4px;
+  font-weight: bold;
 }
 
 input {
-padding: 10px;
-margin-bottom: 20px;
-border: 1px solid #aaa;
-border-radius: 6px;
-font-size: 14px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  font-size: 14px;
 }
 
 .row {
-display: flex;
-gap: 20px;
-align-items: flex-end;
-/* Alinha os itens ao final da linha (parte inferior das labels) */
-margin-bottom: 20px;
-/* Adiciona um pouco de espaço abaixo desta linha \*/
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+  margin-bottom: 20px;
 }
 
 .col {
-flex: 1;
+  flex: 1;
 }
 
 .exp-inputs {
-display: flex;
-gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .exp-inputs input {
-width: 60px;
-padding: 10px;
-border: 1px solid #aaa;
-border-radius: 6px;
-font-size: 14px;
+  width: 60px;
+  padding: 10px;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  font-size: 14px;
 }
 
 .col label {
-font-size: 12px;
-margin-bottom: 4px;
-font-weight: bold;
-display: block;
+  font-size: 12px;
+  margin-bottom: 4px;
+  font-weight: bold;
+  display: block;
 }
 
 .col input {
-padding: 10px;
-border: 1px solid #aaa;
-border-radius: 6px;
-font-size: 14px;
-width: 100%;
-box-sizing: border-box;
-/* Inclui padding e border na largura total \*/
+  padding: 10px;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 button {
-padding: 12px;
-background: rgb(3, 160, 3);
-color: white;
-border: none;
-border-radius: 8px;
-font-size: 16px;
-cursor: pointer;
-transition: background 0.3s;
+  padding: 12px;
+  background: rgb(3, 160, 3);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
 button:hover {
-background: #29bb16;
+  background: #29bb16;
 }
+    .form-section { display: none; margin-top: 20px; }
+    .active { display: block !important; }
+    .card-display { display: none; margin-top: 20px; }
+    .card { border: 1px solid #333; padding: 20px; border-radius: 10px; width: 300px; }
+    .card-footer { display: flex; justify-content: space-between; }
+    #qrcode { margin-top: 15px; }
+
