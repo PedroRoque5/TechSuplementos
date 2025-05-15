@@ -3,23 +3,37 @@ CREATE DATABASE IF NOT EXISTS `techsuplementos` /*!40100 DEFAULT CHARACTER SET u
 USE `techsuplementos`;
 
 -- Copiando estrutura para tabela techsuplementos.compra
-CREATE TABLE IF NOT EXISTS `compra` (
-  `Forma de pagamento` varchar(50) DEFAULT NULL,
-  `Id` int(10) DEFAULT NULL,
-  `Quantidade de produtos` int(255) DEFAULT NULL,
-  `idEstoque` int(10) DEFAULT NULL,
-  `idUsuario` int(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE compra (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  id_usuario INT NOT NULL,
+  data_compra DATETIME DEFAULT CURRENT_TIMESTAMP,
+  forma_pagamento VARCHAR(50),
+  total DECIMAL(10,2),
+  FOREIGN KEY (id_usuario) REFERENCES usuario(id)
+);
+
+
+CREATE TABLE item_compra (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  id_compra INT NOT NULL,
+  id_estoque INT NOT NULL,
+  quantidade INT NOT NULL,
+  preco_unitario DECIMAL(10,2) NOT NULL,
+  FOREIGN KEY (id_compra) REFERENCES compra(id),
+  FOREIGN KEY (id_estoque) REFERENCES estoque(Id)
+);
+
+
 
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela techsuplementos.estoque
-CREATE TABLE IF NOT EXISTS `estoque` (
-  `Id` int(10) DEFAULT NULL,
-  `Nome` varchar(255) DEFAULT NULL,
-  `Quantidade` int(255) DEFAULT NULL,
-  `idProduto/marca` int(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE estoque (
+  Id INT AUTO_INCREMENT PRIMARY KEY,
+  Nome VARCHAR(255),
+  Quantidade INT,
+  id_produto INT
+);
 
 -- Exportação de dados foi desmarcado.
 
@@ -33,12 +47,14 @@ CREATE TABLE IF NOT EXISTS `feedback` (
 -- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela techsuplementos.gestão de pedido
-CREATE TABLE IF NOT EXISTS `gestão de pedido` (
-  `id` int(10) DEFAULT NULL,
-  `Histórico de Compra` varchar(255) DEFAULT NULL,
-  `Histórico do pagamento` varchar(255) DEFAULT NULL,
-  `idCompra` int(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE gestao_pedido (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  id_compra INT NOT NULL,
+  status_pagamento VARCHAR(100),
+  status_envio VARCHAR(100),
+  data_atualizacao DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_compra) REFERENCES compra(id)
+);
 
 -- Exportação de dados foi desmarcado.
 
@@ -58,13 +74,6 @@ CREATE TABLE produtos (
 
 -- Exportação de dados foi desmarcado.
 
--- Copiando estrutura para tabela techsuplementos.promoção/desconto
-CREATE TABLE IF NOT EXISTS `promoção/desconto` (
-  `id` int(10) DEFAULT NULL,
-  `Valor` float DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela techsuplementos.usuário.
 CREATE TABLE IF NOT EXISTS usuario (

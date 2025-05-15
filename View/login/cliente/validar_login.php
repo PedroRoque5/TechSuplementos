@@ -32,36 +32,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $usuario = $usuarios[0];
 
             // Depure o usuário retornado
-            var_dump($usuario);
+            // var_dump($usuario);
 
             // Verifica se a senha está correta
             if (password_verify($senha, $usuario['senha'])) {
                 // Iniciar sessão do usuário
                 $_SESSION['usuario_id'] = $usuario['id'];
                 $_SESSION['nome'] = $usuario['nome'];
-                $_SESSION['email'] = $usuario['email'];                
+                $_SESSION['email'] = $usuario['email'];
                 $_SESSION['cpf'] = $usuario['cpf'];
                 $_SESSION['telefone'] = $usuario['telefone'];
 
                 // Redirecionamento para tela principal do usuário
-                header("Location: " . URL . "index.php?pg=home");
 
                 echo "<script>
-                    alert('Login realizado com sucesso!')
+                alert('Login realizado com sucesso!');
+                window.location.href = '" . URL . "index.php?pg=home';
                 </script>";
                 exit;
             } else {
                 echo "<script>
-                    window.alert(Erro: Senha incorreta!)
+                    window.alert('Erro: Senha incorreta!');
+                     window.location.href = '" . URL . "index.php?pg=login';
                 </script>";
             }
         } else {
-            echo "Erro: Usuário não encontrado!";
+            echo "<script>
+                    window.alert('Erro: Usuário não encontrado!')
+                </script>";
         }
     } catch (Exception $e) {
         echo "Erro ao conectar ao banco: " . $e->getMessage();
     }
 } else {
-    echo "Acesso inválido!";
+    echo "<script>
+                    window.alert('Acesso inválido!')
+                </script>";
 }
-?>
