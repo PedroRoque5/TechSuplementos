@@ -1,5 +1,4 @@
 <?php
-include_once './App/Controller/UsuarioController.php';
 
 $file = __DIR__ . '/../../cadastro/cadastrar.php';
 if (file_exists($file)) {

@@ -5,6 +5,7 @@
 
 //código para inserir usuário
 require_once './TechSuplementos/DAO/Conexao.php'; // Certifique-se de incluir o arquivo que contém a classe Conexao
+require_once './App/Controller/ValidarCPFController.php'; // Função para verificar CPF 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
@@ -14,6 +15,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
 
     if ($email && $nome && $cpf && $telefone && $senha) {
+        
+        // Validação do CPF
+         if (!ValidarCPFController::validarCPF($cpf)) {
+            echo "<script>alert('CPF inválido. Por favor, insira um CPF válido.');</script>";
+            return; // Interrompe o processo se o CPF for inválido
+        }
+
         // Criptografar a senha antes de armazenar
         $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
@@ -53,4 +61,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $_SESSION['cpf'] = $cpf;
     $_SESSION['telefone'] = $telefone;
 }
+
 ?>
