@@ -237,7 +237,10 @@ switch ($pagina) {
     case 'resultado':
         include_once './View/menu/pesquisa/index.php';
         break;
-
+    case 'sair':
+        include_once './View/menu/perfil/sair.php';
+        break;
+        
     default:
         include_once './View/error/index.php';
         break;

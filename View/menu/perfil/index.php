@@ -1,4 +1,6 @@
 <?php
+include_once './App/Controller/UsuarioController.php';
+
 $file = __DIR__ . '/../../cadastro/cadastrar.php';
 if (file_exists($file)) {
     require_once $file;
@@ -29,7 +31,7 @@ $telefone = $_SESSION['telefone'] ?? 'Não cadastrado';
     <a href="<?= URL . 'index.php?pg=rastrear' ?>" class="opcao"><i data-lucide="map-pin"></i> Rastrear Compra</a><br>
     <a href="<?= URL . 'index.php?pg=historico' ?>" class="opcao"><i data-lucide="history"></i> Histórico de Compras</a><br>
     <a href="<?= URL . 'index.php?pg=dados' ?>" class="opcao"><i data-lucide="user-pen"></i> Alterar Dados Pessoais</a><br>
-    <a href="<?= URL . 'index.php?pg=login' ?>" class="opcao"><i data-lucide="log-out"></i> Sair</a>
+    <a href="<?= URL . 'index.php?pg=sair' ?>" class="opcao"><i data-lucide="log-out"></i> Sair</a>
 </div>
 
 <script>
