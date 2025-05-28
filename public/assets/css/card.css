@@ -169,7 +169,7 @@ input {
 
 button {
   padding: 12px;
-  background: red;
+  background: rgb(3, 160, 3);
   color: white;
   border: none;
   border-radius: 8px;
@@ -179,7 +179,7 @@ button {
 }
 
 button:hover {
-  background: red;
+  background: #29bb16;
 }
     .form-section { display: none; margin-top: 20px; }
     .active { display: block !important; }
