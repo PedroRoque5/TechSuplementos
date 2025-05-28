@@ -1,92 +1,96 @@
 @charset "UTF-8";
 
 ul#album {
-    width: 700px;
-    margin: 0 auto;
-    padding: 50px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    list-style: none;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+  box-sizing: border-box;
 }
 
 ul#album li {
-    position: relative;
-    width: 200px;
-    height: 300px;
-    margin: 0;
-    border: 5px solid red;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, .4);
-    -webkit-transition: all .4s ease-in;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    cursor: pointer;
+  position: relative;
+  width: 280px;
+  aspect-ratio: 1 / 1;
+  background-color: #1e1e1e;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  cursor: pointer;
 }
 
-
 ul#album li:hover {
-    z-index: 10;
-    transform: scale(1.5);
+  z-index: 10;
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 ul#album li a {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 100%;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
 }
 
 ul#album li a .produto-imagem {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: 80%;
-}
-
-
-
-ul#album li:nth-last-child(-n+2) {
-    align-self: center;
-}
-
-ul#album li#foto01 a .produto-imagem {
-    background-image: url("../image/arginine.jpg");
-}
-
-ul#album li#foto02 a .produto-imagem {
-    background-image: url("../image/fuel.jpg");
-}
-
-ul#album li#foto03 a .produto-imagem {
-    background-image: url("../image/whey-dark.jpg");
-}
-
-ul#album li#foto04 a .produto-imagem {
-    background-image: url("../image/blackscull.jpg");
-}
-
-ul#album li#foto05 a .produto-imagem {
-    background-image: url("../image/pre_growth2.jpg");
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transition: background-size 0.3s ease;
 }
 
 ul#album li:hover .produto-imagem {
-    background-size: 100% 100%;
+  background-size: 105%;
 }
 
 ul#album li .preco {
-    text-align: center;
-    margin: 10px 0;
-    padding: 5px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0.75rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: #ffffff;
+  font-size: 1rem;
+  text-align: center;
+  font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', sans-serif;
+  font-weight: 600; /* Mais espessa */
+  letter-spacing: 0.5px;
+  box-sizing: border-box;
+}
 
-    text-shadow: 1px, 1px, 1px black;
-    color: black;
-    font-size: 16px;
-    z-index: 0;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+ul#album li:nth-last-child(-n+2) {
+  align-self: center;
+}
+
+/* Imagens específicas */
+ul#album li#foto01 a .produto-imagem {
+  background-image: url("../image/arginine.jpg");
+}
+
+ul#album li#foto02 a .produto-imagem {
+  background-image: url("../image/fuel.jpg");
+}
+
+ul#album li#foto03 a .produto-imagem {
+  background-image: url("../image/whey-dark.jpg");
+}
+
+ul#album li#foto04 a .produto-imagem {
+  background-image: url("../image/blackscull.jpg");
+}
+
+ul#album li#foto05 a .produto-imagem {
+  background-image: url("../image/pre_growth2.jpg");
 }

@@ -1,112 +1,106 @@
 @charset "UTF-8";
 
 ul#album {
-    width: 700px;
-    margin: 0 auto;
-    padding: 50px;
-    overflow: hidden;
-    list-style: none;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+  box-sizing: border-box;
 }
 
 ul#album li {
-    position: relative;
-    float: left;
-    width: 200px;
-    height: 300px;
-    margin: 10px;
-    border: 5px solid red;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, .4);
-    -webkit-transition: all .4s ease-in;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    cursor: pointer;
+  position: relative;
+  width: 220px;
+  aspect-ratio: 2 / 3;
+  background-color: #1e1e1e;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 ul#album li:hover {
-    z-index: 10;
-    transform: scale(1.5);
+  z-index: 10;
+  transform: scale(1.05);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
 }
 
 ul#album li a {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 100%;
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
 }
 
 ul#album li a .produto-imagem {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 80%;
+  transition: background-size 0.3s ease;
 }
 
-ul#album li#foto01 a .produto-imagem {
-    background-image: url("../image/pre_darkLab.jpg");
-}
-
-ul#album li#foto02 a .produto-imagem {
-    background-image: url("../image/pre_darkness.jpg");
-}
-
-ul#album li#foto03 a .produto-imagem {
-    background-image: url("../image/pre_growth.jpg");
-}
-
-ul#album li#foto04 a .produto-imagem {
-    background-image: url("../image/pre_growth2.jpg");
-}
-
-ul#album li#foto05 a .produto-imagem {
-    background-image: url("../image/pre_integralMedica.jpg");
-}
-
-ul#album li#foto06 a .produto-imagem {
-    background-image: url("../image/pre_max.jpg");
-}
-
-ul#album li#foto07 a .produto-imagem {
-    background-image: url("../image/pre_max2.jpg");
-}
-
-ul#album li#foto08 a .produto-imagem {
-    background-image: url("../image/pre_oficialFarma.jpg");
-}
-
-ul#album li#foto09 a .produto-imagem {
-    background-image: url("../image/pre_RC.jpg");
-}
-
-ul#album li#foto10 a .produto-imagem {
-    background-image: url("../image/pre_underLabz.jpg");
-}
-
-ul#album li#foto11 a .produto-imagem {
-    background-image: url("../image/termo_darkLab.jpg");
-}
-
-ul#album li#foto12 a .produto-imagem {
-    background-image: url("../image/termo_growth.jpg");
-}
-
-ul#album li:hover .produto-imagem {
-    background-size: 100% 100%;
-}
-
-/* Estilos para o preço */
 ul#album li .preco {
-    text-align: center;
-    margin: 10px 0;
-    padding: 5px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0.75rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 1rem;
+  text-align: center;
+  font-family: 'Segoe UI', 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-sizing: border-box;
+  backdrop-filter: blur(4px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-    text-shadow: 1px, 1px, 1px black;
-    color: black;
-    font-size: 16px;
-    z-index: 0;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+/* Imagens específicas */
+ul#album li#foto01 a .produto-imagem {
+  background-image: url("../image/pre_darkLab.jpg");
+}
+ul#album li#foto02 a .produto-imagem {
+  background-image: url("../image/pre_darkness.jpg");
+}
+ul#album li#foto03 a .produto-imagem {
+  background-image: url("../image/pre_growth.jpg");
+}
+ul#album li#foto04 a .produto-imagem {
+  background-image: url("../image/pre_growth2.jpg");
+}
+ul#album li#foto05 a .produto-imagem {
+  background-image: url("../image/pre_integralMedica.jpg");
+}
+ul#album li#foto06 a .produto-imagem {
+  background-image: url("../image/pre_max.jpg");
+}
+ul#album li#foto07 a .produto-imagem {
+  background-image: url("../image/pre_max2.jpg");
+}
+ul#album li#foto08 a .produto-imagem {
+  background-image: url("../image/pre_oficialFarma.jpg");
+}
+ul#album li#foto09 a .produto-imagem {
+  background-image: url("../image/pre_RC.jpg");
+}
+ul#album li#foto10 a .produto-imagem {
+  background-image: url("../image/pre_underLabz.jpg");
+}
+ul#album li#foto11 a .produto-imagem {
+  background-image: url("../image/termo_darkLab.jpg");
+}
+ul#album li#foto12 a .produto-imagem {
+  background-image: url("../image/termo_growth.jpg");
 }

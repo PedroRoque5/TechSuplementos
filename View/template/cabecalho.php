@@ -16,10 +16,10 @@
         <img id="logo" src="<?= ASSETS ?>image/Techlogo.png">
         <nav id="navmenu">
             <form id="formmenu" method="POST" action="<?= URL . "index.php?pg=resultado" ?>">
-                <input id="search" type="search" name="pesquisa" placeholder=" Busque o seu melhor aliado" value="<?= htmlspecialchars($termo_pesquisa ?? '') ?>">
+                <input id="search" type="search" name="pesquisa" placeholder="&nbsp;&nbsp;Busque o seu melhor aliado" value="<?= htmlspecialchars($termo_pesquisa ?? '') ?>">
 
                 <form id="formmenu" method="POST" action="<?= URL . 'index.php?pg=resultado' ?>">
-                    <input id="search" type="search" name="pesquisa" placeholder="Busque o seu melhor aliado" value="<?= htmlspecialchars($termo_pesquisa ?? '') ?>">
+                    <input id="search" type="search" name="pesquisa" placeholder="&nbsp;&nbsp;Busque o seu melhor aliado" value="<?= htmlspecialchars($termo_pesquisa ?? '') ?>">
                     <button id="lupa" type="submit" aria-label="Buscar">
                         <i data-lucide="search"></i>
                     </button>

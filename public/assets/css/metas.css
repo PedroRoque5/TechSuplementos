@@ -1,44 +1,52 @@
+/* Links */
 a {
     display: block;
-    padding: 8px;
+    padding: 12px;
     color: #ffffff;
     text-decoration: none;
-    font-size: 10pt;
+    font-size: 1rem;
     font-family: "Montserrat", sans-serif;
-    text-shadow: 5px 5px 5px rgb(0, 0, 0);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    transition: color 0.3s ease, text-decoration 0.3s ease;
 }
 
 a:hover {
-    color: red;
+    color: #d72638;
     text-decoration: underline;
 }
 
-
+/* Títulos */
 h1 {
-    color: red;
-    text-shadow: 5px 5px 5px black;
+    color: #d72638;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    font-size: 2rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    margin-bottom: 1rem;
 }
 
+/* Subtítulos */
 h2 {
-    font-size: 12pt;
+    font-size: 1.25rem;
     display: block;
     padding: 8px;
     color: #ffffff;
-    text-decoration: none;
     font-family: "Montserrat", sans-serif;
-    text-shadow: 5px 5px 5px rgb(0, 0, 0);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
 }
 
+/* Parágrafos */
 p {
     display: block;
     padding: 8px;
     color: #ffffff;
-    text-decoration: none;
-    font-size: 10pt;
+    font-size: 1rem;
     font-family: "Montserrat", sans-serif;
-    text-shadow: 5px 5px 5px rgb(0, 0, 0);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    line-height: 1.6;
 }
 
+/* Elemento específico */
 i#metas {
     color: #ffffff;
 }
