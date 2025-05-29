@@ -1,89 +1,34 @@
 <link href="<?= ASSETS ?>css/pre.css" rel="stylesheet">
 
 <ul id="album">
-    <li id="foto01">
-        <a href="<?= URL . "index.php?pg=venom" ?>" class="produto-link">
-            <div class="produto-imagem"></div>
-        </a>
-        <p class="preco">R$ 87,90 </p>
-    </li>
+<?php
+// Conexão com o banco
+$con = mysqli_connect("localhost", "root", "", "techsuplementos");
 
-    <li id="foto02">
-        <a href="<?= URL . "index.php?pg=pre_darkness" ?>" class="produto-link">
-            <div class="produto-imagem"></div>
-        </a>
-        <p class="preco"> R$ 79,90</p>
-    </li>
+if (!$con) {
+    die("Erro na conexão: " . mysqli_connect_error());
+}
 
-    <li id="foto03">
-        <a href="<?= URL . "index.php?pg=haze" ?>" class="produto-link">
-            <div class="produto-imagem"></div>
-        </a>
-        <div>
-            <p class="preco"> R$ 103,50 </p>
-        </div>
-    </li>
+// Consulta produtos do catálogo pre_treino
+$sql = "SELECT * FROM produtos WHERE catalogo = 'pre_treino' AND status = 1";
+$result = mysqli_query($con, $sql);
 
-    <li id="foto04">
-        <a href="<?= URL . "index.php?pg=insanity" ?>" class="produto-link">
-            <div class="produto-imagem"></div>
-        </a>
-        <p class="preco">R$ 108,00 </p>
-    </li>
+if (mysqli_num_rows($result) > 0) {
+    $contador = 1;
+    while ($produto = mysqli_fetch_assoc($result)) {
+        echo "<li id='foto" . str_pad($contador, 2, '0', STR_PAD_LEFT) . "'>";
+        echo "<a href='" . URL . "index.php?pg=" . strtolower(str_replace(' ', '-', $produto['nome'])) . "' class='produto-link'>";
+        echo "<div class='produto-imagem' style='background-image: url(imagens/" . htmlspecialchars($produto['imagem']) . ");'></div>";
+        echo "</a>";
+        echo "<p class='preco'>R$ " . number_format($produto['preco'], 2, ',', '.') . "</p>";
+        echo "</li>";
+        $contador++;
+    }
+} else {
+    echo "<p>Sem produtos cadastrados no pré-treino.</p>";
+}
 
-    <li id="foto05">
-        <a href="<?= URL . "index.php?pg=huger" ?>" class="produto-link">
-            <div class="produto-imagem"></div>
-        </a>
-        <p class="preco"> R$ 159,90 </p>
-    </li>
-
-    <li id="foto06">
-        <a href="<?= URL . "index.php?pg=egide" ?>" class="produto-link">
-            <div class="produto-imagem"></div>
-        </a>
-        <p class="preco">R$ 189,00 </p>
-    </li>
-
-    <li id="foto07">
-        <a href="<?= URL . "index.php?pg=horus" ?>" class="produto-link">
-            <div class="produto-imagem"></div>
-        </a>
-        <p class="preco"> R$ 169,90 </p>
-    </li>
-
-    <li id="foto08">
-        <a href="<?= URL . "index.php?pg=oficial" ?>" class="produto-link">
-            <div class="produto-imagem"></div>
-        </a>
-        <p class="preco">R$ 105,15</p>
-    </li>
-
-    <li id="foto09">
-        <a href="<?= URL . "index.php?pg=yeah" ?>" class="produto-link">
-            <div class="produto-imagem"></div>
-        </a>
-        <p class="preco">R$ 99,90 </p>
-    </li>
-
-    <li id="foto10">
-        <a href="<?= URL . "index.php?pg=warzone" ?>" class="produto-link">
-            <div class="produto-imagem"></div>
-        </a>
-        <p class="preco">R$ 149,90 </p>
-    </li>
-
-    <li id="foto11">
-        <a href="<?= URL . "index.php?pg=dark" ?>" class="produto-link">
-            <div class="produto-imagem"></div>
-        </a>
-        <p class="preco">R$ 49,90 </p>
-    </li>
-
-    <li id="foto12">
-        <a href="<?= URL . "index.php?pg=hot" ?>" class="produto-link">
-            <div class="produto-imagem"></div>
-        </a>
-        <p class="preco">R$ 37,80</p>
-    </li>
+// Fecha conexão
+mysqli_close($con);
+?>
 </ul>

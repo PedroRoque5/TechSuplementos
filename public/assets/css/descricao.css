@@ -58,9 +58,9 @@ h2.preco {
   /* Amarelo para chamar atenção */
   color: #333;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 20px;
   font-size: 16px;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.3s ease;
@@ -74,9 +74,9 @@ h2.preco {
   background-color: #28a745;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 20px;
   font-size: 18px;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
 }
@@ -91,9 +91,9 @@ h2.preco {
   background-color: #007bff;
   color: white;
   border: none;
-  padding: 10px 15px;
+  padding: 12px 15px;
   font-size: 16px;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.3s ease;
@@ -213,8 +213,8 @@ h2.preco {
 textarea#comentario {
   width: 90%;
   padding: 15px;
-  font-size: 16px;
-  border-radius: 5px;
+  font-size: 12px;
+  border-radius: 4px;
   border: 1px solid #000000;
   resize: none;
 }
@@ -224,9 +224,9 @@ textarea#comentario {
   background-color: #28a745;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 20px;
   font-size: 16px;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
   align-self: flex-start;
@@ -303,7 +303,7 @@ textarea#comentario {
 }
 
 .confirm-button {
-  padding: 5px 15px;
+  padding: 12px 15px;
   font-size: 16px;
   background-color: #4CAF50;
   color: white;

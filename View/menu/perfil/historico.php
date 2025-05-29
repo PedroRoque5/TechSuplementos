@@ -4,7 +4,7 @@ session_start(); // Adiciona a sessão no início do script
 require_once '../TechSuplementos/TechSuplementos/DAO/Conexao.php'; // ou seu arquivo de conexão com o banco
 
 // Verifica se o usuário está logado
-if (!isset($_SESSION['id_usuario'])) {
+if (!isset($_SESSION['usuario_id'])) {
     die("Usuário não autenticado.");
 }
 

@@ -11,9 +11,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cpf = filter_input(INPUT_POST, 'cpf', FILTER_SANITIZE_STRING);
     $telefone = filter_input(INPUT_POST, 'telefone', FILTER_SANITIZE_STRING);
     $senha = $_POST['senha'];
+    $_SESSION['nivel_acesso'] = 'usuario';
+
 
     if (!$email || !$senha) {
-        echo "Erro: Preencha todos os campos!";
+        echo "<script>
+        window.alert('Erro: Preencha todos os campos!');
+        window.location.href = '" . URL . "index.php?pg=login';
+        </script>";
         exit;
     }
 

@@ -1,41 +1,22 @@
-<link href="<?= ASSETS ?>css/novidades.css" rel="stylesheet">
+<?php
+require_once './TechSuplementos/DAO/Conexao.php';
 
-<ul id="album">
-    <li id="foto01">
-        <a href="<?= URL . "index.php?pg=arginine" ?>" class="produto-link">
-            <div class="produto-imagem"></div>
-        </a>
-        <p class="preco">R$ 119,90 </p>
-    </li>
+$conexao = new Conexao();
+$produtos = $conexao->buscar("SELECT * FROM produtos WHERE catalogo = 'novidades'");
+?>
 
-    <li id="foto02">
-        <a href="<?= URL . "index.php?pg=italac-whey" ?>" class="produto-link">
-            <div class="produto-imagem"></div>
-        </a>
-        <p class="preco"> R$ 24,24</p>
-    </li>
+<link href="<?= ASSETS ?>css/catalogo.css" rel="stylesheet">
 
-    <li id="foto03">
-        <a href="<?= URL . "index.php?pg=whey-dark" ?>" class="produto-link">
-            <div class="produto-imagem"></div>
-        </a>
-        <div>
-            <p class="preco"> R$ 94,90 </p>
+<h1 class="titulo">NOVIDADES</h1>
+
+<div class="container-catalogo">
+    <?php foreach ($produtos as $produto): ?>
+        <div class="card">
+            <a href="<?= URL ?>index.php?pg=descricao&id=<?= $produto['id'] ?>">
+                <img src="<?= URL ?>View/cadastro/produto/uploads/<?= htmlspecialchars($produto['imagem']) ?>" alt="<?= htmlspecialchars($produto['nome']) ?>">
+                <h2><?= htmlspecialchars($produto['nome']) ?></h2>
+                <p class="preco">R$ <?= number_format($produto['preco'], 2, ',', '.') ?></p>
+            </a>
         </div>
-    </li>
-
-    <li id="foto04">
-        <a href="<?= URL . "index.php?pg=blackscull" ?>" class="produto-link">
-            <div class="produto-imagem"></div>
-        </a>
-        <p class="preco">R$ 89,90</p>
-    </li>
-
-    <li id="foto05">
-        <a href="<?= URL . "index.php?pg=insanity" ?>" class="produto-link">
-            <div class="produto-imagem"></div>
-        </a>
-        <p class="preco"> R$ 108,00</p>
-    </li>
-
-</ul>
+    <?php endforeach; ?>
+</div>

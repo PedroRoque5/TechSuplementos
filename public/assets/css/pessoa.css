@@ -69,16 +69,16 @@ input:hover {
   
 .btn {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 12px 20px;
     font-size: 16px;
     color: #f5f5f5;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 4px;
     transition: background-color 0.3s;
 }
 
 .btn-success {
-    background-color: red;
+    background-color: rgb(12, 207, 12);
     border: transparent;
 }
 

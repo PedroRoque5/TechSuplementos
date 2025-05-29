@@ -1,40 +1,22 @@
-<link href="<?= ASSETS ?>css/top5.css" rel="stylesheet">
+<?php
+require_once './TechSuplementos/DAO/Conexao.php';
 
-<ul id="album">
-    <li id="foto01">
-        <a href="<?= URL . "index.php?pg=gold" ?>" class="produto-link">
-            <div class="produto-imagem"></div>
-        </a>
-        <p class="preco">R$ 480,85</p>
-    </li>
+$conexao = new Conexao();
+$produtos = $conexao->buscar("SELECT * FROM produtos WHERE catalogo = 'top_5'");
+?>
 
-    <li id="foto02">
-        <a href="<?= URL . "index.php?pg=beta" ?>" class="produto-link">
-            <div class="produto-imagem"></div>
-        </a>
-        <p class="preco"> R$ 70,00 </p>
-    </li>
+<link href="<?= ASSETS ?>css/catalogo.css" rel="stylesheet">
 
-    <li id="foto03">
-        <a href="<?= URL . "index.php?pg=creatina-universal" ?>" class="produto-link">
-            <div class="produto-imagem"></div>
-        </a>
-        <div>
-            <p class="preco"> R$ 119,00 </p>
+<h1 class="titulo">TOP 5</h1>
+
+<div class="container-catalogo">
+    <?php foreach ($produtos as $produto): ?>
+        <div class="card">
+            <a href="<?= URL ?>index.php?pg=descricao&id=<?= $produto['id'] ?>">
+                <img src="<?= URL ?>View/cadastro/produto/uploads/<?= htmlspecialchars($produto['imagem']) ?>" alt="<?= htmlspecialchars($produto['nome']) ?>">
+                <h2><?= htmlspecialchars($produto['nome']) ?></h2>
+                <p class="preco">R$ <?= number_format($produto['preco'], 2, ',', '.') ?></p>
+            </a>
         </div>
-    </li>
-
-    <li id="foto04">
-        <a href="<?= URL . "index.php?pg=barra-growth" ?>" class="produto-link">
-            <div class="produto-imagem"></div>
-        </a>
-        <p class="preco">R$ 7,90</p>
-    </li>
-
-    <li id="foto05">
-        <a href="<?= URL . "index.php?pg=dark" ?>" class="produto-link">
-            <div class="produto-imagem"></div>
-        </a>
-        <p class="preco"> R$ 49,90</p>
-    </li>
-</ul>
+    <?php endforeach; ?>
+</div>

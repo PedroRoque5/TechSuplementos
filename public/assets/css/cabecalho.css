@@ -1,13 +1,15 @@
-#dashboard {
+div#dashboard {
   background-color: #262626;
   width: 1500px;
   height: 45px;
-  margin: 10px;
-  padding: 10px;
+  margin: -10px;
+  box-shadow: 0px 0px 5px black;
+  padding: 10px 10px 10px 10px;
 }
 
-#logo {
-  margin: -12px 0 0 50px;
+img#logo {
+  margin-top: -12px;
+  margin-left: 50px;
   width: 80px;
   height: 80px;
 }
@@ -40,20 +42,14 @@ nav#menu a {
   font-size: 10pt;
   font-family: "Montserrat", sans-serif;
   display: block;
-  padding: 8px 10px;
+  padding: 8px;
   color: #f5f5f5;
   text-decoration: none;
-  transition: all 0.3s;
-  box-sizing: border-box;
 }
 
 nav#menu a:hover {
-  color: #f5f5f5;
-  background-color: #d72638;
-  border-radius: 25px;
-  padding: 8px 10px;
-  text-decoration: none;
-  box-sizing: border-box;
+  color: #d72638;
+  text-decoration: underline;
 }
 
 nav#navmenu form#formmenu {
@@ -78,8 +74,10 @@ body {
 
 #lupa {
   position: absolute;
-  top: 10px;
+  top: 25px;
+  /* ajuste vertical */
   left: 800px;
+  /* ajuste horizontal para alinhar com o input */
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -96,24 +94,22 @@ form input#search {
   background-color: #2e2e2e;
   border: none;
   width: 500px;
-  height: 35px;
+  height: 30px;
   position: absolute;
-  top: 10px;
+  top: 20px;
   left: 300px;
-  border-radius: 25px;
-  color: #f5f5f5;
+  border-radius: 10px;
 }
 
 .sub {
   background: none;
   width: 1500px;
-  margin: -10px;
-  padding: 10px;
+  margin: -30px;
+  padding: 10px 10px 10px 10px;
 }
 
 nav#submenu {
   display: block;
-  position: relative;
 }
 
 nav#menusub {
@@ -141,22 +137,16 @@ nav#menusub h2 {
 
 nav#menusub .menus {
   display: block;
-  padding: 8px 10px;
+  padding: 8px;
   color: #f5f5f5;
   text-decoration: none;
-  font-size: 12pt;
+  font-size: 10pt;
   font-family: "Montserrat", sans-serif;
-  transition: all 0.3s;
-  box-sizing: border-box;
 }
 
 nav#menusub .menus:hover {
-  color: #f5f5f5;
-  background-color: #d72638;
-  border-radius: 25px;
-  padding: 8px 10px;
-  text-decoration: none;
-  box-sizing: border-box;
+  color: #d72638;
+  text-decoration: underline;
 }
 
 nav#submenu ul#navcascata {
@@ -164,6 +154,7 @@ nav#submenu ul#navcascata {
   position: absolute;
   top: -10px;
   left: 0;
+
 }
 
 nav#submenu li.cascata {
@@ -174,9 +165,10 @@ nav#submenu li.cascata {
   margin: 0px;
 }
 
+
 nav#submenu a {
   display: block;
-  padding: 8px 10px;
+  padding: 8px;
   color: #f5f5f5;
   text-decoration: none;
   font-size: 10pt;
@@ -187,9 +179,8 @@ nav#submenu a {
 nav#submenu a:hover {
   color: #d72638;
   text-decoration: underline;
-  background: transparent !important; /* Removendo o fundo no hover */
-  border-radius: 25px;
 }
+
 
 .dropbtn {
   background: none;
@@ -207,264 +198,30 @@ nav#submenu a:hover {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   list-style: none;
-  padding: 0;
-  margin: 0;
-  right: 0;
+  padding: 25px;
+  margin: 140px;
+  right: 1000px;
   border-radius: 10px;
 }
 
 .dropdown-item {
   color: #f5f5f5;
   padding: 12px 16px;
-  border-radius: 25px;
   text-decoration: none;
   display: block;
   font-family: "Montserrat", sans-serif;
-  transition: background 0.3s, color 0.3s;
 }
 
 .dropdown-item:hover {
-  background-color: transparent !important; /* Hover transparente */
-  color: #d72638;
-  text-decoration: underline;
-}
-
-#dashboard {
-  background-color: #262626;
-  width: 1500px;
-  height: 45px;
-  margin: 10px;
-  padding: 10px;
-}
-
-#logo {
-  margin: -12px 0 0 50px;
-  width: 80px;
-  height: 80px;
-}
-
-nav#menu {
-  display: block;
-}
-
-nav#menu ul#principal {
-  list-style: none;
-  position: absolute;
-  top: -10px;
-  left: 800px;
-}
-
-nav#menu li#unico {
-  display: inline;
-  float: left;
-  background-color: transparent;
-  padding: 10px;
-  margin: 0px;
-  transition: background-color 0.1s;
-}
-
-nav#menu h2 {
-  display: none;
-}
-
-nav#menu a {
-  font-size: 10pt;
-  font-family: "Montserrat", sans-serif;
-  display: block;
-  padding: 8px 10px;
-  color: #f5f5f5;
-  text-decoration: none;
-  transition: all 0.3s;
-  box-sizing: border-box;
-}
-
-nav#menu a:hover {
-  color: #f5f5f5;
-  background-color: #d72638;
-  border-radius: 25px;
-  padding: 8px 10px;
-  text-decoration: none;
-  box-sizing: border-box;
-}
-
-nav#navmenu form#formmenu {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  right: 100px;
-  top: 10px;
-  width: 100%;
-  height: 100%;
-}
-
-body {
-  background-color: #262626;
-}
-
-#formmenu {
-  position: relative;
-  margin-top: -90px;
-}
-
-#lupa {
-  position: absolute;
-  top: 10px;
-  left: 800px;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  color: #f5f5f5;
-}
-
-#lupa i[data-lucide] {
-  width: 10px !important;
-  height: 10px !important;
-  color: #ffffff !important;
-}
-
-form input#search {
-  background-color: #2e2e2e;
-  border: none;
-  width: 500px;
-  height: 35px;
-  position: absolute;
-  top: 10px;
-  left: 300px;
-  border-radius: 25px;
-  color: #f5f5f5;
-}
-
-.sub {
   background: none;
-  width: 1500px;
-  margin: -10px;
-  padding: 10px;
-}
-
-nav#submenu {
-  display: block;
-  position: relative;
-}
-
-nav#menusub {
-  display: block;
-}
-
-nav#menusub ul#segunda {
-  list-style: none;
-  position: absolute;
-  top: 30px;
-  left: 250px;
-}
-
-nav#menusub li#segundo {
-  display: inline;
-  float: left;
-  background-color: transparent;
-  padding: 10px;
-  margin: 0px;
-}
-
-nav#menusub h2 {
-  display: none;
-}
-
-nav#menusub .menus {
-  display: block;
-  padding: 8px 10px;
-  color: #f5f5f5;
-  text-decoration: none;
-  font-size: 12pt;
-  font-family: "Montserrat", sans-serif;
-  transition: all 0.3s;
-  box-sizing: border-box;
-}
-
-nav#menusub .menus:hover {
-  color: #f5f5f5;
-  background-color: #d72638;
-  border-radius: 25px;
-  padding: 8px 10px;
-  text-decoration: none;
-  box-sizing: border-box;
-}
-
-nav#submenu ul#navcascata {
-  list-style: none;
-  position: absolute;
-  top: -10px;
-  left: 0;
-}
-
-nav#submenu li.cascata {
-  display: inline;
-  float: left;
-  background: none;
-  padding: 10px;
-  margin: 0px;
-}
-
-nav#submenu a {
-  display: block;
-  padding: 8px 10px;
-  color: #f5f5f5;
-  text-decoration: none;
-  font-size: 10pt;
-  font-family: "Montserrat", sans-serif;
-  text-shadow: 5px 5px 5px rgb(0, 0, 0);
-}
-
-nav#submenu a:hover {
-  color: #d72638;
-  text-decoration: underline;
-  background: transparent !important; /* Removendo o fundo no hover */
-  border-radius: 25px;
-}
-
-.dropbtn {
-  background: none;
-  color: #f5f5f5;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-.dropdown-menu {
-  display: none;
-  background: #2e2e2e;
-  min-width: 200px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  right: 0;
-  border-radius: 10px;
-}
-
-.dropdown-item {
-  color: #f5f5f5;
-  padding: 12px 16px;
-  border-radius: 25px;
-  text-decoration: none;
-  display: block;
-  font-family: "Montserrat", sans-serif;
-  transition: background 0.3s, color 0.3s;
-}
-
-.dropdown-item:hover {
-  background-color: transparent !important; /* Hover transparente */
-  color: #d72638;
-  text-decoration: underline;
 }
 
 #login-dropdown {
   position: absolute;
   background-color: #2e2e2e;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 25px;
+  border: 1px solid #f5f5f5;
+  border-radius: 4px;
   padding: 10px 0;
   list-style: none;
   display: none;
@@ -484,13 +241,10 @@ nav#submenu a:hover {
   font-size: 14px;
   display: block;
   width: 100%;
-  transition: color 0.3s;
 }
 
 #login-dropdown li a:hover {
   color: #d72638;
-  background: transparent !important;
-  text-decoration: underline;
 }
 
 .hidden {
@@ -501,19 +255,17 @@ nav#submenu a:hover {
   display: block;
 }
 
-/* Garante que o texto fique acima de qualquer fundo de hover */
-nav#submenu .menus,
+/*Garante que o texto fique acima de qualquer fundo de hover */ nav#submenu .menus,
 nav#menu a {
   position: relative;
   z-index: 2;
 }
 
-nav#menusub li#segundo:hover > .menus,
-nav#menu li#unico:hover > a {
+nav#menusub li#segundo:hover>.menus,
+nav#menu li#unico:hover>a {
   z-index: 3;
 }
 
-
 /* Garante que o texto fique acima de qualquer fundo de hover */
 nav#submenu .menus,
 nav#menu a {
@@ -521,7 +273,7 @@ nav#menu a {
   z-index: 2;
 }
 
-nav#menusub li#segundo:hover > .menus,
-nav#menu li#unico:hover > a {
+nav#menusub li#segundo:hover>.menus,
+nav#menu li#unico:hover>a {
   z-index: 3;
 }

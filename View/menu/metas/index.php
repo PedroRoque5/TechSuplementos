@@ -31,10 +31,6 @@
             </div>
         </div>
     </div>
-
-    <footer>
-        <p>&copy; 2024 Tech Suplementos - Todos os direitos reservados.</p>
-    </footer>
 </body>
 
 </html>

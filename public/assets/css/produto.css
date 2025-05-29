@@ -62,19 +62,19 @@
     
     .btn {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 12px 20px;
     font-size: 16px;
     color: rgb(255, 255, 255);
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 4px;
     transition: background-color 0.3s;
     }
     
     .btn-success {
-    background-color: red;
+    background-color: rgb(12, 207, 12);
     }
     
-    .btn-success\:hover {
+    .btn-success:hover {
     background-color: rgb(3, 126, 3);
     transform: scale(1.1);
     box-shadow: 0 4px 5px black;

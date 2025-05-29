@@ -1,6 +1,6 @@
 a {
     display: block; /* Faz o link ocupar a largura total do seu contêiner */
-    padding: 8px; /* Adiciona espaçamento interno ao redor do texto do link */
+    padding: 12px; /* Adiciona espaçamento interno ao redor do texto do link */
     color: #ffffff; /* Texto branco */
     text-decoration: none; /* Remove o sublinhado padrão */
     font-size: 10pt; /* Tamanho da fonte */
