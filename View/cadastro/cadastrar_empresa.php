@@ -1,15 +1,30 @@
 <?php
 require_once './App/Controller/EmpresaController.php';
 
+// Variáveis para armazenar a mensagem e tipo (erro ou sucesso)
+$mensagem = null;
+$tipoMensagem = null;
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $controller = new EmpresaController();
     $resultado = $controller->cadastrar($_POST);
 
+    // Se o cadastro for bem-sucedido
     if ($resultado['success']) {
-        echo "<script>alert('{$resultado['message']}'); window.location.href = 'index.php?pg=home';</script>";
+        $mensagem = $resultado['message'];
+        $tipoMensagem = 'success'; // Estilo de sucesso
+        // Redireciona após o sucesso
+        header("Refresh: 3; url=index.php?pg=home"); // Redireciona após 3 segundos
     } else {
-        echo "<script>alert('{$resultado['message']}'); window.history.back();</script>";
+        $mensagem = $resultado['message'];
+        $tipoMensagem = 'error'; // Estilo de erro
     }
-} else {
-    echo "<script>alert('Requisição inválida.'); window.history.back();</script>";
 }
+?>
+
+<!-- Exibe a mensagem de sucesso ou erro, se existir -->
+<?php if ($mensagem): ?>
+    <div class="alert <?php echo $tipoMensagem === 'success' ? 'alert-success' : 'alert-danger'; ?>">
+        <?php echo $mensagem; ?>
+    </div>
+<?php endif; ?>

@@ -69,16 +69,20 @@ input:hover {
   
 .btn {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 12px 20px;
     font-size: 16px;
     color: #f5f5f5;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 4px;
     transition: background-color 0.3s;
 }
 
 .btn-success {
+<<<<<<< HEAD
     background-color: green;
+=======
+    background-color: rgb(12, 207, 12);
+>>>>>>> d465c0c20adc891a20f43b4d974cadee92f8c228
     border: transparent;
 }
 

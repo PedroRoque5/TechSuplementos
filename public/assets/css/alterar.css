@@ -29,8 +29,13 @@
 }
 
 .form-group input {
+<<<<<<< HEAD
     width: 90%;
     padding: 10px;
+=======
+    width: 100%;
+    padding: 12px;
+>>>>>>> d465c0c20adc891a20f43b4d974cadee92f8c228
     border: 1px solid #ccc;
     border-radius: 4px;
 }

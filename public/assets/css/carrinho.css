@@ -34,6 +34,8 @@
 .cart-table td input[type="number"] {
     width: 50px;
     text-align: center;
+    padding: 12px;
+    border-radius: 4px;
 }
 
 .cart-summary {
@@ -45,9 +47,9 @@
 .cart-summary .btn {
     background-color: #28a745;
     color: white;
-    padding: 10px 20px;
+    padding: 12px 20px;
     border: none;
-    border-radius: 25px;
+    border-radius: 4px;
     cursor: pointer;
 }
 

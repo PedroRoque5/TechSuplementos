@@ -65,7 +65,7 @@ input {
   font-family: var(--font-main);
   font-size: 13pt;
   margin-bottom: 10px;
-  border-radius: 25px; 
+  border-radius: 4px; 
   border: none;
   padding: 10px;
 }
@@ -74,22 +74,34 @@ input:hover {
   background-color: #aaaaaa;
 }
 
-.btn,
-.btn-success,
-.btn-input {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 16px;
-  color: var(--white);
-  background-color: var(--primary);
-  text-decoration: none;
-  border-radius: 25px;
-  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
-  border: none;
-}
-
-.btn:hover,
-.btn-success:hover,
-.btn-input:hover {
-  background-color: var(--primary-hover);
-}
+ .btn {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    }
+    
+    .btn-success {
+    background-color: rgb(12, 207, 12);
+    }
+    
+    .btn-success:hover {
+    background-color: rgb(3, 126, 3);
+    transform: scale(1.1);
+    box-shadow: 0 4px 5px black;
+    }
+    
+    .btn-input {
+    background-color: #d72638;
+    margin-top: 10px;
+    }
+    
+    .btn-input:hover {
+    background-color: rgb(201, 11, 11);
+    transform: scale(1.1);
+    box-shadow: 0 4px 5px black;
+    }
+    

@@ -30,7 +30,7 @@ select, input {
     border-radius: 4px;
 }
 .buttons button {
-    padding: 10px 20px;
+    padding: 12px 20px;
     margin: 5px;
     cursor: pointer;
     color: white;

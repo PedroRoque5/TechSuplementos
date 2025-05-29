@@ -27,9 +27,8 @@ $telefone = $_SESSION['telefone'] ?? 'Não cadastrado';
 </div>
 
 <div id="opcoes-perfil">
-    <a href="<?= URL . 'index.php?pg=historico' ?>" class="opcao"><i data-lucide="history"></i> Histórico de Compras</a><br>
-    <a href="<?= URL . 'index.php?pg=dados' ?>" class="opcao"><i data-lucide="user-pen"></i> Alterar Dados Pessoais</a><br>
-    <a href="<?= URL . 'index.php?pg=sair' ?>" class="opcao"><i data-lucide="log-out"></i> Sair</a>
+    <a href="<?= URL . 'index.php?pg=dadosadmin' ?>" class="opcao"><i data-lucide="user-pen"></i> Alterar Dados Pessoais</a><br>
+    <a href="<?= URL . 'index.php?pg=sairadmin' ?>" class="opcao"><i data-lucide="log-out"></i> Sair</a>
 </div>
 
 <script>

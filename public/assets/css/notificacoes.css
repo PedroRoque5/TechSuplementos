@@ -43,8 +43,13 @@
 
 .btn {
     width: 100%;
+<<<<<<< HEAD
     padding: 10px;
     background-color: #28a745;
+=======
+    padding: 12px;
+    background-color: #00ff15;
+>>>>>>> d465c0c20adc891a20f43b4d974cadee92f8c228
     color: white;
     border: none;
     border-radius: 4px;

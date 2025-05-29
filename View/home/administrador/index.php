@@ -7,31 +7,6 @@
 </head>
 
 <body class="admin">
-    <nav id="menu">
-        <ul id="principal">
-            <li id="unico"><a href="<?= URL . "index.php?pg=homeadmin" ?>">Home</a></li>
-            <li id="unico">
-                <a href="#" id="login-dropdown-toggle">Login/Cadastro
-                </a>
-                <ul id="login-dropdown" class="hidden">
-                    <li><a href="<?= URL . 'index.php?pg=empresa' ?>">Login Empresa</a></li>
-                    <li><a href="<?= URL . 'index.php?pg=login' ?>">Login Usuário</a></li>
-                </ul>
-            </li> 
-            <li id="unico"><a href="<?= URL . "index.php?pg=suporte" ?>">Suporte</a></li>
-            <button class="dropbtn"> <i id="baricon" data-lucide="menu"></i></button>
-            <div id="sub">
-                <nav id="submenu">
-                    <ul class="dropdown-menu" id="navcascata">
-                        <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=perfil" ?>"><i id="perfil" data-lucide="user"></i>Perfil</a></li>
-                        <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=config" ?>"><i id="settings" data-lucide="settings"></i>Configurações<br></a></li>
-                        <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=produto" ?>"><i id="produto"data-lucide="shopping-basket"></i>Cadastrar Produto<br></a></li>
-                        <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=sistemaestoque" ?>"><i id="estoque" data-lucide="store"></i>&nbsp;&nbsp;Gerenciar estoque<br></a></li>
-                    </ul>
-                </nav>
-            </div>
-        </ul>
-    </nav>
     <img id="banner" src="<?= ASSETS ?>image/banner-tech.jpg">
 </body>
 <script>
