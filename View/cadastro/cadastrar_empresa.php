@@ -1,63 +1,15 @@
 <?php
-require_once './TechSuplementos/DAO/Conexao.php';
+require_once './App/Controller/EmpresaController.php';
 
-// Ativar a exibição de erros para depuração
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $controller = new EmpresaController();
+    $resultado = $controller->cadastrar($_POST);
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Captura os dados do formulário e sanitiza
-    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-    $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
-    $cnpj = filter_input(INPUT_POST, 'cnpj', FILTER_SANITIZE_STRING);
-    $telefone = filter_input(INPUT_POST, 'telefone', FILTER_SANITIZE_STRING);
-    $pais = filter_input(INPUT_POST, 'pais', FILTER_SANITIZE_STRING);
-    $data = filter_input(INPUT_POST, 'data', FILTER_SANITIZE_STRING);
-    $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
-
-    // Verifica se todos os campos foram preenchidos corretamente
-    if ($email && $nome && $cnpj && $telefone && $pais && $data && $senha) {
-        // Gera o hash da senha
-        $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
-
-        // Estabelece a conexão com o banco de dados
-        $conexao = new Conexao();
-
-        // SQL para inserção dos dados da empresa
-        $query = "INSERT INTO empresa (email, nome, cnpj, telefone, pais_origem, data_criacao, senha)
-                  VALUES (:email, :nome, :cnpj, :telefone, :pais, :data, :senha)";
-
-        // Parâmetros para a consulta
-        $params = [
-            ':email' => $email,
-            ':nome' => $nome,
-            ':cnpj' => $cnpj,
-            ':telefone' => $telefone,
-            ':pais' => $pais,
-            ':data' => $data,
-            ':senha' => $senhaHash
-        ];
-
-        // Tenta realizar a inserção no banco de dados
-        try {
-            // Chamando a função inserir e assumindo que ela deve retornar o ID inserido
-            $empresaId = $conexao->inserir($query, $params);
-
-            if ($empresaId) {
-                // Redireciona para a página de sucesso com o ID da empresa cadastrada
-                header('Location: ' . URL . 'index.php?pg=sucesso&empresa_id=' . $empresaId);
-                exit; // Garante que o código após o redirecionamento não seja executado
-            } else {
-                // Caso não tenha sido possível inserir, exibe erro
-                echo "Erro: Não foi possível cadastrar a empresa.";
-            }
-        } catch (Exception $e) {
-            // Exibe a mensagem de erro caso ocorra algum problema
-            echo "Erro ao cadastrar empresa: " . $e->getMessage();
-        }
+    if ($resultado['success']) {
+        echo "<script>alert('{$resultado['message']}'); window.location.href = 'index.php?pg=home';</script>";
     } else {
-        // Caso algum campo esteja vazio ou inválido, exibe uma mensagem de erro
-        echo "Preencha todos os campos corretamente.";
+        echo "<script>alert('{$resultado['message']}'); window.history.back();</script>";
     }
+} else {
+    echo "<script>alert('Requisição inválida.'); window.history.back();</script>";
 }
-?>
