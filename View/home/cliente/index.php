@@ -10,7 +10,7 @@
 </head>
 
 <body class="usuario">
-    <nav id="menu">
+        <nav id="menu">
         <ul id="principal">
             <li id="unico"><a href="<?= URL . "index.php?pg=home" ?>">Home</a></li>
             <li id="unico">
