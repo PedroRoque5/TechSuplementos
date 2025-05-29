@@ -89,3 +89,14 @@ CREATE TABLE IF NOT EXISTS produto_sabor (
   FOREIGN KEY (id_produto) REFERENCES produtos(id) ON DELETE CASCADE,
   FOREIGN KEY (id_sabor) REFERENCES sabores(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE empresa (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL,
+    nome VARCHAR(255) NOT NULL,
+    cnpj VARCHAR(20) NOT NULL,
+    pais_origem VARCHAR(100),
+    ano_fundacao DATE,
+    telefone VARCHAR(20),
+    senha VARCHAR(255) NOT NULL
+);
