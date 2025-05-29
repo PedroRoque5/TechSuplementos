@@ -17,6 +17,12 @@ class EmpresaController {
             return ['success' => false, 'message' => 'Por favor, preencha todos os campos obrigatórios.'];
         }
 
+        // Validação do CNPJ
+        if (!$this->validarCNPJ($cnpj)) {
+            return ['success' => false, 'message' => 'CNPJ inválido.'];
+        }
+
+
         // Validação de data
         if (!empty($ano_fundacao)) {
             $d = DateTime::createFromFormat('Y-m-d', $ano_fundacao);
@@ -48,4 +54,45 @@ class EmpresaController {
             return ['success' => false, 'message' => 'Erro ao cadastrar empresa.'];
         }
     }
+
+    private function validarCNPJ($cnpj) {
+    // Remove caracteres não numéricos
+    $cnpj = preg_replace('/[^0-9]/', '', $cnpj);
+
+    // Verifica se tem 14 dígitos
+    if (strlen($cnpj) != 14) {
+        return false;
+    }
+
+    // Elimina CNPJs com todos os dígitos iguais (ex: 00000000000000)
+    if (preg_match('/(\d)\1{13}/', $cnpj)) {
+        return false;
+    }
+
+    // Validação dos dígitos verificadores
+    $soma = 0;
+    $multiplicador1 = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+    $multiplicador2 = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+
+    // Primeiro dígito verificador
+    for ($i = 0; $i < 12; $i++) {
+        $soma += $cnpj[$i] * $multiplicador1[$i];
+    }
+
+    $resto = $soma % 11;
+    $digito1 = ($resto < 2) ? 0 : 11 - $resto;
+
+    // Segundo dígito verificador
+    $soma = 0;
+    for ($i = 0; $i < 13; $i++) {
+        $soma += $cnpj[$i] * $multiplicador2[$i];
+    }
+
+    $resto = $soma % 11;
+    $digito2 = ($resto < 2) ? 0 : 11 - $resto;
+
+    // Verifica os dígitos
+    return ($cnpj[12] == $digito1 && $cnpj[13] == $digito2);
+}
+
 }
