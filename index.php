@@ -108,6 +108,9 @@ switch ($pagina) {
     case 'pagamento':
         include_once './View/compra/pagamento.php';
         break;
+    case 'ValidarPagamento':
+        include_once './View/compra/processa_pagamento.php';
+        break;
     case 'descricao':
         include_once './View/menu/novidades/descricao.php';
         break;
