@@ -6,11 +6,8 @@ require_once './config_serve.php';
 //Variavel para receber uma página, caso não receba, apresenta a tela home
 $pagina = isset($_GET['pg']) ? $_GET['pg'] : 'home';
 
- if (isset($_SESSION['nivel_acesso']) && $_SESSION['nivel_acesso'] === 'usuario') {
-    include_once './View/template/cabecalho.php';
-} else {
-    include_once './View/template/cabecalhoadmin.php';
-}
+include_once './View/template/cabecalho.php';
+
 switch ($pagina) {
     case 'login':
         header("Location:" . URL . "View/login/cliente/index.php");
