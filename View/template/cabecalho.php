@@ -29,15 +29,7 @@
         <nav id="menu">
             <ul id="principal">
                 <li id="unico"><a href="<?= URL . "index.php?pg=home" ?>">Home</a></li>
-                <li id="unico">
-                    <a href="#" id="login-dropdown-toggle"> Login/Cadastro</a>
-                    <ul id="login-dropdown" class="hidden">
-                        <li><a href="<?= URL . 'index.php?pg=empresa' ?>">Login Empresa</a></li>
-                        <li><a href="<?= URL . 'index.php?pg=login' ?>">Login Usuário</a></li>
                     </ul>
-                </li>
-                <li id="unico"><a href="<?= URL . "index.php?pg=suporte" ?>">Suporte</a></li>
-            </ul>
         </nav>
     </div>
     <?php

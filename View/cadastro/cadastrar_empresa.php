@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 require_once './App/Controller/EmpresaController.php';
 
 // Variáveis para armazenar a mensagem e tipo (erro ou sucesso)

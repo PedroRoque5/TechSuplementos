@@ -1,31 +1,36 @@
 <?php
-session_start(); // Adiciona a sessão no início do script
+session_start(); // Inicia a sessão
 
-require_once '../TechSuplementos/TechSuplementos/DAO/Conexao.php'; // ou seu arquivo de conexão com o banco
+require_once '../TechSuplementos/TechSuplementos/DAO/Conexao.php'; // Conexão com o banco
 
 // Verifica se o usuário está logado
 if (!isset($_SESSION['usuario_id'])) {
     die("Usuário não autenticado.");
 }
 
-$idUsuario = $_SESSION['usuario_id']; // Sessão do usuário
+$idUsuario = $_SESSION['usuario_id'];
 
-// Conectar ao banco de dados usando a classe Conexao
+// Conectar ao banco
 $conn = new Conexao();
+
+// Consulta com status de pagamento e envio
 $query = "SELECT 
-                c.id AS pedido,
-                c.data_compra,
-                c.forma_pagamento,
-                c.total,
-                p.nome AS produto,
-                ic.quantidade,
-                ic.preco_unitario
-            FROM compra c
-            JOIN item_compra ic ON ic.id_compra = c.id
-            JOIN estoque e ON e.Id = ic.id_estoque
-            JOIN produtos p ON p.id = e.id_produto
-            WHERE c.id_usuario = ?
-            ORDER BY c.data_compra DESC";
+            c.id AS pedido,
+            c.data_compra,
+            c.forma_pagamento,
+            c.total,
+            p.nome AS produto,
+            ic.quantidade,
+            ic.preco_unitario,
+            gp.status_pagamento,
+            gp.status_envio
+          FROM compra c
+          JOIN item_compra ic ON ic.id_compra = c.id
+          JOIN estoque e ON e.id = ic.id_estoque
+          JOIN produtos p ON p.id = e.id_produto
+          LEFT JOIN gestao_pedido gp ON gp.id_compra = c.id
+          WHERE c.id_usuario = ?
+          ORDER BY c.data_compra DESC";
 
 // Buscar as compras do usuário
 $compras = $conn->buscar($query, [$idUsuario]);
@@ -39,6 +44,8 @@ foreach ($compras as $compra) {
             'data' => $compra['data_compra'],
             'forma_pagamento' => $compra['forma_pagamento'],
             'total' => $compra['total'],
+            'status_pagamento' => $compra['status_pagamento'] ?? 'Não informado',
+            'status_envio' => $compra['status_envio'] ?? 'Não informado',
             'produtos' => []
         ];
     }
@@ -50,7 +57,9 @@ foreach ($compras as $compra) {
 }
 ?>
 
+<!-- HTML -->
 <link href="<?= ASSETS ?>css/historico.css" rel="stylesheet">
+
 <div class="history-container">
     <h2>Histórico de Compras</h2>
     <p>Veja suas compras anteriores e o status de cada pedido.</p>
@@ -60,7 +69,8 @@ foreach ($compras as $compra) {
             <tr>
                 <th>Pedido</th>
                 <th>Data</th>
-                <th>Status</th>
+                <th>Pagamento</th>
+                <th>Envio</th>
                 <th>Valor Total</th>
                 <th>Detalhes</th>
             </tr>
@@ -70,7 +80,12 @@ foreach ($compras as $compra) {
                 <tr>
                     <td><?= $pedido ?></td>
                     <td><?= date('d/m/Y', strtotime($dados['data'])) ?></td>
-                    <td><?= $dados['forma_pagamento'] ?></td>
+                    <td style="color: <?= $dados['status_pagamento'] == 'pago' ? 'green' : ($dados['status_pagamento'] == 'pendente' ? 'orange' : 'red') ?>">
+                        <?= ucfirst($dados['status_pagamento']) ?>
+                    </td>
+                    <td style="color: <?= $dados['status_envio'] == 'enviado' ? 'green' : ($dados['status_envio'] == 'pendente' ? 'orange' : 'red') ?>">
+                        <?= ucfirst($dados['status_envio']) ?>
+                    </td>
                     <td>R$ <?= number_format($dados['total'], 2, ',', '.') ?></td>
                     <td>
                         <button onclick='alert(`<?= implode("\\n", array_map(fn($p) =>
