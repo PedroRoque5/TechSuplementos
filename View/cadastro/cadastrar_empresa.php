@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 require_once './App/Controller/EmpresaController.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
