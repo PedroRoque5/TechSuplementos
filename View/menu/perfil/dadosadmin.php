@@ -1,5 +1,10 @@
-<?php 
+<?php
 session_start();
+echo '<pre>';
+print_r($_SESSION);
+echo '</pre>';
+?>
+
 require_once './TechSuplementos/DAO/Conexao.php';
 require_once './index.php';
 

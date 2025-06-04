@@ -1,3 +1,10 @@
+<?php
+session_start();
+echo '<pre>';
+var_dump($_SESSION);
+echo '</pre>';
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
