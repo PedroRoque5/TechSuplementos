@@ -1,5 +1,5 @@
 <?php
-require_once '../App/Model/CompraDAO.php';
+require_once './TechSuplementos/DAO/CompraDAO.php';
 
 class CompraController {
     public function finalizarCompra($idUsuario, $formaPagamento, $itens) {
