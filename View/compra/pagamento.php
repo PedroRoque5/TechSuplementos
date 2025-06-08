@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -45,7 +47,7 @@
     <!-- Formulário Cartão -->
     <div id="form-cartao" class="form-section">
 
-      <form id="formPagamento">
+      <form id="formPagamento" action="<?= URL . "index.php?pg=ValidarPagamento" ?>" method="post">
 
 
         <label for="name">Nome no cartão:</label>

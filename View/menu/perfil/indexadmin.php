@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $file = __DIR__ . '/../../cadastro/cadastrar.php';
 if (file_exists($file)) {

@@ -54,7 +54,7 @@ switch ($pagina) {
     case 'perfil':
         include_once './View/menu/perfil/index.php';
         break;
-      case 'perfiladmin':
+    case 'perfiladmin':
         include_once './View/menu/perfil/indexadmin.php';
         break;
     case 'config':
@@ -108,6 +108,9 @@ switch ($pagina) {
     case 'pagamento':
         include_once './View/compra/pagamento.php';
         break;
+    case 'ValidarPagamento':
+        include_once './View/compra/processa_pagamento.php';
+        break;
     case 'descricao':
         include_once './View/menu/novidades/descricao.php';
         break;
@@ -132,6 +135,8 @@ switch ($pagina) {
     case 'sistemaestoque':
         include_once './View/menu/estoque/sistemaestoque.php';
         break;
+    case 'salvar_estoque':
+        include_once './View/menu/estoque/salvar_estoque.php';
     case 'resultado':
         include_once './View/menu/pesquisa/index.php';
         break;
