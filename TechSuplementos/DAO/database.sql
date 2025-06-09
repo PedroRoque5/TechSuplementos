@@ -50,11 +50,11 @@ CREATE TABLE IF NOT EXISTS compra (
 CREATE TABLE IF NOT EXISTS item_compra (
   id INT AUTO_INCREMENT PRIMARY KEY,
   id_compra INT NOT NULL,
-  id_estoque INT NOT NULL,
+  id_produto INT NOT NULL,
   quantidade INT NOT NULL,
   preco_unitario DECIMAL(10,2) NOT NULL,
   FOREIGN KEY (id_compra) REFERENCES compra(id),
-  FOREIGN KEY (id_estoque) REFERENCES estoque(id)
+  FOREIGN KEY (id_produto) REFERENCES produtos(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Tabela feedback
@@ -100,3 +100,20 @@ CREATE TABLE empresa (
     telefone VARCHAR(20),
     senha VARCHAR(255) NOT NULL
 );
+
+CREATE TABLE carrinho (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT NULL,
+    criado_em DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS item_carrinho (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    carrinho_id INT NOT NULL,
+    produto_id INT NOT NULL,
+    sabor VARCHAR(100) NULL,
+    quantidade INT NOT NULL,
+    preco DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (carrinho_id) REFERENCES carrinho(id) ON DELETE CASCADE,
+    FOREIGN KEY (produto_id) REFERENCES produtos(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

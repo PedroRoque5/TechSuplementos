@@ -1,9 +1,4 @@
 .form-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
     background-color: transparent;
     padding: 20px;
     border-radius: 8px;
@@ -29,13 +24,8 @@
 }
 
 .form-group input {
-<<<<<<< HEAD
-    width: 90%;
-    padding: 10px;
-=======
     width: 100%;
     padding: 12px;
->>>>>>> d465c0c20adc891a20f43b4d974cadee92f8c228
     border: 1px solid #ccc;
     border-radius: 4px;
 }
@@ -43,7 +33,7 @@
 .btn {
     width: 100%;
     padding: 10px;
-    background-color: #28a745;
+    background-color: #00ff15;
     color: rgb(255, 255, 255);
     border: none;
     border-radius: 4px;
@@ -52,10 +42,10 @@
 }
 
 .btn:hover {
-    background-color: #218838;
+    background-color: #068f11;
 }
 
 .error-message {
-    color: #d72638;
+    color: red;
     font-size: 14px;
 }

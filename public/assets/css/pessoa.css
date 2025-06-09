@@ -78,11 +78,7 @@ input:hover {
 }
 
 .btn-success {
-<<<<<<< HEAD
-    background-color: green;
-=======
     background-color: rgb(12, 207, 12);
->>>>>>> d465c0c20adc891a20f43b4d974cadee92f8c228
     border: transparent;
 }
 
@@ -101,4 +97,3 @@ input:hover {
     transform: scale(1.1);
     box-shadow: 0 4px 5px black;
 }
-

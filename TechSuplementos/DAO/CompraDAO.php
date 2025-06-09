@@ -1,5 +1,5 @@
 <?php
-require_once './Conexao.php';
+require_once './TechSuplementos/DAO/Conexao.php';
 
 class CompraDAO {
     private $conexao;
@@ -10,9 +10,9 @@ class CompraDAO {
 
     public function salvarCompra($compra) {
         // Inserir compra (pedido)
-        $queryCompra = "INSERT INTO compra (usuario_id, forma_pagamento) VALUES (?, ?)";
+        $queryCompra = "INSERT INTO compra (id_usuario, forma_pagamento) VALUES (?, ?)";
         $idCompra = $this->conexao->inserir($queryCompra, [
-            $compra['usuario_id'],
+            $compra['id_usuario'],
             $compra['forma_pagamento']
         ]);
 
@@ -21,8 +21,8 @@ class CompraDAO {
         }
 
         // Inserir os itens da compra
-        foreach ($compra['itens'] as $item) {
-            $queryItem = "INSERT INTO compra_produto (id_compra, id_produto, quantidade, preco_unitario)
+        foreach ($compra['item_compra'] as $item) {
+            $queryItem = "INSERT INTO item_compra (id_compra, id_produto, quantidade, preco_unitario)
                           VALUES (?, ?, ?, ?)";
             $this->conexao->inserir($queryItem, [
                 $idCompra,

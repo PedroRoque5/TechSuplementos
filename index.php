@@ -150,7 +150,6 @@ switch ($pagina) {
     default:
         include_once './View/error/index.php';
         break;
-        break;
 }
 
 ob_end_flush();

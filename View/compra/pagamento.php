@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -13,14 +11,16 @@
 
 <body class="card-body">
   <div class="container-card">
+
     <!-- Mensagem de Pagamento Confirmado -->
     <div id="msg-pagamento" style="display:none; color: green; font-weight: bold;">
       Pagamento confirmado!
     </div>
 
-    <!-- Exibição de mensagens de erro -->
+    <!-- Mensagem de Erro -->
     <div id="msg-erro" style="display:none; color: red; font-weight: bold;"></div>
 
+    <!-- Opções de Pagamento -->
     <div class="payment-options">
       <h3>Escolha a forma de pagamento</h3>
       <label>
@@ -46,25 +46,22 @@
 
     <!-- Formulário Cartão -->
     <div id="form-cartao" class="form-section">
-
       <form id="formPagamento" action="<?= URL . "index.php?pg=ValidarPagamento" ?>" method="post">
-
-
         <label for="name">Nome no cartão:</label>
-        <input type="text" id="name" placeholder="ex. Maria da Silva" maxlength="24">
+        <input type="text" id="name" name="nome" placeholder="ex. Maria da Silva" maxlength="24">
 
         <label for="number">Número do cartão:</label>
-        <input type="text" id="number" placeholder="ex. 1234 5678 9123 0000" maxlength="19">
+        <input type="text" id="number" name="numero" placeholder="ex. 1234 5678 9123 0000" maxlength="19">
 
         <label>Data de validade:</label>
-        <input type="text" id="month" placeholder="MM" maxlength="2">
-        <input type="text" id="year" placeholder="YY" maxlength="2">
+        <input type="text" id="month" name="mes" placeholder="MM" maxlength="2">
+        <input type="text" id="year" name="ano" placeholder="YY" maxlength="2">
 
         <label for="cvc">CVV:</label>
-        <input type="text" id="cvc" placeholder="123" maxlength="3">
+        <input type="text" id="cvc" name="cvv" placeholder="123" maxlength="3">
 
         <label for="parcelas">Número de parcelas:</label>
-        <select id="parcelas">
+        <select id="parcelas" name="parcelas">
           <option value="1">1x</option>
           <option value="2">2x</option>
           <option value="3">3x</option>
@@ -76,7 +73,8 @@
           <option value="9">9x</option>
           <option value="10">10x</option>
         </select>
-        <button type="button" onclick="validarFormulario()">Confirmar</button>
+
+        <button type="submit">Confirmar</button>
       </form>
     </div>
 
@@ -86,34 +84,23 @@
       <p>Escaneie o QR Code abaixo para pagar:</p>
       <div id="qrcode"></div>
       <p id="pix-codigo" style="word-break: break-all; font-size: 12px; margin-top: 10px;"></p>
+
+      <button id="btn-pix-comprar" type="button">Comprar</button>
     </div>
+
   </div>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const formCartao = document.getElementById("form-cartao");
-      const parcelasSelect = document.getElementById("parcelas");
-
-      document.querySelectorAll('input[name="pagamento"]').forEach((radio) => {
-        radio.addEventListener("change", () => {
-          if (radio.value === "credito") {
-            formCartao.classList.add("active");
-            parcelasSelect.style.display = "block"; // Mostra o campo de parcelas
-          } else if (radio.value === "pix") {
-            formCartao.classList.remove("active");
-            parcelasSelect.style.display = "none"; // Oculta o campo de parcelas
-          }
-        });
-      });
-    });
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const formCartao = document.getElementById("form-cartao");
       const formPix = document.getElementById("form-pix");
       const cardVisual = document.getElementById("card-visual");
+      const parcelasSelect = document.getElementById("parcelas");
       const qrcodeContainer = document.getElementById("qrcode");
       const pixCodigo = document.getElementById("pix-codigo");
+      const btnPixComprar = document.getElementById("btn-pix-comprar");
 
+      // Alternar métodos de pagamento
       document.querySelectorAll('input[name="pagamento"]').forEach((radio) => {
         radio.addEventListener("change", () => {
           if (radio.value === "credito") {
@@ -125,17 +112,15 @@
             formCartao.classList.remove("active");
             cardVisual.style.display = "none";
 
-            // Gerar o código Pix simulado
+            // Gerar código Pix simulado
             const chave = "exemplo@email.com";
             const valor = "R$ 100,00";
-            const codigoPix = `00020126360014BR.GOV.BCB.PIX0114${chave}5204000053039865406100.005802BR5913NOME COMERCIAL6009SAO PAULO62100506ABC1236304B14F`; // exemplo
+            const codigoPix = `00020126360014BR.GOV.BCB.PIX0114${chave}5204000053039865406100.005802BR5913NOME COMERCIAL6009SAO PAULO62100506ABC1236304B14F`;
             pixCodigo.textContent = codigoPix;
 
-            // Limpa o QR anterior e gera novo
+            // Gera QR Code
             qrcodeContainer.innerHTML = "";
-            QRCode.toCanvas(codigoPix, {
-              width: 200
-            }, function(err, canvas) {
+            QRCode.toCanvas(codigoPix, { width: 200 }, function (err, canvas) {
               if (!err) {
                 qrcodeContainer.appendChild(canvas);
               }
@@ -144,7 +129,7 @@
         });
       });
 
-      // Atualização de dados do cartão
+      // Atualizar visualização do cartão
       document.getElementById("name").addEventListener("input", e => {
         document.getElementById("display-name").textContent = e.target.value || "MARIA DA SILVA";
       });
@@ -165,84 +150,116 @@
       document.getElementById("cvc").addEventListener("input", e => {
         document.getElementById("display-cvv").textContent = e.target.value || "123";
       });
+
+      // Validação do formulário cartão no submit
+      const form = document.getElementById("formPagamento");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const nome = document.getElementById("name").value;
+        const numero = document.getElementById("number").value.replace(/\s/g, '');
+        const mes = document.getElementById("month").value;
+        const ano = document.getElementById("year").value;
+        const cvc = document.getElementById("cvc").value;
+
+        if (!validarNome(nome)) {
+          window.alert("Nome no cartão inválido. Deve conter apenas letras e espaços.");
+          return;
+        }
+
+        if (!numero || !mes || !ano || !cvc) {
+          window.alert("Por favor, preencha todos os campos.");
+          return;
+        }
+
+        if (!validarNumeroCartao(numero)) {
+          window.alert("Número do cartão inválido.");
+          return;
+        }
+
+        if (mes < 1 || mes > 12) {
+          window.alert("Mês inválido.");
+          return;
+        }
+
+        const dataAtual = new Date();
+        const anoAtual = dataAtual.getFullYear() % 100;
+        const mesAtual = dataAtual.getMonth() + 1;
+
+        if (ano < anoAtual || (ano == anoAtual && mes < mesAtual)) {
+          window.alert("Data de validade inválida.");
+          return;
+        }
+
+        if (cvc.length !== 3 || isNaN(cvc)) {
+          window.alert("CVV inválido.");
+          return;
+        }
+
+        const numParcelas = document.getElementById("parcelas").value;
+        window.alert(`Pagamento realizado em ${numParcelas}x sem juros!`);
+
+        // Envia o formulário
+        form.submit();
+      });
+
+      // Evento botão Pix
+      btnPixComprar.addEventListener("click", () => {
+        const confirmado = window.confirm("Confirma que realizou o pagamento via Pix?");
+        if (confirmado) {
+          window.alert("Pagamento via Pix confirmado!");
+          window.location.href = "<?= URL . "index.php?pg=home" ?>";
+        }
+      });
+
     });
 
-    function validarFormulario() {
-      const nome = document.getElementById("name").value;
-      const numero = document.getElementById("number").value.replace(/\s/g, '');
-      const mes = document.getElementById("month").value;
-      const ano = document.getElementById("year").value;
-      const cvc = document.getElementById("cvc").value;
-
-      // Validação do nome
-      if (!validarNome(nome)) {
-        window.alert("Nome no cartão inválido. Deve conter apenas letras e espaços.");
-        return;
-      }
-
-      // Validação simples
-      if (!numero || !mes || !ano || !cvc) {
-        window.alert("Por favor, preencha todos os campos.");
-        return;
-      }
-
-      if (!validarNumeroCartao(numero)) {
-        window.alert("Número do cartão inválido.");
-        return;
-      }
-
-      if (mes < 1 || mes > 12) {
-        window.alert("Mês inválido.");
-        return;
-      }
-
-      const dataAtual = new Date();
-      const anoAtual = dataAtual.getFullYear() % 100; // Últimos 2 dígitos do ano
-      const mesAtual = dataAtual.getMonth() + 1; // Meses começam em 0
-
-      if (ano < anoAtual || (ano == anoAtual && mes < mesAtual)) {
-        window.alert("Data de validade inválida.");
-        return;
-      }
-
-      if (cvc.length !== 3 || isNaN(cvc)) {
-        window.alert("CVV inválido.");
-        return;
-      }
-
-      const numParcelas = document.getElementById("parcelas").value;
-      const msg = `Pagamento realizado em ${numParcelas}x sem juros!`;
-      window.alert(msg);
-      window.location.href = "<?= URL . "index.php?pg=home" ?>";
-    }
-
     function validarNome(nome) {
-      // Verifica se o nome contém apenas letras e espaços
       const regex = /^[A-Za-zÀ-ÿ\s]+$/;
-      return regex.test(nome) && nome.trim().length > 0; // Verifica se não está vazio
+      return regex.test(nome) && nome.trim().length > 0;
     }
 
     function validarNumeroCartao(numero) {
       let soma = 0;
       let deveDobrar = false;
-
-      // Percorre o número do cartão da direita para a esquerda
       for (let i = numero.length - 1; i >= 0; i--) {
         let digito = parseInt(numero.charAt(i), 10);
-
         if (deveDobrar) {
           digito *= 2;
-          if (digito > 9) {
-            digito -= 9; // Subtrai 9 se o resultado for maior que 9
-          }
+          if (digito > 9) digito -= 9;
         }
-
         soma += digito;
-        deveDobrar = !deveDobrar; // Alterna entre dobrar e não dobrar
+        deveDobrar = !deveDobrar;
       }
-
-      return soma % 10 === 0; // O número é válido se a soma for múltiplo de 10
+      return soma % 10 === 0;
     }
+    function enviarCarrinho() {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+    if (cartItems.length === 0) {
+        alert('Seu carrinho está vazio!');
+        return;
+    }
+
+    fetch('ValidaPagamento.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ carrinho: cartItems })
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(data);
+        localStorage.removeItem('cartItems'); // limpa o carrinho local
+        window.location.href = 'historico_compras.php';
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+    });
+}
+
   </script>
 </body>
 

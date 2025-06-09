@@ -5,14 +5,10 @@ class CompraController {
     public function finalizarCompra($idUsuario, $formaPagamento, $itens) {
         $dao = new CompraDAO();
 
-        if (empty($itens)) {
-            return ['success' => false, 'message' => 'Carrinho vazio'];
-        }
-
         $compra = [
             'usuario_id' => $idUsuario,
             'forma_pagamento' => $formaPagamento,
-            'itens' => $itens
+            'item_compra' => $itens
         ];
 
         $salvo = $dao->salvarCompra($compra);
