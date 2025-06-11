@@ -1,6 +1,6 @@
 <?php
 
-require 'conexao.php'; // troque para o nome correto do seu arquivo de conexão
+require './TechSuplementos/DAO/Conexao.php'; // troque para o nome correto do seu arquivo de conexão
 
 // 2. Pegar dados do formulário
 $id_produto = $_POST['id_produto'] ?? null;

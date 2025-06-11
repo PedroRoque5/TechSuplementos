@@ -17,25 +17,26 @@ $usuario_logado = isset($_SESSION['usuario_id']);
 <body>
     <div class="cart-container">
         <h2>Carrinho de Compras</h2>
-        <table class="cart-table">
-            <thead>
-                <tr>
-                    <th>Produto</th>
-                    <th>Sabor</th>
-                    <th>Preço</th>
-                    <th>Quantidade</th>
-                    <th>Total</th>
-                    <th>Remover</th>
-                </tr>
-            </thead>
-            <tbody id="cartItems"></tbody>
-        </table>
-        <div class="cart-summary">
-            <p><strong>Total:</strong> R$ <span id="cartTotal">0.00</span></p>
-            <button class="btn" onclick="finalizarCompra()">Finalizar Compra</button>
-        </div>
+<form action="<?= URL . 'index.php?pg=pagamento' ?>" method="post">
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Sabor</th>
+                        <th>Preço</th>
+                        <th>Quantidade</th>
+                        <th>Total</th>
+                        <th>Remover</th>
+                    </tr>
+                </thead>
+                <tbody id="cartItems"></tbody>
+            </table>
+            <div class="cart-summary">
+                <p><strong>Total:</strong> R$ <span id="cartTotal">0.00</span></p>
+               <button type="submit">Finalizar Compra</button>
+            </div>
     </div>
-
+    </form>
     <script>
         let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
@@ -82,19 +83,19 @@ $usuario_logado = isset($_SESSION['usuario_id']);
             document.getElementById('cartTotal').textContent = total.toFixed(2);
         }
 
-        // Função para finalizar a compra
         function finalizarCompra() {
-            const usuarioLogado = <?= json_encode($usuario_logado); ?>; // Converte a variável PHP para JavaScript
+            const usuarioLogado = <?= json_encode($usuario_logado); ?>;
 
             if (!usuarioLogado) {
                 alert("Você precisa estar logado para finalizar a compra.");
-                window.location.href = '<?= URL . 'index.php?pg=login' ?>'; // Redireciona para login
+                window.location.href = '<?= URL . 'index.php?pg=login' ?>';
                 return;
             }
 
             if (cartItems.length > 0) {
-                alert("Redirecionando para a página de pagamento...");
-                window.location.href = '<?= URL . 'index.php?pg=pagamento' ?>';
+                // Serializa e envia
+                document.getElementById('cartData').value = JSON.stringify(cartItems);
+                document.querySelector('form').submit();
             } else {
                 alert("O carrinho está vazio!");
             }

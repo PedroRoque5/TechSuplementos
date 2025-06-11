@@ -1,16 +1,16 @@
 <?php
 session_start();
-
 require_once './App/Controller/CompraController.php';
 
 if (!isset($_SESSION['usuario_id'])) {
     die("Usuário não autenticado.");
 }
 
-if (empty($_SESSION['carrinho'])) {
-    die("Carrinho vazio.");
+if (empty($_SESSION['carrinho']) || !is_array($_SESSION['carrinho'])) {
+    die("Carrinho vazio ou inválido.");
 }
 
+// Capturar forma de pagamento do POST (do formulário)
 $formaPagamento = $_POST['forma_pagamento'] ?? 'pix';
 $idUsuario = $_SESSION['usuario_id'];
 $itens = $_SESSION['carrinho'];
@@ -19,10 +19,9 @@ $controller = new CompraController();
 $resultado = $controller->finalizarCompra($idUsuario, $formaPagamento, $itens);
 
 if ($resultado['success']) {
-    unset($_SESSION['carrinho']); // limpa o carrinho
-    echo "<script>alert('Compra registrada com sucesso!'); window.location.href = 'historico_compras.php';</script>";
+    unset($_SESSION['carrinho']);
+    header("Location: historico_compras.php"); // ou página de agradecimento
+    exit;
 } else {
-    echo "<script>alert('Erro: {$resultado['message']}'); window.history.back();</script>";
+    echo "Erro ao salvar compra: " . $resultado['message'];
 }
-
-header(URL . "index.php?pg=home");

@@ -46,7 +46,7 @@
 
     <!-- Formulário Cartão -->
     <div id="form-cartao" class="form-section">
-      <form id="formPagamento" action="<?= URL . "index.php?pg=ValidarPagamento" ?>" method="post">
+     <form id="formPagamento" action="<?= URL . "index.php?pg=ValidarPagamento" ?>" method="post">
         <label for="name">Nome no cartão:</label>
         <input type="text" id="name" name="nome" placeholder="ex. Maria da Silva" maxlength="24">
 
@@ -80,14 +80,14 @@
 
     <!-- Formulário Pix com QRCode -->
     <div id="form-pix" class="form-section">
-      <h4>Pagamento via Pix</h4>
+  <form id="formPagamento" action="processaPagamento.php" method="post">
+ <h4>Pagamento via Pix</h4>
       <p>Escaneie o QR Code abaixo para pagar:</p>
       <div id="qrcode"></div>
       <p id="pix-codigo" style="word-break: break-all; font-size: 12px; margin-top: 10px;"></p>
-
-      <button id="btn-pix-comprar" type="button">Comprar</button>
-    </div>
-
+  <input type="hidden" name="forma_pagamento" value="pix"> <!-- ou dinamicamente -->
+  <button type="submit">Confirmar</button>
+</form>
   </div>
 
   <script>
