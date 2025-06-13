@@ -19,7 +19,13 @@ if (empty($produto)) {
 $produto = $produto[0];
 ?>
 
-<link href="<?= ASSETS ?>css/descricao.css" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="produto-id" content="<?= $produto['id'] ?>">
+    <title><?= htmlspecialchars($produto['nome']) ?></title>
+    <link href="<?= ASSETS ?>css/descricao.css" rel="stylesheet">
+</head>
 
 <main>
 
@@ -35,11 +41,12 @@ $produto = $produto[0];
 
     <h2 class="preco" id="produto-preco">R$ <?= number_format($produto['preco'], 2, ',', '.') ?></h2>
 
+    <div class="quantity-control">
     <div class="actions">
         <a href="<?= URL . 'index.php?pg=pagamento&nome=' . urlencode($produto['nome']) ?>">
             <button class="buy-button">Comprar Agora</button>
         </a>
-        <button class="cart-button" id="cart-button">
+        <button class="cart-button" onclick="adicionarAoCarrinho()">
             <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
         </button>
     </div>
@@ -76,8 +83,114 @@ $produto = $produto[0];
 
 <script src="<?= CONTROLLER ?>descricao.js" defer></script>
 <script>
+    // Controles de quantidade
+    const cartButton = document.getElementById('cart-button');
+    const quantityControls = document.getElementById('quantity-controls');
+    const decreaseButton = document.getElementById('decrease-quantity');
+    const increaseButton = document.getElementById('increase-quantity');
+    const quantityDisplay = document.getElementById('quantity-display');
+    const confirmButton = document.getElementById('confirm-cart-button');
+
+    cartButton.addEventListener('click', () => {
+        quantityControls.style.display = 'flex';
+        cartButton.style.display = 'none';
+    });
+
+    decreaseButton.addEventListener('click', () => {
+        let quantity = parseInt(quantityDisplay.textContent);
+        if (quantity > 1) {
+            quantityDisplay.textContent = quantity - 1;
+        }
+    });
+
+    increaseButton.addEventListener('click', () => {
+        let quantity = parseInt(quantityDisplay.textContent);
+        quantityDisplay.textContent = quantity + 1;
+    });
+
+    confirmButton.addEventListener('click', () => {
+        adicionarAoCarrinho();
+        quantityControls.style.display = 'none';
+        cartButton.style.display = 'block';
+    });
+
+    function adicionarAoCarrinho() {
+        console.log('Função adicionarAoCarrinho chamada');
+        
+        // Obter dados do produto
+        const produtoId = document.querySelector('meta[name="produto-id"]').content;
+        console.log('ID do produto:', produtoId);
+        
+        const produtoNome = document.querySelector('.produto').textContent;
+        console.log('Nome do produto:', produtoNome);
+        
+        const precoText = document.querySelector('.preco').textContent;
+        console.log('Texto do preço:', precoText);
+        
+        const produtoPreco = parseFloat(precoText.replace('R$ ', '').replace(',', '.'));
+        console.log('Preço convertido:', produtoPreco);
+        
+        const quantidadeText = document.querySelector('#quantity-display').textContent;
+        console.log('Texto da quantidade:', quantidadeText);
+        
+        const quantidade = parseInt(quantidadeText);
+        console.log('Quantidade convertida:', quantidade);
+        
+        const sabor = document.querySelector('#sabor')?.value || null;
+        console.log('Sabor:', sabor);
+
+        // Validar dados
+        if (!produtoId || !produtoNome || isNaN(produtoPreco) || isNaN(quantidade)) {
+            console.error('Dados do produto inválidos:', { produtoId, produtoNome, produtoPreco, quantidade });
+            alert('Erro ao adicionar produto ao carrinho. Dados inválidos.');
+            return;
+        }
+
+        // Criar item do carrinho
+        const item = {
+            id: parseInt(produtoId),
+            name: produtoNome,
+            price: produtoPreco,
+            quantity: quantidade,
+            sabor: sabor
+        };
+        console.log('Item a ser adicionado:', item);
+
+        // Obter carrinho atual
+        let carrinho = [];
+        try {
+            const carrinhoStr = localStorage.getItem('cartItems');
+            console.log('Carrinho do localStorage:', carrinhoStr);
+            carrinho = carrinhoStr ? JSON.parse(carrinhoStr) : [];
+        } catch (error) {
+            console.error('Erro ao ler carrinho do localStorage:', error);
+            carrinho = [];
+        }
+        console.log('Carrinho atual:', carrinho);
+        
+        // Verificar se o item já existe no carrinho
+        const itemExistente = carrinho.find(i => i.id === item.id && i.sabor === item.sabor);
+        
+        if (itemExistente) {
+            console.log('Atualizando item existente');
+            itemExistente.quantity += item.quantity;
+        } else {
+            console.log('Adicionando novo item');
+            carrinho.push(item);
+        }
+
+        // Salvar carrinho atualizado
+        try {
+            localStorage.setItem('cartItems', JSON.stringify(carrinho));
+            console.log('Carrinho atualizado:', carrinho);
+            alert('Produto adicionado ao carrinho!');
+        } catch (error) {
+            console.error('Erro ao salvar carrinho:', error);
+            alert('Erro ao salvar no carrinho. Tente novamente.');
+        }
+    }
+
     document.addEventListener("DOMContentLoaded", function() {
         loadComments();
-        initCarrinho();
     });
 </script>

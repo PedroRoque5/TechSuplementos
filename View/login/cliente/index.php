@@ -24,7 +24,7 @@ require_once '../../../config_serve.php';
     <div id="login">Faça seu login</div>
     <div class="form">
       <form action="<?= URL . 'index.php?pg=confirmaLogin' ?>" method="POST">
-        <div id="email"><input name="email" type="email" placeholder="E-mail ou CPF"></div>
+        <div id="email"><input name="email" type="email" placeholder="E-mail"></div>
         <div><input name="senha" type="password" placeholder="Senha"></div>
         <div id="form">
           <input type="checkbox" class="form-check-input" id="exampleCheck1">

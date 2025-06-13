@@ -1,100 +1,79 @@
 <?php
-session_start(); // Inicia a sessão
+session_start();
+require_once __DIR__ . '/../../../app/controller/CompraController.php';
 
-require_once '../TechSuplementos/TechSuplementos/DAO/Conexao.php'; // Conexão com o banco
-
-// Verifica se o usuário está logado
 if (!isset($_SESSION['usuario_id'])) {
     die("Usuário não autenticado.");
 }
 
 $idUsuario = $_SESSION['usuario_id'];
-
-// Conectar ao banco
-$conn = new Conexao();
-
-// Consulta com status de pagamento e envio
-$query = "SELECT 
-            c.id AS pedido,
-            c.data_compra,
-            c.forma_pagamento,
-            c.total,
-            p.nome AS produto,
-            ic.quantidade,
-            ic.preco_unitario,
-            gp.status_pagamento,
-            gp.status_envio
-          FROM compra c
-          JOIN item_compra ic ON ic.id_compra = c.id
-          JOIN estoque e ON e.id = ic.id_estoque
-          JOIN produtos p ON p.id = e.id_produto
-          LEFT JOIN gestao_pedido gp ON gp.id_compra = c.id
-          WHERE c.id_usuario = ?
-          ORDER BY c.data_compra DESC";
-
-// Buscar as compras do usuário
-$compras = $conn->buscar($query, [$idUsuario]);
-
-// Agrupar por pedido
-$historico = [];
-foreach ($compras as $compra) {
-    $id = $compra['pedido'];
-    if (!isset($historico[$id])) {
-        $historico[$id] = [
-            'data' => $compra['data_compra'],
-            'forma_pagamento' => $compra['forma_pagamento'],
-            'total' => $compra['total'],
-            'status_pagamento' => $compra['status_pagamento'] ?? 'Não informado',
-            'status_envio' => $compra['status_envio'] ?? 'Não informado',
-            'produtos' => []
-        ];
-    }
-    $historico[$id]['produtos'][] = [
-        'nome' => $compra['produto'],
-        'quantidade' => $compra['quantidade'],
-        'preco' => $compra['preco_unitario']
-    ];
-}
+$controller = new CompraController();
+$compras = $controller->obterHistoricoCompras($idUsuario);
 ?>
 
-<!-- HTML -->
 <link href="<?= ASSETS ?>css/historico.css" rel="stylesheet">
 
 <div class="history-container">
     <h2>Histórico de Compras</h2>
     <p>Veja suas compras anteriores e o status de cada pedido.</p>
 
-    <table class="history-table">
-        <thead>
-            <tr>
-                <th>Pedido</th>
-                <th>Data</th>
-                <th>Pagamento</th>
-                <th>Envio</th>
-                <th>Valor Total</th>
-                <th>Detalhes</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($historico as $pedido => $dados): ?>
+    <?php if (empty($compras)): ?>
+        <div class="no-purchases">
+            <p>Você ainda não realizou nenhuma compra.</p>
+            <a href="<?= URL ?>index.php?pg=home" class="btn-continue-shopping">Continuar Comprando</a>
+        </div>
+    <?php else: ?>
+        <table class="history-table">
+            <thead>
                 <tr>
-                    <td><?= $pedido ?></td>
-                    <td><?= date('d/m/Y', strtotime($dados['data'])) ?></td>
-                    <td style="color: <?= $dados['status_pagamento'] == 'pago' ? 'green' : ($dados['status_pagamento'] == 'pendente' ? 'orange' : 'red') ?>">
-                        <?= ucfirst($dados['status_pagamento']) ?>
-                    </td>
-                    <td style="color: <?= $dados['status_envio'] == 'enviado' ? 'green' : ($dados['status_envio'] == 'pendente' ? 'orange' : 'red') ?>">
-                        <?= ucfirst($dados['status_envio']) ?>
-                    </td>
-                    <td>R$ <?= number_format($dados['total'], 2, ',', '.') ?></td>
-                    <td>
-                        <button onclick='alert(`<?= implode("\\n", array_map(fn($p) =>
-                            "{$p['nome']} - R$ ".number_format($p['preco'], 2, ',', '.')." x {$p['quantidade']}",
-                            $dados["produtos"]
-                        )) ?>`)'>Ver Detalhes</button>
-                    </td>
+                    <th>Pedido</th>
+                    <th>Data</th>
+                    <th>Forma de Pagamento</th>
+                    <th>Valor Total</th>
+                    <th>Detalhes</th>
                 </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php foreach ($compras as $compra): ?>
+                    <tr>
+                        <td>#<?= htmlspecialchars($compra['id']) ?></td>
+                        <td><?= date('d/m/Y', strtotime($compra['data_compra'])) ?></td>
+                        <td><?= htmlspecialchars(ucfirst($compra['forma_pagamento'])) ?></td>
+                        <td>R$ <?= number_format($compra['total'], 2, ',', '.') ?></td>
+                        <td>
+                            <button onclick='openModal("<?= htmlspecialchars($compra['produto']) ?>", "<?= number_format($compra['preco_unitario'], 2, ',', '.') ?>", "<?= $compra['quantidade'] ?>")'>Ver Detalhes</button>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    <?php endif; ?>
 </div>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Detalhes da Compra</h2>
+        <div id="modal-body"></div>
+    </div>
+</div>
+
+<script>
+function openModal(produto, preco, quantidade) {
+    document.getElementById('modal-body').innerHTML = `${produto} - R$ ${preco} x ${quantidade}`;
+    document.getElementById('modal').style.display = "block";
+}
+
+function closeModal() {
+    document.getElementById('modal').style.display = "none";
+}
+
+// Fechar modal quando clicar fora dele
+window.onclick = function(event) {
+    const modal = document.getElementById('modal');
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>

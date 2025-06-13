@@ -2,35 +2,54 @@
 
 class Conexao
 {
-
     private $pdo;
+    private $inTransaction = false;
 
     // Função privada para ligar a conexão com o banco de dados
     private function conectar()
     {
-        try {
-            $host = 'localhost'; // Endereço do banco de dados
-            $dbname = 'techsuplementos'; // Nome do banco de dados
-            $username = 'root'; // Nome de usuário do banco de dados
-            $password = ''; // Senha do banco de dados
+        if ($this->pdo === null) {
+            try {
+                $host = 'localhost';
+                $dbname = 'techsuplementos';
+                $username = 'root';
+                $password = '';
 
-            // Configurações de DSN (Data Source Name)
-            $dsn = "mysql:host=$host;dbname=$dbname";
-
-            // Cria uma nova instância PDO para a conexão
-            $this->pdo = new PDO($dsn, $username, $password);
-
-            // Define o modo de erro do PDO para lançar exceções
-            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
-            echo "Erro na conexão: " . $e->getMessage();
+                $dsn = "mysql:host=$host;dbname=$dbname";
+                $this->pdo = new PDO($dsn, $username, $password);
+                $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            } catch (PDOException $e) {
+                throw new Exception("Erro na conexão: " . $e->getMessage());
+            }
         }
     }
 
-    // Função privada para desligar a conexão
-    private function desconectar()
+    // Função pública para iniciar uma transação
+    public function beginTransaction()
     {
-        $this->pdo = null; // Fecha a conexão
+        $this->conectar();
+        if (!$this->inTransaction) {
+            $this->pdo->beginTransaction();
+            $this->inTransaction = true;
+        }
+    }
+
+    // Função pública para confirmar uma transação
+    public function commit()
+    {
+        if ($this->inTransaction) {
+            $this->pdo->commit();
+            $this->inTransaction = false;
+        }
+    }
+
+    // Função pública para desfazer uma transação
+    public function rollback()
+    {
+        if ($this->inTransaction) {
+            $this->pdo->rollBack();
+            $this->inTransaction = false;
+        }
     }
 
     // Função pública para buscar dados
@@ -40,12 +59,12 @@ class Conexao
         try {
             $stmt = $this->pdo->prepare($query);
             $stmt->execute($params);
-            $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            return $resultados;
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
-            echo "Erro na busca: " . $e->getMessage();
-        } finally {
-            $this->desconectar();
+            if ($this->inTransaction) {
+                $this->rollback();
+            }
+            throw new Exception("Erro na busca: " . $e->getMessage());
         }
     }
 
@@ -56,11 +75,12 @@ class Conexao
         try {
             $stmt = $this->pdo->prepare($query);
             $stmt->execute($params);
-            return $this->pdo->lastInsertId(); // Retorna o ID do último inserido
+            return $this->pdo->lastInsertId();
         } catch (PDOException $e) {
-            echo "Erro na inserção: " . $e->getMessage();
-        } finally {
-            $this->desconectar();
+            if ($this->inTransaction) {
+                $this->rollback();
+            }
+            throw new Exception("Erro na inserção: " . $e->getMessage());
         }
     }
 
@@ -71,11 +91,12 @@ class Conexao
         try {
             $stmt = $this->pdo->prepare($query);
             $stmt->execute($params);
-            return $stmt->rowCount(); // Retorna o número de linhas afetadas
+            return $stmt->rowCount();
         } catch (PDOException $e) {
-            echo "Erro na atualização: " . $e->getMessage();
-        } finally {
-            $this->desconectar();
+            if ($this->inTransaction) {
+                $this->rollback();
+            }
+            throw new Exception("Erro na atualização: " . $e->getMessage());
         }
     }
 
@@ -86,11 +107,21 @@ class Conexao
         try {
             $stmt = $this->pdo->prepare($query);
             $stmt->execute($params);
-            return $stmt->rowCount(); // Retorna o número de linhas deletadas
+            return $stmt->rowCount();
         } catch (PDOException $e) {
-            echo "Erro ao deletar: " . $e->getMessage();
-        } finally {
-            $this->desconectar();
+            if ($this->inTransaction) {
+                $this->rollback();
+            }
+            throw new Exception("Erro ao deletar: " . $e->getMessage());
         }
+    }
+
+    // Função para fechar a conexão
+    public function __destruct()
+    {
+        if ($this->inTransaction) {
+            $this->rollback();
+        }
+        $this->pdo = null;
     }
 }

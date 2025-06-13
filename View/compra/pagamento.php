@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: " . URL . "index.php?pg=login");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -11,20 +18,18 @@
 
 <body class="card-body">
   <div class="container-card">
-
     <!-- Mensagem de Pagamento Confirmado -->
     <div id="msg-pagamento" style="display:none; color: green; font-weight: bold;">
       Pagamento confirmado!
     </div>
 
-    <!-- Mensagem de Erro -->
+    <!-- Exibição de mensagens de erro -->
     <div id="msg-erro" style="display:none; color: red; font-weight: bold;"></div>
 
-    <!-- Opções de Pagamento -->
     <div class="payment-options">
       <h3>Escolha a forma de pagamento</h3>
       <label>
-        <input type="radio" name="pagamento" value="credito"> Cartão de Crédito
+        <input type="radio" name="pagamento" value="cartao"> Cartão de Crédito
       </label>
       <label>
         <input type="radio" name="pagamento" value="pix"> Pix
@@ -32,7 +37,7 @@
     </div>
 
     <!-- Visualização do Cartão -->
-    <div id="card-visual" class="card-display">
+    <div id="card-visual" class="card-display" style="display: none;">
       <div class="card">
         <div class="card-label">CARTÃO DE CRÉDITO</div>
         <div id="display-number" class="card-number">0000 0000 0000 0000</div>
@@ -45,8 +50,8 @@
     </div>
 
     <!-- Formulário Cartão -->
-    <div id="form-cartao" class="form-section">
-     <form id="formPagamento" action="<?= URL . "index.php?pg=ValidarPagamento" ?>" method="post">
+    <div id="form-cartao" class="form-section" style="display: none;">
+      <form id="formPagamento">
         <label for="name">Nome no cartão:</label>
         <input type="text" id="name" name="nome" placeholder="ex. Maria da Silva" maxlength="24">
 
@@ -62,32 +67,33 @@
 
         <label for="parcelas">Número de parcelas:</label>
         <select id="parcelas" name="parcelas">
-          <option value="1">1x</option>
-          <option value="2">2x</option>
-          <option value="3">3x</option>
-          <option value="4">4x</option>
-          <option value="5">5x</option>
-          <option value="6">6x</option>
-          <option value="7">7x</option>
-          <option value="8">8x</option>
-          <option value="9">9x</option>
-          <option value="10">10x</option>
+          <option value="1">1x sem juros</option>
+          <option value="2">2x sem juros</option>
+          <option value="3">3x sem juros</option>
+          <option value="4">4x sem juros</option>
+          <option value="5">5x sem juros</option>
+          <option value="6">6x sem juros</option>
+          <option value="7">7x com juros</option>
+          <option value="8">8x com juros</option>
+          <option value="9">9x com juros</option>
+          <option value="10">10x com juros</option>
         </select>
-
         <button type="submit">Confirmar</button>
       </form>
     </div>
 
     <!-- Formulário Pix com QRCode -->
-    <div id="form-pix" class="form-section">
-  <form id="formPagamento" action="processaPagamento.php" method="post">
- <h4>Pagamento via Pix</h4>
+    <div id="form-pix" class="form-section" style="display: none;">
+      <h4>Pagamento via Pix</h4>
       <p>Escaneie o QR Code abaixo para pagar:</p>
-      <div id="qrcode"></div>
-      <p id="pix-codigo" style="word-break: break-all; font-size: 12px; margin-top: 10px;"></p>
-  <input type="hidden" name="forma_pagamento" value="pix"> <!-- ou dinamicamente -->
-  <button type="submit">Confirmar</button>
-</form>
+      <div id="qrcode" style="margin: 20px 0; text-align: center;"></div>
+      <p id="pix-codigo" style="word-break: break-all; font-size: 12px; margin: 10px 0; padding: 10px; background: #f5f5f5; border-radius: 5px;"></p>
+      <div style="text-align: center; margin-top: 20px;">
+        <button type="button" id="confirmar-pix" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+          Confirmar Pagamento
+        </button>
+      </div>
+    </div>
   </div>
 
   <script>
@@ -95,55 +101,163 @@
       const formCartao = document.getElementById("form-cartao");
       const formPix = document.getElementById("form-pix");
       const cardVisual = document.getElementById("card-visual");
-      const parcelasSelect = document.getElementById("parcelas");
       const qrcodeContainer = document.getElementById("qrcode");
       const pixCodigo = document.getElementById("pix-codigo");
-      const btnPixComprar = document.getElementById("btn-pix-comprar");
+      const msgErro = document.getElementById("msg-erro");
+      const msgPagamento = document.getElementById("msg-pagamento");
+      const confirmarPix = document.getElementById("confirmar-pix");
 
-      // Alternar métodos de pagamento
-      document.querySelectorAll('input[name="pagamento"]').forEach((radio) => {
-        radio.addEventListener("change", () => {
-          if (radio.value === "credito") {
-            formCartao.classList.add("active");
-            formPix.classList.remove("active");
-            cardVisual.style.display = "block";
-          } else if (radio.value === "pix") {
-            formPix.classList.add("active");
-            formCartao.classList.remove("active");
-            cardVisual.style.display = "none";
+      // Função para obter o carrinho do localStorage
+      function getCarrinho() {
+        const carrinho = JSON.parse(localStorage.getItem('cartItems')) || [];
+        console.log('Carrinho obtido:', carrinho);
+        return carrinho;
+      }
 
-            // Gerar código Pix simulado
-            const chave = "exemplo@email.com";
-            const valor = "R$ 100,00";
-            const codigoPix = `00020126360014BR.GOV.BCB.PIX0114${chave}5204000053039865406100.005802BR5913NOME COMERCIAL6009SAO PAULO62100506ABC1236304B14F`;
-            pixCodigo.textContent = codigoPix;
+      // Função para validar e corrigir o carrinho
+      function validarCarrinho() {
+        const carrinho = JSON.parse(localStorage.getItem('cartItems') || '[]');
+        console.log('Carrinho original:', carrinho);
 
-            // Gera QR Code
-            qrcodeContainer.innerHTML = "";
-            QRCode.toCanvas(codigoPix, { width: 200 }, function (err, canvas) {
-              if (!err) {
-                qrcodeContainer.appendChild(canvas);
-              }
+        if (!Array.isArray(carrinho) || carrinho.length === 0) {
+            console.error('Carrinho inválido ou vazio');
+            return null;
+        }
+
+        const carrinhoValidado = carrinho.map(item => {
+            // Validar e converter tipos
+            const id = parseInt(item.id);
+            const quantity = parseInt(item.quantity);
+            const price = parseFloat(item.price);
+
+            // Verificar se os valores são válidos
+            if (isNaN(id) || id <= 0) {
+                console.error('ID inválido:', item.id);
+                return null;
+            }
+            if (isNaN(quantity) || quantity <= 0) {
+                console.error('Quantidade inválida:', item.quantity);
+                return null;
+            }
+            if (isNaN(price) || price <= 0) {
+                console.error('Preço inválido:', item.price);
+                return null;
+            }
+
+            return {
+                id: id,
+                quantity: quantity,
+                price: price,
+                name: item.name || '',
+                sabor: item.sabor || null
+            };
+        }).filter(item => item !== null);
+
+        console.log('Carrinho validado:', carrinhoValidado);
+
+        if (carrinhoValidado.length === 0) {
+            console.error('Nenhum item válido no carrinho');
+            return null;
+        }
+
+        return carrinhoValidado;
+      }
+
+      // Função para salvar a compra
+      async function salvarCompra(dadosPagamento) {
+        try {
+          const carrinho = validarCarrinho();
+          if (!carrinho) {
+            throw new Error('Carrinho inválido');
+          }
+
+          console.log('Enviando dados:', {
+            carrinho: carrinho,
+            tipo_pagamento: dadosPagamento.tipo
+          });
+
+          const response = await fetch('<?= URL ?>View/compra/processa_pagamento.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              carrinho: carrinho,
+              tipo_pagamento: dadosPagamento.tipo
+            })
+          });
+
+          console.log('Resposta recebida:', response);
+
+          if (!response.ok) {
+            throw new Error('Erro na resposta do servidor: ' + response.status);
+          }
+
+          const data = await response.json();
+          console.log('Dados recebidos:', data);
+          
+          if (data.sucesso) {
+            // Limpar carrinho após compra bem-sucedida
+            localStorage.removeItem('cartItems');
+            msgPagamento.style.display = 'block';
+            setTimeout(() => {
+              window.location.href = '<?= URL ?>index.php?pg=historico';
+            }, 2000);
+          } else {
+            throw new Error(data.mensagem || 'Erro ao salvar compra');
+          }
+        } catch (error) {
+          console.error('Erro:', error);
+          msgErro.textContent = error.message;
+          msgErro.style.display = 'block';
+        }
+      }
+
+      // Adicionar eventos para os radio buttons
+      document.querySelectorAll('input[name="pagamento"]').forEach(radio => {
+        radio.addEventListener('change', function() {
+          // Esconder todos os formulários primeiro
+          formCartao.style.display = 'none';
+          formPix.style.display = 'none';
+          cardVisual.style.display = 'none';
+          qrcodeContainer.innerHTML = '';
+          pixCodigo.textContent = '';
+
+          // Mostrar o formulário selecionado
+          if (this.value === 'cartao') {
+            formCartao.style.display = 'block';
+            cardVisual.style.display = 'block';
+          } else if (this.value === 'pix') {
+            formPix.style.display = 'block';
+            // Gerar QR Code do Pix
+            const qrCode = new QRCode(qrcodeContainer, {
+              text: "PIX-123456789",
+              width: 200,
+              height: 200
             });
+            pixCodigo.textContent = "PIX-123456789";
           }
         });
       });
 
-      // Atualizar visualização do cartão
+      // Atualização do cartão visual
       document.getElementById("name").addEventListener("input", e => {
         document.getElementById("display-name").textContent = e.target.value || "MARIA DA SILVA";
       });
+
       document.getElementById("number").addEventListener("input", e => {
         let raw = e.target.value.replace(/\D/g, "").substring(0, 16);
         let formatted = raw.replace(/(.{4})/g, "$1 ").trim();
         e.target.value = formatted;
         document.getElementById("display-number").textContent = formatted || "0000 0000 0000 0000";
       });
+
       const updateExp = () => {
         const mm = document.getElementById("month").value.padStart(2, '0');
         const yy = document.getElementById("year").value.padStart(2, '0');
         document.getElementById("display-exp").textContent = `${mm}/${yy}`;
       };
+
       document.getElementById("month").addEventListener("input", updateExp);
       document.getElementById("year").addEventListener("input", updateExp);
 
@@ -151,69 +265,78 @@
         document.getElementById("display-cvv").textContent = e.target.value || "123";
       });
 
-      // Validação do formulário cartão no submit
-      const form = document.getElementById("formPagamento");
-
-      form.addEventListener("submit", function (e) {
+      // Adicionar evento de submit ao formulário
+      document.getElementById('formPagamento').addEventListener('submit', async function(e) {
         e.preventDefault();
-
-        const nome = document.getElementById("name").value;
-        const numero = document.getElementById("number").value.replace(/\s/g, '');
-        const mes = document.getElementById("month").value;
-        const ano = document.getElementById("year").value;
-        const cvc = document.getElementById("cvc").value;
-
-        if (!validarNome(nome)) {
-          window.alert("Nome no cartão inválido. Deve conter apenas letras e espaços.");
+        
+        const tipoPagamento = document.querySelector('input[name="pagamento"]:checked')?.value;
+        if (!tipoPagamento) {
+          msgErro.textContent = 'Selecione uma forma de pagamento';
+          msgErro.style.display = 'block';
           return;
         }
 
-        if (!numero || !mes || !ano || !cvc) {
-          window.alert("Por favor, preencha todos os campos.");
-          return;
-        }
-
-        if (!validarNumeroCartao(numero)) {
-          window.alert("Número do cartão inválido.");
-          return;
-        }
-
-        if (mes < 1 || mes > 12) {
-          window.alert("Mês inválido.");
-          return;
-        }
-
-        const dataAtual = new Date();
-        const anoAtual = dataAtual.getFullYear() % 100;
-        const mesAtual = dataAtual.getMonth() + 1;
-
-        if (ano < anoAtual || (ano == anoAtual && mes < mesAtual)) {
-          window.alert("Data de validade inválida.");
-          return;
-        }
-
-        if (cvc.length !== 3 || isNaN(cvc)) {
-          window.alert("CVV inválido.");
-          return;
-        }
-
-        const numParcelas = document.getElementById("parcelas").value;
-        window.alert(`Pagamento realizado em ${numParcelas}x sem juros!`);
-
-        // Envia o formulário
-        form.submit();
+        await salvarCompra({ tipo: tipoPagamento });
       });
 
-      // Evento botão Pix
-      btnPixComprar.addEventListener("click", () => {
-        const confirmado = window.confirm("Confirma que realizou o pagamento via Pix?");
-        if (confirmado) {
-          window.alert("Pagamento via Pix confirmado!");
-          window.location.href = "<?= URL . "index.php?pg=home" ?>";
+      // Evento para confirmar pagamento PIX
+      confirmarPix.addEventListener('click', async () => {
+        try {
+          const carrinho = validarCarrinho();
+          if (!carrinho) return;
+
+          await salvarCompra({ tipo: 'pix' });
+        } catch (error) {
+          console.error("Erro ao processar pagamento:", error);
+          msgErro.textContent = "Erro ao processar pagamento: " + error.message;
+          msgErro.style.display = "block";
         }
       });
-
     });
+
+    function validarFormulario() {
+      const nome = document.getElementById("name").value;
+      const numero = document.getElementById("number").value.replace(/\s/g, '');
+      const mes = document.getElementById("month").value;
+      const ano = document.getElementById("year").value;
+      const cvc = document.getElementById("cvc").value;
+
+      if (!validarNome(nome)) {
+        window.alert("Nome no cartão inválido. Deve conter apenas letras e espaços.");
+        return false;
+      }
+
+      if (!numero || !mes || !ano || !cvc) {
+        window.alert("Por favor, preencha todos os campos.");
+        return false;
+      }
+
+      if (!validarNumeroCartao(numero)) {
+        window.alert("Número do cartão inválido.");
+        return false;
+      }
+
+      if (mes < 1 || mes > 12) {
+        window.alert("Mês inválido.");
+        return false;
+      }
+
+      const dataAtual = new Date();
+      const anoAtual = dataAtual.getFullYear() % 100;
+      const mesAtual = dataAtual.getMonth() + 1;
+
+      if (ano < anoAtual || (ano == anoAtual && mes < mesAtual)) {
+        window.alert("Data de validade inválida.");
+        return false;
+      }
+
+      if (cvc.length !== 3 || isNaN(cvc)) {
+        window.alert("CVV inválido.");
+        return false;
+      }
+
+      return true;
+    }
 
     function validarNome(nome) {
       const regex = /^[A-Za-zÀ-ÿ\s]+$/;
@@ -223,43 +346,21 @@
     function validarNumeroCartao(numero) {
       let soma = 0;
       let deveDobrar = false;
+
       for (let i = numero.length - 1; i >= 0; i--) {
         let digito = parseInt(numero.charAt(i), 10);
+
         if (deveDobrar) {
           digito *= 2;
           if (digito > 9) digito -= 9;
         }
+
         soma += digito;
         deveDobrar = !deveDobrar;
       }
+
       return soma % 10 === 0;
     }
-    function enviarCarrinho() {
-    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-
-    if (cartItems.length === 0) {
-        alert('Seu carrinho está vazio!');
-        return;
-    }
-
-    fetch('ValidaPagamento.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ carrinho: cartItems })
-    })
-    .then(response => response.text())
-    .then(data => {
-        alert(data);
-        localStorage.removeItem('cartItems'); // limpa o carrinho local
-        window.location.href = 'historico_compras.php';
-    })
-    .catch(error => {
-        console.error('Erro:', error);
-    });
-}
-
   </script>
 </body>
 

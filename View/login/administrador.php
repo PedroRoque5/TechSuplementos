@@ -24,7 +24,7 @@ require_once '../../config_serve.php';
     <div class="form">
       <form method="POST" action="<?= URL . 'View/login/validar_login_empresa.php' ?>">
         <div id="email">
-          <input type="email" name="email" placeholder="E-mail ou CNPJ" required>
+          <input type="email" name="email" placeholder="E-mail" required>
         </div>
         <div>
           <input type="password" name="senha" placeholder="Senha" required>

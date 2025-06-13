@@ -1,0 +1,12 @@
+[2025-06-13 16:21:12] Dados recebidos: {"carrinho":[{"id":2,"quantity":5,"price":94,"name":"Whey Protein Concentrado 1KG - Dark Lab","sabor":null}],"tipo_pagamento":"cartao"}
+[2025-06-13 16:28:49] Dados recebidos: {"carrinho":[{"id":2,"quantity":2,"price":94,"name":"Whey Protein Concentrado 1KG - Dark Lab","sabor":null}],"tipo_pagamento":"cartao"}
+[2025-06-13 16:28:49] Erro: Erro na inserção: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'techsuplementos.compras' doesn't exist
+[2025-06-13 16:30:31] Dados recebidos: {"carrinho":[{"id":2,"quantity":2,"price":94,"name":"Whey Protein Concentrado 1KG - Dark Lab","sabor":null}],"tipo_pagamento":"cartao"}
+[2025-06-13 16:30:31] Erro: Erro na inserção: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'usuario_id' in 'field list'
+[2025-06-13 16:31:58] Dados recebidos: {"carrinho":[{"id":2,"quantity":2,"price":94,"name":"Whey Protein Concentrado 1KG - Dark Lab","sabor":null}],"tipo_pagamento":"cartao"}
+[2025-06-13 16:31:58] Erro: Erro na inserção: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pedido' in 'field list'
+[2025-06-13 16:34:01] Dados recebidos: {"carrinho":[{"id":2,"quantity":2,"price":94,"name":"Whey Protein Concentrado 1KG - Dark Lab","sabor":null}],"tipo_pagamento":"cartao"}
+[2025-06-13 16:34:01] Erro: Erro na inserção: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_pedido' in 'field list'
+[2025-06-13 16:35:36] Dados recebidos: {"carrinho":[{"id":2,"quantity":2,"price":94,"name":"Whey Protein Concentrado 1KG - Dark Lab","sabor":null}],"tipo_pagamento":"cartao"}
+[2025-06-13 16:44:00] Dados recebidos: {"carrinho":[{"id":2,"quantity":2,"price":94,"name":"Whey Protein Concentrado 1KG - Dark Lab","sabor":null}],"tipo_pagamento":"cartao"}
+[2025-06-13 16:45:17] Dados recebidos: {"carrinho":[{"id":5,"quantity":1,"price":480,"name":"Gold Standard 100% Whey 2.2kg Optimum Nutrition","sabor":null}],"tipo_pagamento":"pix"}

@@ -1,0 +1,88 @@
+.rodape {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 40px 0;
+    margin-top: 50px;
+}
+
+.rodape-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.rodape-coluna h3 {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.rodape-coluna ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rodape-coluna ul li {
+    margin-bottom: 10px;
+}
+
+.rodape-coluna ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.rodape-coluna ul li a:hover {
+    color: #fff;
+}
+
+.rodape-coluna p {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.rodape-coluna .social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.rodape-coluna .social-links a {
+    color: #fff;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.rodape-coluna .social-links a:hover {
+    color: #007bff;
+}
+
+.rodape-inferior {
+    background-color: #111;
+    color: #ccc;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.rodape-inferior p {
+    margin: 0;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .rodape-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .rodape-container {
+        grid-template-columns: 1fr;
+    }
+} 

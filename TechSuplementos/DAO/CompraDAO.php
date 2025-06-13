@@ -1,48 +1,34 @@
 <?php
 require_once './TechSuplementos/DAO/Conexao.php';
 
-class CompraDAO {
+class CompraDAO
+{
     private $conexao;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->conexao = new Conexao();
     }
 
-  public function salvarCompra($compra) {
-    // Inserir a compra
-    $queryCompra = "INSERT INTO compra (id_usuario, forma_pagamento) VALUES (?, ?)";
-    $idCompra = $this->conexao->inserir($queryCompra, [
-        $compra['usuario_id'],
-        $compra['forma_pagamento']
-    ]);
+    public function buscarHistoricoCompras($usuarioId)
+    {
+        $query = "SELECT 
+    c.id AS pedido,
+    c.data_compra,
+    c.forma_pagamento,
+    c.total,
+    p.nome AS produto,
+    ic.quantidade,
+    ic.preco_unitario,
+    gp.status_pagamento,
+    gp.status_envio
+FROM compra c
+JOIN item_compra ic ON ic.id_compra = c.id
+JOIN produtos p ON p.id = ic.id_produto  -- Aqui está a junção correta
+LEFT JOIN gestao_pedido gp ON gp.id_compra = c.id
+WHERE c.id_usuario = ?
+ORDER BY c.data_compra DESC";
 
-    if (!$idCompra) {
-        return false;
+        return $this->conexao->buscar($query, [$usuarioId]);
     }
-
-    // Inserir os itens da compra (ligados ao estoque, não ao produto direto)
-    foreach ($compra['item_compra'] as $item) {
-        // Buscar o estoque do produto para registrar corretamente
-        $estoque = $this->conexao->buscar("SELECT id FROM estoque WHERE id_produto = ? LIMIT 1", [
-            $item['id_produto']
-        ]);
-
-        if (!$estoque || empty($estoque[0]['id'])) {
-            continue; // ou retorne false se quiser abortar o processo
-        }
-
-        $idEstoque = $estoque[0]['id'];
-
-        $queryItem = "INSERT INTO item_compra (id_compra, id_estoque, quantidade, preco_unitario)
-                      VALUES (?, ?, ?, ?)";
-        $this->conexao->inserir($queryItem, [
-            $idCompra,
-            $idEstoque,
-            $item['quantidade'],
-            $item['preco_unitario']
-        ]);
-    }
-
-    return $idCompra;
-}
 }

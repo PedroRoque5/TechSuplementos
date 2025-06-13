@@ -33,6 +33,9 @@ switch ($pagina) {
     case 'carrinho':
         include_once './View/menu/carrinho/index.php';
         break;
+    case 'salvar_carrinho':
+        include_once './app/controller/adicionar_carrinho.php';
+        break;
     case 'top5':
         include_once './View/menu/top5/index.php';
         break;
@@ -60,7 +63,7 @@ switch ($pagina) {
     case 'config':
         include_once './View/menu/config/index.php';
         break;
-     case 'configadmin':
+    case 'configadmin':
         include_once './View/menu/config/indexadmin.php';
         break;
     case 'saiba':
@@ -87,7 +90,7 @@ switch ($pagina) {
     case 'notificacoes':
         include_once './View/menu/config/notificacoes.php';
         break;
-     case 'notificacoesadmin':
+    case 'notificacoesadmin':
         include_once './View/menu/config/notificacoesadmin.php';
         break;
     case 'privacidade':
@@ -146,7 +149,7 @@ switch ($pagina) {
     case 'sairadmin':
         include_once './View/menu/perfil/sairadmin.php';
         break;
-        
+
     default:
         include_once './View/error/index.php';
         break;

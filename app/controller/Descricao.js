@@ -137,10 +137,11 @@ function initCarrinho() {
 
         // Captura o nome do produto e o sabor selecionado
         const nomeProduto = nomeElemento.textContent.trim();  // Nome do produto
-        const saborProduto = saborElemento ? saborElemento.value : 'Sem sabor'; // Captura o sabor selecionado (do <select> com a classe "sabores")
+        const saborProduto = saborElemento ? saborElemento.value : 'Sem sabor'; // Captura o sabor selecionado
+        const idProduto = document.querySelector('meta[name="produto-id"]').content; // Obtém o ID do produto
 
         // Verifica se o item já está no carrinho
-        let itemExistente = cartItems.find(item => item.name === nomeProduto && item.sabor === saborProduto);
+        let itemExistente = cartItems.find(item => item.id === idProduto && item.sabor === saborProduto);
 
         if (itemExistente) {
             // Se já existir, aumenta a quantidade
@@ -149,8 +150,9 @@ function initCarrinho() {
         } else {
             // Caso não exista, adiciona o item novo
             cartItems.push({
-                name: nomeProduto, // Usa o nome do produto
-                sabor: saborProduto, // Agora estamos também armazenando o sabor
+                id: idProduto,
+                name: nomeProduto,
+                sabor: saborProduto,
                 price: precoProduto,
                 quantity: quantidade
             });
