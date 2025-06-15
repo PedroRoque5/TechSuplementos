@@ -1,14 +1,6 @@
 <?php
 session_start();
 
-$file = __DIR__ . '/../../cadastro/cadastrar.php';
-if (file_exists($file)) {
-    require_once $file;
-} else {
-    echo "Erro: Arquivo não encontrado.";
-    exit;
-}
-
 $nome = $_SESSION['nome'] ?? 'Visitante';
 $email = $_SESSION['email'] ?? 'Não cadastrado';
 $telefone = $_SESSION['telefone'] ?? 'Não cadastrado';
