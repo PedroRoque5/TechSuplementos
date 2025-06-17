@@ -10,12 +10,14 @@ class Conexao {
     private $inTransaction = false;
 
     public function __construct() {
+        error_log("Iniciando conexão com o banco de dados");
         $this->conectar();
     }
 
     public function conectar() {
         try {
             if (!$this->conexao) {
+                error_log("Tentando conectar ao banco: {$this->host}, {$this->banco}");
                 $this->conexao = new \PDO(
                     "mysql:host={$this->host};dbname={$this->banco};charset=utf8",
                     $this->usuario,
@@ -26,42 +28,68 @@ class Conexao {
                         \PDO::ATTR_EMULATE_PREPARES => false
                     ]
                 );
+                error_log("Conexão estabelecida com sucesso");
             }
             return $this->conexao;
         } catch (\PDOException $e) {
+            error_log("Erro na conexão com o banco: " . $e->getMessage());
             throw new \Exception("Erro na conexão: " . $e->getMessage());
         }
     }
 
-    public function executar($sql) {
+    public function executar($query, $params = []) {
         try {
-            if (!$this->conexao) {
-                $this->conectar();
-            }
-            return $this->conexao->exec($sql);
+            error_log("Executando query: " . $query);
+            error_log("Parâmetros: " . print_r($params, true));
+            $stmt = $this->conexao->prepare($query);
+            $resultado = $stmt->execute($params);
+            error_log("Query executada com sucesso");
+            return $resultado;
         } catch (\PDOException $e) {
-            throw new \Exception("Erro ao executar SQL: " . $e->getMessage());
+            error_log("Erro na execução da query: " . $e->getMessage());
+            throw new \Exception("Erro na execução: " . $e->getMessage());
         }
     }
 
     public function beginTransaction() {
-        if (!$this->inTransaction) {
-            $this->conexao->beginTransaction();
-            $this->inTransaction = true;
+        try {
+            if (!$this->inTransaction) {
+                error_log("Iniciando transação");
+                $this->conexao->beginTransaction();
+                $this->inTransaction = true;
+                error_log("Transação iniciada com sucesso");
+            }
+        } catch (\PDOException $e) {
+            error_log("Erro ao iniciar transação: " . $e->getMessage());
+            throw new \Exception("Erro ao iniciar transação: " . $e->getMessage());
         }
     }
 
     public function commit() {
-        if ($this->inTransaction) {
-            $this->conexao->commit();
-            $this->inTransaction = false;
+        try {
+            if ($this->inTransaction) {
+                error_log("Realizando commit da transação");
+                $this->conexao->commit();
+                $this->inTransaction = false;
+                error_log("Commit realizado com sucesso");
+            }
+        } catch (\PDOException $e) {
+            error_log("Erro ao realizar commit: " . $e->getMessage());
+            throw new \Exception("Erro ao realizar commit: " . $e->getMessage());
         }
     }
 
     public function rollback() {
-        if ($this->inTransaction) {
-            $this->conexao->rollback();
-            $this->inTransaction = false;
+        try {
+            if ($this->inTransaction) {
+                error_log("Realizando rollback da transação");
+                $this->conexao->rollback();
+                $this->inTransaction = false;
+                error_log("Rollback realizado com sucesso");
+            }
+        } catch (\PDOException $e) {
+            error_log("Erro ao realizar rollback: " . $e->getMessage());
+            throw new \Exception("Erro ao realizar rollback: " . $e->getMessage());
         }
     }
 
@@ -70,10 +98,15 @@ class Conexao {
             if (!$this->conexao) {
                 $this->conectar();
             }
+            error_log("Executando busca: " . $sql);
+            error_log("Parâmetros: " . print_r($params, true));
             $stmt = $this->conexao->prepare($sql);
             $stmt->execute($params);
-            return $stmt->fetchAll();
+            $resultado = $stmt->fetchAll();
+            error_log("Resultado da busca: " . print_r($resultado, true));
+            return $resultado;
         } catch (\PDOException $e) {
+            error_log("Erro na busca: " . $e->getMessage());
             if ($this->inTransaction) {
                 $this->rollback();
             }
@@ -86,10 +119,15 @@ class Conexao {
             if (!$this->conexao) {
                 $this->conectar();
             }
+            error_log("Executando inserção: " . $sql);
+            error_log("Parâmetros: " . print_r($params, true));
             $stmt = $this->conexao->prepare($sql);
             $stmt->execute($params);
-            return $this->conexao->lastInsertId();
+            $id = $this->conexao->lastInsertId();
+            error_log("Inserção realizada com sucesso. ID: " . $id);
+            return $id;
         } catch (\PDOException $e) {
+            error_log("Erro na inserção: " . $e->getMessage());
             if ($this->inTransaction) {
                 $this->rollback();
             }
@@ -102,9 +140,14 @@ class Conexao {
             if (!$this->conexao) {
                 $this->conectar();
             }
+            error_log("Executando atualização: " . $sql);
+            error_log("Parâmetros: " . print_r($params, true));
             $stmt = $this->conexao->prepare($sql);
-            return $stmt->execute($params);
+            $resultado = $stmt->execute($params);
+            error_log("Atualização realizada com sucesso. Linhas afetadas: " . $stmt->rowCount());
+            return $resultado;
         } catch (\PDOException $e) {
+            error_log("Erro na atualização: " . $e->getMessage());
             if ($this->inTransaction) {
                 $this->rollback();
             }
@@ -117,14 +160,24 @@ class Conexao {
             if (!$this->conexao) {
                 $this->conectar();
             }
+            error_log("Executando deleção: " . $sql);
+            error_log("Parâmetros: " . print_r($params, true));
             $stmt = $this->conexao->prepare($sql);
-            return $stmt->execute($params);
+            $resultado = $stmt->execute($params);
+            error_log("Deleção realizada com sucesso. Linhas afetadas: " . $stmt->rowCount());
+            return $resultado;
         } catch (\PDOException $e) {
+            error_log("Erro na deleção: " . $e->getMessage());
             if ($this->inTransaction) {
                 $this->rollback();
             }
             throw new \Exception("Erro na deleção: " . $e->getMessage());
         }
+    }
+
+    public function inTransaction() {
+        error_log("Verificando se há transação ativa");
+        return $this->conexao->inTransaction();
     }
 
     public function __destruct() {

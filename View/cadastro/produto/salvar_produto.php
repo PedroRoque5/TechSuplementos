@@ -40,15 +40,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $conexao = new Conexao();
 
         // Insere o produto
-        $query = "INSERT INTO produtos (nome, descricao, preco, catalogo, imagem) 
-                  VALUES (:produto_nome, :descricao, :preco, :catalogo, :imagem)";
+        $query = "INSERT INTO produtos (nome, descricao, preco, catalogo, imagem, estoque_atual, estoque_minimo) 
+                  VALUES (:produto_nome, :descricao, :preco, :catalogo, :imagem, :estoque_atual, :estoque_minimo)";
 
         $params = [
             ':produto_nome' => $produto_nome,
             ':descricao' => $descricao,
             ':preco' => $preco,
             ':catalogo' => $catalogo,
-            ':imagem' => $img_name
+            ':imagem' => $img_name,
+            ':estoque_atual' => 0,  // Inicializa estoque atual como 0
+            ':estoque_minimo' => 5   // Inicializa estoque mínimo como 5
         ];
 
         $produtoId = $conexao->inserir($query, $params);
