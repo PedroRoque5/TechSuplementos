@@ -136,10 +136,14 @@ switch ($pagina) {
         include_once './View/cadastro/produto/busca_produto.php';
         break;
     case 'sistemaestoque':
+        error_log('Carregando sistemaestoque.php');
         include_once './View/menu/estoque/sistemaestoque.php';
         break;
     case 'salvar_estoque':
+        error_log('Carregando salvar_estoque.php');
+        error_log('POST data: ' . print_r($_POST, true));
         include_once './View/menu/estoque/salvar_estoque.php';
+        break;
     case 'resultado':
         include_once './View/menu/pesquisa/index.php';
         break;

@@ -1,59 +1,185 @@
-
-
+/* Estilos gerais */
 header h1 {
-    color: rgb(255, 0, 0);
+    color: #e00d0d;
     text-align: center;
+    margin: 20px 0;
 }
 
 main {
     padding: 20px;
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-h1, h2 {
-    color: #222;
+section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
 }
 
-.product-selection, .stock-transaction, .stock-status {
+h2 {
+    color: #333;
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Alertas de Estoque */
+.alerts {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+}
+
+.alert-list {
+    display: grid;
+    gap: 10px;
+}
+
+.alert-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 4px;
+    border-left: 4px solid #ffc107;
+}
+
+.product-name {
+    font-weight: bold;
+}
+
+.stock-info {
+    color: #666;
+}
+
+/* Formulário de Movimentação */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
 }
 
 select, input {
-    padding: 8px;
-    margin: 10px 0;
     width: 100%;
+    padding: 8px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    font-size: 14px;
 }
-.buttons button {
-    padding: 12px 20px;
-    margin: 5px;
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-entrada, .btn-saida {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn-entrada {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-saida {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-entrada:hover, .btn-saida:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Relatório de Estoque */
+.report-filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn-filtrar {
+    padding: 8px 15px;
+    background-color: #007bff;
     color: white;
     border: none;
     border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
-#inputStock {
-    background-color: #28a745; /* Verde */
+.table-container {
+    overflow-x: auto;
 }
 
-#inputStock:hover {
-    background-color: rgb(3, 126, 3);
-    transform: scale(1.1);
-    box-shadow: 0 4px 5px black;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-#outputStock {
-    background-color: #dc3545; /* Vermelho */
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
 }
 
-#outputStock:hover {
-    background-color: rgb(201, 11, 11);
-    transform: scale(1.1);
-    box-shadow: 0 4px 5px black;
+th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+.status-baixo {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.status-normal {
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .alert-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .report-filters {
+        flex-direction: column;
+    }
+
+    .table-container {
+        margin: 0 -20px;
+    }
 }

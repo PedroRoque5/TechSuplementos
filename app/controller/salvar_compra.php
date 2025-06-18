@@ -63,7 +63,7 @@ try {
             $conexao->inserir($queryItem, $paramsItem);
 
             // Atualizar estoque
-            $queryEstoque = "UPDATE produtos SET estoque = estoque - :quantidade WHERE id = :produto_id";
+            $queryEstoque = "UPDATE produtos SET estoque_atual = estoque_atual - :quantidade WHERE id = :produto_id";
             $paramsEstoque = [
                 ':quantidade' => $item['quantity'],
                 ':produto_id' => $item['id']

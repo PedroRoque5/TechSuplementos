@@ -53,13 +53,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['atualizar_produto_nome
         $conexao = new Conexao();
 
         // Atualizar produto
-        $query = "UPDATE produtos SET descricao = :descricao, preco = :preco, catalogo = :catalogo, status = :status WHERE nome = :produto_nome";
+        $query = "UPDATE produtos 
+                 SET descricao = :descricao, 
+                     preco = :preco, 
+                     catalogo = :catalogo, 
+                     status = :status,
+                     estoque_atual = :estoque_atual,
+                     estoque_minimo = :estoque_minimo 
+                 WHERE nome = :produto_nome";
         $params = [
             ':produto_nome' => $produto_nome,
             ':descricao' => $descricao,
             ':preco' => $preco,
             ':catalogo' => $catalogo,
-            ':status' => $status
+            ':status' => $status,
+            ':estoque_atual' => $produto['estoque_atual'],
+            ':estoque_minimo' => $produto['estoque_minimo']
         ];
         $conexao->atualizar($query, $params);
 

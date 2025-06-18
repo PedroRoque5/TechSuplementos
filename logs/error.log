@@ -10,3 +10,5 @@
 [2025-06-13 16:35:36] Dados recebidos: {"carrinho":[{"id":2,"quantity":2,"price":94,"name":"Whey Protein Concentrado 1KG - Dark Lab","sabor":null}],"tipo_pagamento":"cartao"}
 [2025-06-13 16:44:00] Dados recebidos: {"carrinho":[{"id":2,"quantity":2,"price":94,"name":"Whey Protein Concentrado 1KG - Dark Lab","sabor":null}],"tipo_pagamento":"cartao"}
 [2025-06-13 16:45:17] Dados recebidos: {"carrinho":[{"id":5,"quantity":1,"price":480,"name":"Gold Standard 100% Whey 2.2kg Optimum Nutrition","sabor":null}],"tipo_pagamento":"pix"}
+[2025-06-16 19:53:31] Dados recebidos: {"carrinho":[{"id":3,"quantity":3,"price":100,"name":"whey roque","sabor":null}],"tipo_pagamento":"cartao"}
+[2025-06-16 19:53:31] Erro: Erro na inserção: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`techsuplementos`.`item_compra`, CONSTRAINT `item_compra_ibfk_2` FOREIGN KEY (`id_produto`) REFERENCES `produtos` (`id`))
