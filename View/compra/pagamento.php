@@ -1,8 +1,25 @@
 <?php
-session_start();
+// Sessão já é iniciada no index.php, não é necessário iniciar novamente
+require_once $_SERVER['DOCUMENT_ROOT'] . '/TechSuplementos/DAO/Conexao.php';
+use TechSuplementos\DAO\Conexao;
+
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: " . URL . "index.php?pg=login");
     exit;
+}
+
+// Verificar se é uma compra direta
+$compra_direta = false;
+$produto_direto = null;
+
+if (isset($_GET['nome'])) {
+    $conexao = new Conexao();
+    $produto = $conexao->buscar("SELECT * FROM produtos WHERE nome = :nome", [':nome' => $_GET['nome']]);
+    
+    if (!empty($produto)) {
+        $compra_direta = true;
+        $produto_direto = $produto[0];
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -13,8 +30,19 @@ if (!isset($_SESSION['usuario_id'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pagamento</title>
   <link href="<?= ASSETS ?>css/card.css" rel='stylesheet'>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    #pix-codigo {
+      display: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      height: 0 !important;
+      min-height: 0 !important;
+      max-height: 0 !important;
+      border: none !important;
+    }
+  </style>
 </head>
-<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.0/build/qrcode.min.js"></script>
 
 <body class="card-body">
   <div class="container-card">
@@ -73,10 +101,10 @@ if (!isset($_SESSION['usuario_id'])) {
           <option value="4">4x sem juros</option>
           <option value="5">5x sem juros</option>
           <option value="6">6x sem juros</option>
-          <option value="7">7x com juros</option>
-          <option value="8">8x com juros</option>
-          <option value="9">9x com juros</option>
-          <option value="10">10x com juros</option>
+          <option value="7">7x sem juros</option>
+          <option value="8">8x sem juros</option>
+          <option value="9">9x sem juros</option>
+          <option value="10">10x sem juros</option>
         </select>
         <button type="submit">Confirmar</button>
       </form>
@@ -107,60 +135,92 @@ if (!isset($_SESSION['usuario_id'])) {
       const msgPagamento = document.getElementById("msg-pagamento");
       const confirmarPix = document.getElementById("confirmar-pix");
 
-      // Função para obter o carrinho do localStorage
+      // Função para obter o carrinho do localStorage ou produto direto
       function getCarrinho() {
+        <?php if ($compra_direta): ?>
+        return [{
+          id: <?= $produto_direto['id'] ?>,
+          name: "<?= $produto_direto['nome'] ?>",
+          price: <?= $produto_direto['preco'] ?>,
+          quantity: 1,
+          sabor: null
+        }];
+        <?php else: ?>
         const carrinho = JSON.parse(localStorage.getItem('cartItems')) || [];
         console.log('Carrinho obtido:', carrinho);
         return carrinho;
+        <?php endif; ?>
+      }
+
+      // Função para calcular o total do carrinho
+      function calcularTotal(carrinho) {
+        return carrinho.reduce((total, item) => total + (item.price * item.quantity), 0);
+      }
+
+      // Função para gerar o código PIX
+      function gerarCodigoPix(valor) {
+        // Aqui você pode implementar a lógica para gerar um código PIX real
+        // Por enquanto, vamos usar um código de exemplo
+        return `00020126580014BR.GOV.BCB.PIX0136123e4567-e89b-12d3-a456-426614174000520400005303986540599.905802BR5913TechSuplementos6008BRASILIA62070503***6304E2CA`;
       }
 
       // Função para validar e corrigir o carrinho
       function validarCarrinho() {
+        <?php if ($compra_direta): ?>
+        return [{
+          id: <?= $produto_direto['id'] ?>,
+          name: "<?= $produto_direto['nome'] ?>",
+          price: <?= $produto_direto['preco'] ?>,
+          quantity: 1,
+          sabor: null
+        }];
+        <?php else: ?>
         const carrinho = JSON.parse(localStorage.getItem('cartItems') || '[]');
         console.log('Carrinho original:', carrinho);
 
         if (!Array.isArray(carrinho) || carrinho.length === 0) {
-            console.error('Carrinho inválido ou vazio');
-            return null;
+          console.error('Carrinho inválido ou vazio');
+          return null;
         }
 
         const carrinhoValidado = carrinho.map(item => {
-            // Validar e converter tipos
-            const id = parseInt(item.id);
-            const quantity = parseInt(item.quantity);
-            const price = parseFloat(item.price);
+          // Validar e converter tipos
+          const id = parseInt(item.id);
+          const quantity = parseInt(item.quantity);
+          const price = parseFloat(item.price);
 
-            // Verificar se os valores são válidos
-            if (isNaN(id) || id <= 0) {
-                console.error('ID inválido:', item.id);
-                return null;
-            }
-            if (isNaN(quantity) || quantity <= 0) {
-                console.error('Quantidade inválida:', item.quantity);
-                return null;
-            }
-            if (isNaN(price) || price <= 0) {
-                console.error('Preço inválido:', item.price);
-                return null;
-            }
+          // Verificar se os valores são válidos
+          if (isNaN(id) || id <= 0) {
+            console.error('ID inválido:', item.id);
+            return null;
+          }
+          if (isNaN(quantity) || quantity <= 0) {
+            console.error('Quantidade inválida:', item.quantity);
+            return null;
+          }
+          if (isNaN(price) || price <= 0) {
+            console.error('Preço inválido:', item.price);
+            return null;
+          }
 
-            return {
-                id: id,
-                quantity: quantity,
-                price: price,
-                name: item.name || '',
-                sabor: item.sabor || null
-            };
+          return {
+            id: id,
+            quantity: quantity,
+            price: price,
+            name: item.name || '',
+            sabor: item.sabor || null
+          };
         }).filter(item => item !== null);
 
         console.log('Carrinho validado:', carrinhoValidado);
 
         if (carrinhoValidado.length === 0) {
-            console.error('Nenhum item válido no carrinho');
-            return null;
+          console.error('Nenhum item válido no carrinho');
+          return null;
         }
 
         return carrinhoValidado;
+        <?php endif; ?>
       }
 
       // Função para salvar a compra
@@ -171,20 +231,25 @@ if (!isset($_SESSION['usuario_id'])) {
             throw new Error('Carrinho inválido');
           }
 
-          console.log('Enviando dados:', {
+          const dadosEnvio = {
             carrinho: carrinho,
             tipo_pagamento: dadosPagamento.tipo
-          });
+          };
+
+          // Se for pagamento com cartão, incluir número de parcelas
+          if (dadosPagamento.tipo === 'cartao') {
+            const parcelas = document.getElementById('parcelas').value;
+            dadosEnvio.parcelas = parcelas;
+          }
+
+          console.log('Enviando dados:', dadosEnvio);
 
           const response = await fetch('<?= URL ?>View/compra/processa_pagamento.php', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
-              carrinho: carrinho,
-              tipo_pagamento: dadosPagamento.tipo
-            })
+            body: JSON.stringify(dadosEnvio)
           });
 
           console.log('Resposta recebida:', response);
@@ -229,13 +294,33 @@ if (!isset($_SESSION['usuario_id'])) {
             cardVisual.style.display = 'block';
           } else if (this.value === 'pix') {
             formPix.style.display = 'block';
-            // Gerar QR Code do Pix
-            const qrCode = new QRCode(qrcodeContainer, {
-              text: "PIX-123456789",
-              width: 200,
-              height: 200
+            
+            // Calcular o total do carrinho
+            const carrinho = getCarrinho();
+            const total = calcularTotal(carrinho);
+            
+            // Gerar código PIX
+            const codigoPix = gerarCodigoPix(total);
+            
+            // Limpar container do QR Code
+            qrcodeContainer.innerHTML = '';
+            
+            // Gerar QR Code
+            new QRCode(qrcodeContainer, {
+              text: codigoPix,
+              width: 300,
+              height: 300,
+              colorDark: "#000000",
+              colorLight: "#ffffff",
+              correctLevel: QRCode.CorrectLevel.H
             });
-            pixCodigo.textContent = "PIX-123456789";
+            
+            // Exibir código PIX
+            pixCodigo.textContent = codigoPix;
+            pixCodigo.style.display = 'block';
+          } else {
+            pixCodigo.textContent = '';
+            pixCodigo.style.display = 'none';
           }
         });
       });

@@ -6,7 +6,7 @@ class sair{
 
     session_start();
     session_destroy();
-    header("Location: ".  URL . 'index.php?pg=loginadmin');
+    header("Location: ".  URL . 'index.php?pg=empresa');
     exit;
 
     }
@@ -15,4 +15,4 @@ class sair{
 
 $sair = new sair();
 
-$sair->logout();;
+$sair->logout();

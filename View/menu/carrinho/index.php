@@ -1,5 +1,5 @@
 <?php
-session_start();
+// Sessão já é iniciada no index.php, não é necessário iniciar novamente
 
 // Verifica se o usuário está logado
 $usuario_logado = isset($_SESSION['usuario_id']);
@@ -163,7 +163,35 @@ $usuario_logado = isset($_SESSION['usuario_id']);
                 return;
             }
 
-            window.location.href = '<?= URL ?>index.php?pg=pagamento';
+            // Verificar estoque antes de finalizar
+            verificarEstoque(carrinho);
+        }
+
+        // Função para verificar estoque
+        async function verificarEstoque(carrinho) {
+            try {
+                const response = await fetch('<?= URL ?>verificar_estoque.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ carrinho: carrinho })
+                });
+
+                const data = await response.json();
+                
+                if (data.sucesso) {
+                    // Estoque OK, prosseguir para pagamento
+                    window.location.href = '<?= URL ?>index.php?pg=pagamento';
+                } else {
+                    // Estoque insuficiente
+                    alert('Erro de estoque: ' + data.mensagem);
+                }
+            } catch (error) {
+                console.error('Erro ao verificar estoque:', error);
+                // Em caso de erro, prosseguir para pagamento (o servidor vai verificar novamente)
+                window.location.href = '<?= URL ?>index.php?pg=pagamento';
+            }
         }
 
         // Função para adicionar ao carrinho

@@ -16,6 +16,7 @@ class CompraController {
                     c.data_compra,
                     c.forma_pagamento,
                     c.total,
+                    c.parcelas,
                     ic.quantidade,
                     ic.preco_unitario,
                     p.nome as produto

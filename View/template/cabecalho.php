@@ -11,6 +11,12 @@
 </head>
 
 <body>
+    <?php
+    // Garantir que a sessão esteja iniciada
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    ?>
     <!-- CABEÇALHO -->
     <div id="dashboard">
         <img id="logo" src="<?= ASSETS ?>image/Techlogo.png">
@@ -28,8 +34,15 @@
         </nav>
         <nav id="menu">
             <ul id="principal">
-                <li id="unico"><a href="<?= URL . "index.php?pg=home" ?>">Home</a></li>
-                    </ul>
+                <li id="unico">
+                    <a href="<?= URL . "index.php?pg=" . (isset($_SESSION['nivel_acesso']) && $_SESSION['nivel_acesso'] === 'empresa' ? 'homeadmin' : 'home') ?>">
+                        Home
+                    </a>
+                </li>
+                <?php if (!isset($_SESSION['usuario_id']) && !isset($_SESSION['empresa_id'])): ?>
+                <!-- Aqui estava o baricon do cabeçalho, removido para evitar duplicidade -->
+                <?php endif; ?>
+            </ul>
         </nav>
     </div>
     <?php
@@ -122,6 +135,38 @@ if ($termo_pesquisa) {
             descricao.classList.toggle("descricao-oculta");
             button.textContent = descricao.classList.contains("descricao-oculta") ? "Ver Detalhes" : "Ocultar Detalhes";
         }
+
+        // JavaScript para o dropdown de login
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginDropdownToggle = document.getElementById('login-dropdown-toggle');
+            const loginDropdown = document.getElementById('login-dropdown');
+
+            if (loginDropdownToggle && loginDropdown) {
+                loginDropdownToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    loginDropdown.classList.toggle('hidden');
+                });
+
+                // Fechar dropdown quando clicar fora
+                document.addEventListener('click', function(e) {
+                    if (!loginDropdownToggle.contains(e.target) && !loginDropdown.contains(e.target)) {
+                        loginDropdown.classList.add('hidden');
+                    }
+                });
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropbtn = document.querySelector('.menu-dropdown .dropbtn');
+            const dropdownMenu = document.querySelector('.menu-dropdown .dropdown-menu');
+            dropbtn.addEventListener('click', function(event) {
+                event.stopPropagation();
+                dropdownMenu.classList.toggle('show');
+            });
+            document.addEventListener('click', function() {
+                dropdownMenu.classList.remove('show');
+            });
+        });
 
         lucide.createIcons();
     </script>

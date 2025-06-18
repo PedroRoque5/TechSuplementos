@@ -18,7 +18,10 @@ require_once '../../../config_serve.php';
     <img id="logo" src="<?= ASSETS ?>image/Techlogo.png">
   </div>
 
-  
+  <div class="login-switch">
+    <a href="<?= URL ?>index.php?pg=login" class="active">Login Usuário</a> |
+    <a href="<?= URL ?>index.php?pg=empresa">Login Empresa</a>
+  </div>
 
   <div class="container">
     <div id="login">Faça seu login</div>
@@ -35,6 +38,21 @@ require_once '../../../config_serve.php';
       </form>
     </div>
   </div>
+  <style>
+    .login-switch {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .login-switch a {
+      color: #d72638;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 10px;
+    }
+    .login-switch a.active {
+      text-decoration: underline;
+    }
+  </style>
 </body>
 
 </html>

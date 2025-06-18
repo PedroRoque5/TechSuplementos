@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($email) || empty($senha)) {
         echo "<script>
             alert('Erro: Preencha todos os campos!');
-            window.location.href = '" . URL . "index.php?pg=login_empresa';
+            window.location.href = '" . URL . "index.php?pg=empresa';
         </script>";
         exit;
     }
@@ -46,14 +46,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else {
                 echo "<script>
                     alert('Erro: Senha incorreta!');
-                    window.location.href = '" . URL . "index.php?pg=login_empresa';
+                    window.location.href = '" . URL . "index.php?pg=empresa';
                 </script>";
                 exit;
             }
         } else {
             echo "<script>
                 alert('Erro: Empresa não encontrada!');
-                window.location.href = '" . URL . "index.php?pg=login_empresa';
+                window.location.href = '" . URL . "index.php?pg=empresa';
             </script>";
             exit;
         }
@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } else {
     echo "<script>
         alert('Acesso inválido!');
-        window.location.href = '" . URL . "index.php?pg=login_empresa';
+        window.location.href = '" . URL . "index.php?pg=empresa';
     </script>";
     exit;
 }

@@ -1,4 +1,5 @@
 <?php
+error_log("DEBUG: Chegou no salvar_estoque.php");
 error_log("Iniciando salvar_estoque.php");
 
 // Verificar se o arquivo está sendo chamado
@@ -18,7 +19,6 @@ require_once $config_path;
 require_once $dao_path;
 
 use TechSuplementos\DAO\EstoqueDAO;
-use Exception;
 
 // Iniciar sessão se ainda não estiver iniciada
 if (session_status() === PHP_SESSION_NONE) {
@@ -27,27 +27,28 @@ if (session_status() === PHP_SESSION_NONE) {
 
 // Verificar se é uma requisição POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    echo '<div style="color:red;font-weight:bold">ERRO: Método de requisição inválido: ' . htmlspecialchars($_SERVER['REQUEST_METHOD']) . '</div>';
     error_log('Método de requisição inválido: ' . $_SERVER['REQUEST_METHOD']);
-    header('Location: ' . URL . 'index.php?pg=homeadmin');
     exit;
 }
 
 // Verificar autenticação
-if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['tipo'] !== 'admin') {
-    error_log('Usuário não autenticado ou não é admin');
+if (!isset($_SESSION['nivel_acesso']) || $_SESSION['nivel_acesso'] !== 'empresa') {
+    echo '<div style="color:red;font-weight:bold">ERRO: Usuário não autenticado ou não é administrador (empresa)</div>';
+    echo '<div style="color:blue">Sessão atual: ' . print_r($_SESSION, true) . '</div>';
+    error_log('Usuário não autenticado ou não é empresa/admin');
     error_log('SESSION data: ' . print_r($_SESSION, true));
-    header('Location: ' . URL . 'index.php?pg=homeadmin');
     exit;
 }
 
 // Log dos dados recebidos
+echo '<div style="color:blue">POST recebido: ' . htmlspecialchars(json_encode($_POST)) . '</div>';
 error_log('Dados recebidos: ' . print_r($_POST, true));
 
 // Validar dados obrigatórios
 if (!isset($_POST['id_produto']) || !isset($_POST['quantidade']) || !isset($_POST['tipo_movimentacao'])) {
+    echo '<div style="color:red;font-weight:bold">ERRO: Dados obrigatórios não fornecidos</div>';
     error_log('Dados obrigatórios não fornecidos');
-    $_SESSION['error'] = 'Dados incompletos para movimentação de estoque.';
-    header('Location: ' . URL . 'index.php?pg=sistemaestoque');
     exit;
 }
 
@@ -58,13 +59,12 @@ $motivo = filter_input(INPUT_POST, 'motivo', FILTER_SANITIZE_STRING) ?? '';
 
 // Validar dados
 if (!$id_produto || !$quantidade || !$tipo_movimentacao) {
+    echo '<div style="color:red;font-weight:bold">ERRO: Dados inválidos para movimentação de estoque.</div>';
     error_log('Dados inválidos: ' . print_r([
         'id_produto' => $id_produto,
         'quantidade' => $quantidade,
         'tipo_movimentacao' => $tipo_movimentacao
     ], true));
-    $_SESSION['error'] = 'Dados inválidos para movimentação de estoque.';
-    header('Location: ' . URL . 'index.php?pg=sistemaestoque');
     exit;
 }
 
@@ -78,7 +78,7 @@ try {
         'quantidade' => $quantidade,
         'tipo_movimentacao' => $tipo_movimentacao,
         'motivo' => $motivo,
-        'usuario_id' => $_SESSION['usuario']['id'] ?? null
+        'usuario_id' => $_SESSION['empresa_id'] ?? null
     ], true));
 
     $resultado = $estoqueDAO->registrarMovimentacao(
@@ -86,24 +86,21 @@ try {
         $quantidade,
         $tipo_movimentacao,
         $motivo,
-        $_SESSION['usuario']['id'] ?? null
+        $_SESSION['empresa_id'] ?? null
     );
 
     if ($resultado) {
+        echo '<div style="color:green;font-weight:bold">Movimentação de estoque registrada com sucesso.</div>';
         error_log('Movimentação registrada com sucesso');
-        $_SESSION['success'] = 'Movimentação de estoque registrada com sucesso.';
     } else {
+        echo '<div style="color:red;font-weight:bold">ERRO: Erro ao registrar movimentação de estoque.</div>';
         error_log('Falha ao registrar movimentação');
-        $_SESSION['error'] = 'Erro ao registrar movimentação de estoque.';
     }
 } catch (Exception $e) {
+    echo '<div style="color:red;font-weight:bold">ERRO ao processar movimentação de estoque: ' . htmlspecialchars($e->getMessage()) . '</div>';
     error_log('Erro ao processar movimentação: ' . $e->getMessage());
     error_log('Stack trace: ' . $e->getTraceAsString());
-    $_SESSION['error'] = 'Erro ao processar movimentação de estoque: ' . $e->getMessage();
 }
 
-// Redirecionar de volta para a página de estoque
-error_log('Redirecionando para: ' . URL . 'index.php?pg=sistemaestoque');
-header('Location: ' . URL . 'index.php?pg=sistemaestoque');
 exit;
 ?>

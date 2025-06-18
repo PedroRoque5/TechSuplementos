@@ -3,8 +3,21 @@ ob_start();
 //Requerimento para funcionamento
 require './vendor/autoload.php';
 require_once './config_serve.php';
+
+// Iniciar sessão para verificar o nível de acesso
+session_start();
+
 //Variavel para receber uma página, caso não receba, apresenta a tela home
 $pagina = isset($_GET['pg']) ? $_GET['pg'] : 'home';
+
+// Se não há parâmetro pg, verificar o nível de acesso para determinar a home correta
+if (!isset($_GET['pg'])) {
+    if (isset($_SESSION['nivel_acesso']) && $_SESSION['nivel_acesso'] === 'empresa') {
+        $pagina = 'homeadmin';
+    } else {
+        $pagina = 'home';
+    }
+}
 
 include_once './View/template/cabecalho.php';
 
@@ -19,6 +32,7 @@ switch ($pagina) {
         include_once './View/login/cliente/validar_login.php';
         break;
     case 'home':
+        // Se for usuário comum ou não logado, mostrar home do usuário
         include_once './View/home/cliente/index.php';
         break;
     case 'homeadmin':
@@ -143,6 +157,9 @@ switch ($pagina) {
         error_log('Carregando salvar_estoque.php');
         error_log('POST data: ' . print_r($_POST, true));
         include_once './View/menu/estoque/salvar_estoque.php';
+        break;
+    case 'verificar_estoque':
+        include_once './verificar_estoque.php';
         break;
     case 'resultado':
         include_once './View/menu/pesquisa/index.php';

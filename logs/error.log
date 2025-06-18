@@ -12,3 +12,30 @@
 [2025-06-13 16:45:17] Dados recebidos: {"carrinho":[{"id":5,"quantity":1,"price":480,"name":"Gold Standard 100% Whey 2.2kg Optimum Nutrition","sabor":null}],"tipo_pagamento":"pix"}
 [2025-06-16 19:53:31] Dados recebidos: {"carrinho":[{"id":3,"quantity":3,"price":100,"name":"whey roque","sabor":null}],"tipo_pagamento":"cartao"}
 [2025-06-16 19:53:31] Erro: Erro na inserção: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`techsuplementos`.`item_compra`, CONSTRAINT `item_compra_ibfk_2` FOREIGN KEY (`id_produto`) REFERENCES `produtos` (`id`))
+[2025-06-13 18:02:41] Dados recebidos: {"carrinho":[{"id":7,"quantity":2,"price":4.45,"name":"Barra De Proteína Supino","sabor":null}],"tipo_pagamento":"cartao"}
+[2025-06-17 18:35:40] Dados recebidos: {"carrinho":[{"id":18,"quantity":1,"price":89,"name":"CREATINE - CREATINA MONOHIDRATADA - 300G","sabor":null}],"tipo_pagamento":"cartao"}
+[2025-06-17 18:47:55] Dados recebidos: {"carrinho":[{"id":7,"name":"Barra De Proteína Supino","price":4.45,"quantity":1,"sabor":null}],"tipo_pagamento":"cartao"}
+[2025-06-17 19:00:25] Dados recebidos: {"carrinho":[{"id":5,"quantity":2,"price":480,"name":"Gold Standard 100% Whey 2.2kg Optimum Nutrition","sabor":null}],"tipo_pagamento":"cartao","parcelas":"8"}
+[2025-06-17 19:22:16] Dados recebidos: {"carrinho":[{"id":7,"name":"Barra De Proteína Supino","price":4.45,"quantity":1,"sabor":null}],"tipo_pagamento":"pix"}
+[2025-06-18 05:51:42] Sessão atual: Array
+(
+    [nivel_acesso] => usuario
+    [usuario_id] => 1
+    [nome] => teste
+    [email] => testee@gmail.com
+    [cpf] => 42317530838
+    [telefone] => 1433227399
+)
+
+[2025-06-18 05:51:42] Dados recebidos: {"carrinho":[{"id":28,"quantity":2,"price":235,"name":"Creatina Monohidratada 1Kg 100% Pura - Importada - Soldiers Nutrition","sabor":null}],"tipo_pagamento":"pix"}
+[2025-06-18 05:54:45] Sessão atual: Array
+(
+    [nivel_acesso] => usuario
+    [usuario_id] => 1
+    [nome] => teste
+    [email] => testee@gmail.com
+    [cpf] => 42317530838
+    [telefone] => 1433227399
+)
+
+[2025-06-18 05:54:45] Dados recebidos: {"carrinho":[{"id":28,"name":"Creatina Monohidratada 1Kg 100% Pura - Importada - Soldiers Nutrition","price":235,"quantity":1,"sabor":null}],"tipo_pagamento":"pix"}

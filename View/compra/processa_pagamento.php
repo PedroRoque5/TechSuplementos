@@ -1,4 +1,9 @@
 <?php
+// Iniciar sessão
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 // Iniciar buffer de saída
 ob_start();
 
@@ -41,10 +46,14 @@ function retornarJson($sucesso, $mensagem, $dados = []) {
 }
 
 try {
-    session_start();
+    // Sessão já é iniciada no index.php, não é necessário iniciar novamente
+
+    // Log da sessão para debug
+    logError("Sessão atual: " . print_r($_SESSION, true));
 
     // Verificar se o usuário está logado
     if (!isset($_SESSION['usuario_id'])) {
+        logError("Usuário não logado - usuario_id não encontrado na sessão");
         retornarJson(false, 'Usuário não está logado');
     }
 
@@ -98,13 +107,38 @@ try {
     // Iniciar transação
     $conexao->beginTransaction();
 
+    // Verificar estoque antes de processar a compra
+    foreach ($dados['carrinho'] as $item) {
+        $produto_id = intval($item['id']);
+        $quantidade_solicitada = intval($item['quantity']);
+        
+        // Buscar estoque atual do produto
+        $produto = $conexao->buscar(
+            "SELECT id, nome, estoque_atual FROM produtos WHERE id = ?",
+            [$produto_id]
+        );
+        
+        if (empty($produto)) {
+            throw new Exception("Produto não encontrado: ID " . $produto_id);
+        }
+        
+        $estoque_atual = $produto[0]['estoque_atual'];
+        $nome_produto = $produto[0]['nome'];
+        
+        // Verificar se há estoque suficiente
+        if ($estoque_atual < $quantidade_solicitada) {
+            throw new Exception("Estoque insuficiente para o produto '$nome_produto'. Disponível: $estoque_atual, Solicitado: $quantidade_solicitada");
+        }
+    }
+
     // Inserir compra
-    $sql_compra = "INSERT INTO compra (id_usuario, forma_pagamento, total, data_compra) 
-                   VALUES (?, ?, ?, NOW())";
+    $sql_compra = "INSERT INTO compra (id_usuario, forma_pagamento, total, data_compra, parcelas) 
+                   VALUES (?, ?, ?, NOW(), ?)";
     $params_compra = [
         $usuario_id, 
         $dados['tipo_pagamento'],
-        $valor_total
+        $valor_total,
+        $dados['tipo_pagamento'] === 'cartao' ? intval($dados['parcelas']) : 1
     ];
     $compra_id = $conexao->inserir($sql_compra, $params_compra);
 
@@ -127,6 +161,37 @@ try {
 
         if (!$resultado) {
             throw new Exception("Erro ao inserir item da compra");
+        }
+    }
+
+    // Atualizar estoque automaticamente após a compra
+    foreach ($dados['carrinho'] as $item) {
+        $produto_id = intval($item['id']);
+        $quantidade_vendida = intval($item['quantity']);
+        
+        // Atualizar estoque do produto
+        $sql_atualizar_estoque = "UPDATE produtos SET estoque_atual = estoque_atual - ? WHERE id = ?";
+        $resultado_estoque = $conexao->atualizar($sql_atualizar_estoque, [$quantidade_vendida, $produto_id]);
+        
+        if (!$resultado_estoque) {
+            throw new Exception("Erro ao atualizar estoque do produto ID: " . $produto_id);
+        }
+        
+        // Registrar movimentação no histórico de estoque
+        $sql_historico = "INSERT INTO historico_estoque (produto_id, tipo_movimentacao, quantidade, motivo, usuario_id) 
+                         VALUES (?, 'saida', ?, ?, ?)";
+        $motivo = "Venda automática - Compra ID: " . $compra_id;
+        $usuario_id_historico = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : null;
+        
+        $resultado_historico = $conexao->inserir($sql_historico, [
+            $produto_id, 
+            $quantidade_vendida, 
+            $motivo, 
+            $usuario_id_historico
+        ]);
+        
+        if (!$resultado_historico) {
+            logError("Aviso: Não foi possível registrar histórico de estoque para produto ID: " . $produto_id);
         }
     }
 

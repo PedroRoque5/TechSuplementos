@@ -30,6 +30,7 @@
                 <ul class="dropdown-menu" id="navcascata">
                     <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=perfil" ?>"><i id="perfil" data-lucide="user"></i>&nbsp;&nbsp;Perfil</a></li>
                     <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=config" ?>"><i id="settings" data-lucide="settings"></i>&nbsp;&nbsp;Configurações</a></li>
+                    <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=sair" ?>"><i id="logout" data-lucide="log-out"></i>&nbsp;&nbsp;Sair</a></li>
                 </ul>
             </nav>
         </div>

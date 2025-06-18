@@ -53,8 +53,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $_SESSION['nome'] = $nome;
     $_SESSION['email'] = $email;

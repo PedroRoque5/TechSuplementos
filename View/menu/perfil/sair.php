@@ -15,4 +15,4 @@ class sair{
 
 $sair = new sair();
 
-$sair->logout();;
+$sair->logout();

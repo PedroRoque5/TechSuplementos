@@ -69,7 +69,7 @@ $produtos = $conexao->buscar("SELECT * FROM produtos ORDER BY nome");
                     </div>
                 <?php endif; ?>
 
-                <form action="<?= URL ?>index.php?pg=salvar_estoque" method="POST" id="formMovimentacao">
+                <form action="<?= URL .'index.php?pg=salvar_estoque'?>" method="POST" id="formMovimentacao">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
@@ -173,8 +173,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const produtoSelect = document.getElementById('id_produto');
 
     form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
         const produto = produtoSelect.options[produtoSelect.selectedIndex];
         const estoqueAtual = parseInt(produto.dataset.estoque);
         const quantidade = parseInt(quantidadeInput.value);
@@ -188,17 +186,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         if (tipo === 'saida' && quantidade > estoqueAtual) {
+            e.preventDefault();
             alert('Quantidade indisponível em estoque!');
-            return;
+            return false;
         }
 
         if (quantidade <= 0) {
+            e.preventDefault();
             alert('A quantidade deve ser maior que zero!');
-            return;
+            return false;
         }
 
         console.log('Enviando formulário...');
-        this.submit();
+        return true; // Permite o envio do formulário
     });
 });
 

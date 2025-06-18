@@ -1,7 +1,7 @@
 <?php
 namespace TechSuplementos\DAO;
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/TechSuplementos/DAO/Conexao.php';
+require_once __DIR__ . '/Conexao.php';
 
 use Exception;
 

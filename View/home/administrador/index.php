@@ -1,5 +1,5 @@
 <?php
-session_start();
+// Sessão já é iniciada no index.php, não é necessário iniciar novamente
 ?>
 
 <head>
@@ -11,6 +11,7 @@ session_start();
 </head>
 
 <body class="admin">
+    <!-- Cabeçalho específico da home do administrador -->
     <nav id="menu">
         <ul id="principal">
             <li id="unico"><a href="<?= URL . "index.php?pg=homeadmin" ?>">Home</a></li>
@@ -23,6 +24,7 @@ session_start();
                         <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=configadmin" ?>"><i id="settings" data-lucide="settings"></i>Configurações<br></a></li>
                         <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=produto" ?>"><i id="produto"data-lucide="shopping-basket"></i>Cadastrar Produto<br></a></li>
                         <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=sistemaestoque" ?>"><i id="estoque" data-lucide="store"></i>&nbsp;&nbsp;Gerenciar estoque<br></a></li>
+                        <li class="cascata"><a class="dropdown-item" href="<?= URL . "index.php?pg=sairadmin" ?>"><i id="logout" data-lucide="log-out"></i>Sair<br></a></li>
                     </ul>
                 </nav>
             </div>
@@ -31,22 +33,20 @@ session_start();
     <img id="banner" src="<?= ASSETS ?>image/banner-tech.jpg">
 </body>
 <script>
-       document.addEventListener('DOMContentLoaded', function() {
-            const dropbtn = document.querySelector('.dropbtn');
-            const dropdownMenu = document.querySelector('.dropdown-menu');
+    document.addEventListener('DOMContentLoaded', function() {
+        const dropbtn = document.querySelector('.dropbtn');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
 
-            dropbtn.addEventListener('click', function(event) {
-                event.stopPropagation();
-
-                dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
-            });
-            document.addEventListener('click', function() {
-                if (dropdownMenu.style.display === 'block') {
-                    dropdownMenu.style.display = 'none';
-                }
-            });
+        dropbtn.addEventListener('click', function(event) {
+            event.stopPropagation();
+            dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
         });
+        document.addEventListener('click', function() {
+            if (dropdownMenu.style.display === 'block') {
+                dropdownMenu.style.display = 'none';
+            }
+        });
+    });
 
-        lucide.createIcons();
-
+    lucide.createIcons();
 </script>

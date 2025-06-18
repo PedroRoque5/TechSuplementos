@@ -1,5 +1,5 @@
 <?php
-session_start();
+// Sessão já é iniciada no index.php, não é necessário iniciar novamente
 
 $nome = $_SESSION['nome'] ?? 'Visitante';
 $email = $_SESSION['email'] ?? 'Não cadastrado';

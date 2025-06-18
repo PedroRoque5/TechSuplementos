@@ -1,5 +1,5 @@
 <?php 
-session_start();
+// Sessão já é iniciada no index.php, não é necessário iniciar novamente
 require_once './TechSuplementos/DAO/Conexao.php';
 require_once './index.php';
 
